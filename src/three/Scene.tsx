@@ -53,7 +53,16 @@ function FloorPicker() {
     walkBus.goToPoint?.(e.point.x, e.point.z)
   }
   return (
-    <mesh position={[0, FLOOR_Y + 0.005, 0]} rotation-x={-Math.PI / 2} onDoubleClick={onDbl}>
+    <mesh
+      position={[0, FLOOR_Y + 0.005, 0]}
+      rotation-x={-Math.PI / 2}
+      onDoubleClick={onDbl}
+      onClick={(e) => {
+        // a tap (not the end of a look-around drag) walks there on touch screens
+        const moved = Math.hypot(e.nativeEvent.clientX - walkBus.downX, e.nativeEvent.clientY - walkBus.downY)
+        if (walkBus.lastPointer === 'touch' && moved < 8) onDbl(e)
+      }}
+    >
       <planeGeometry args={[INTERIOR.length, INTERIOR.width]} />
       <meshBasicMaterial transparent opacity={0} depthWrite={false} />
     </mesh>
@@ -124,7 +133,7 @@ export function Scene() {
   return (
     <Canvas
       shadows="soft"
-      dpr={highQuality ? [1, 2] : [0.75, 1.25]}
+      dpr={highQuality ? [1, 2] : [1, 1.5]}
       gl={{ antialias: false, powerPreference: 'high-performance', stencil: false, preserveDrawingBuffer: false }}
       onCreated={({ gl }) => {
         gl.localClippingEnabled = true

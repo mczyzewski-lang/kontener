@@ -46,14 +46,14 @@ function Ground() {
 }
 
 /** Instanced grass blades near the house for close-up realism */
-function GrassBlades({ exclude }: { exclude: (x: number, z: number) => boolean }) {
+function GrassBlades({ exclude, count }: { exclude: (x: number, z: number) => boolean; count: number }) {
   const mesh = useMemo(() => {
     const blade = new THREE.BufferGeometry()
     const verts = new Float32Array([-0.012, 0, 0, 0.012, 0, 0, 0, 0.16, 0.01])
     blade.setAttribute('position', new THREE.BufferAttribute(verts, 3))
     blade.computeVertexNormals()
     const mat = new THREE.MeshStandardMaterial({ color: '#5f7d36', roughness: 0.9, side: THREE.DoubleSide })
-    const COUNT = 26000
+    const COUNT = count
     const m = new THREE.InstancedMesh(blade, mat, COUNT)
     const r = seeded(17)
     const d = new THREE.Object3D()
@@ -80,7 +80,7 @@ function GrassBlades({ exclude }: { exclude: (x: number, z: number) => boolean }
     m.count = i
     m.receiveShadow = true
     return m
-  }, [exclude])
+  }, [exclude, count])
   return <primitive object={mesh} />
 }
 
@@ -269,6 +269,7 @@ function Distant() {
 /* ------------------------------------------------------------------ */
 export function Landscape({ layout }: { layout: LayoutDef }) {
   const terrace = useConfig((s) => s.terrace)
+  const highQuality = useConfig((s) => s.highQuality)
   const exclude = useMemo(() => {
     const pts = pathPoints(layout)
     const [t0, t1] = layout.terrace
@@ -284,7 +285,7 @@ export function Landscape({ layout }: { layout: LayoutDef }) {
   return (
     <group>
       <Ground />
-      <GrassBlades exclude={exclude} />
+      <GrassBlades exclude={exclude} count={highQuality ? 26000 : 9000} />
       <GravelBorder />
       <SteppingStones layout={layout} />
       {/* planting along the façade */}

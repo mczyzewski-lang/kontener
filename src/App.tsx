@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Scene } from './three/Scene'
 import { ConfigPanel } from './ui/ConfigPanel'
-import { CameraVeil, ModeBar, ModeHint, SpecsCard, TopBar, WalkHUD } from './ui/Chrome'
+import { CameraVeil, ModeBar, ModeHint, SectionLegend, SpecsCard, TopBar, WalkHUD } from './ui/Chrome'
 
 function Intro() {
   const [show, setShow] = useState(true)
@@ -42,6 +42,7 @@ export default function App() {
         <ConfigPanel />
         <WalkHUD />
         <SpecsCard />
+        <SectionLegend />
         <ModeHint />
         <ModeBar />
       </div>

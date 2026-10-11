@@ -506,3 +506,179 @@ export function paperTexture() {
     return finish(c, 1)
   })
 }
+
+/** Rotates a texture's canvas by 90° (vertical boards → horizontal boards) */
+export function rotated90(src: THREE.Texture, key: string, srgb = true) {
+  return cached(`rot:${key}`, () => {
+    const img = src.image as HTMLCanvasElement
+    const c = document.createElement('canvas')
+    c.width = img.height
+    c.height = img.width
+    const ctx = c.getContext('2d')!
+    ctx.translate(c.width / 2, c.height / 2)
+    ctx.rotate(Math.PI / 2)
+    ctx.drawImage(img, -img.width / 2, -img.height / 2)
+    const t = new THREE.CanvasTexture(c)
+    t.wrapS = t.wrapT = THREE.RepeatWrapping
+    t.repeat.set(src.repeat.y, src.repeat.x)
+    t.anisotropy = 8
+    if (srgb) t.colorSpace = THREE.SRGBColorSpace
+    return t
+  })
+}
+
+/** Large-format façade panels (fibre-cement / metal) with recessed joints */
+export function panelTexture(color: string, opts: { w?: number; h?: number; tile?: number; seed?: number; bump?: boolean; seam?: boolean } = {}) {
+  const { w = 1.25, h = 3.0, tile = 2.5, seed = 6, bump = false, seam = false } = opts
+  return cached(`panel:${color}:${w}:${h}:${tile}:${seed}:${bump}:${seam}`, () => {
+    const size = 512
+    const { c, ctx, img } = canvas(size)
+    const [r0, g0, b0] = hexToRgb(color)
+    const n = makeNoise(seed, 32)
+    const R = rng(seed)
+    const pw = (w / tile) * size
+    const ph = (h / tile) * size
+    const tones = Array.from({ length: 64 }, () => 0.96 + R() * 0.08)
+    for (let y = 0; y < size; y++) {
+      for (let x = 0; x < size; x++) {
+        const col = Math.floor(x / pw)
+        const row = Math.floor(y / ph)
+        const fx = x % pw
+        const fy = y % ph
+        const joint = seam ? fx < 3 : fx < 3 || fy < 3
+        const edge = seam && (fx < 6 || fx > pw - 3) ? 1.12 : 1
+        const i = (y * size + x) * 4
+        const v = fbm(n, (x / size) * 6, (y / size) * 6, 3)
+        if (bump) {
+          const b = joint ? 30 : seam && fx < 7 ? 230 : 150 + v * 20
+          img.data[i] = img.data[i + 1] = img.data[i + 2] = b
+        } else {
+          const s = joint ? 0.35 : tones[(col * 7 + row) & 63] * (0.97 + 0.06 * v) * edge
+          img.data[i] = clamp(r0 * s)
+          img.data[i + 1] = clamp(g0 * s)
+          img.data[i + 2] = clamp(b0 * s)
+        }
+        img.data[i + 3] = 255
+      }
+    }
+    ctx.putImageData(img, 0, 0)
+    return finish(c, tile, !bump)
+  })
+}
+
+/** Shou sugi ban — charred timber boards with alligator crackle */
+export function charredTexture(opts: { board?: number; tile?: number; bump?: boolean } = {}) {
+  const { board = 0.14, tile = 1.4, bump = false } = opts
+  return cached(`charred:${board}:${tile}:${bump}`, () => {
+    const size = 1024
+    const { c, ctx, img } = canvas(size)
+    const n = makeNoise(17, 64)
+    const n2 = makeNoise(29, 256)
+    const R = rng(3)
+    const bpx = (board / tile) * size
+    const tones = Array.from({ length: 64 }, () => 0.8 + R() * 0.4)
+    for (let y = 0; y < size; y++) {
+      for (let x = 0; x < size; x++) {
+        const col = Math.floor(x / bpx)
+        const fx = x % bpx
+        const gap = fx < 3
+        // crackle: thresholded cellular-ish noise stretched across the grain
+        const ck = n2((x / size) * 90 + col * 13, (y / size) * 38)
+        const crack = Math.abs(ck - 0.5) < 0.035
+        const grain = fbm(n, (x / size) * 140 + col * 7, (y / size) * 4, 3)
+        const sheen = 0.8 + 0.5 * grain
+        const i = (y * size + x) * 4
+        if (bump) {
+          const b = gap ? 0 : crack ? 60 : 150 + grain * 80
+          img.data[i] = img.data[i + 1] = img.data[i + 2] = b
+        } else {
+          const t = tones[col & 63]
+          const base = gap ? 6 : crack ? 14 : 30 * t * sheen
+          img.data[i] = clamp(base * 1.05)
+          img.data[i + 1] = clamp(base * 0.98)
+          img.data[i + 2] = clamp(base * 0.95)
+        }
+        img.data[i + 3] = 255
+      }
+    }
+    ctx.putImageData(img, 0, 0)
+    return finish(c, tile, !bump)
+  })
+}
+
+/** Clinker brick slips in stretcher bond */
+export function brickTexture(color: string, opts: { tile?: number; bump?: boolean } = {}) {
+  const { tile = 1.2, bump = false } = opts
+  return cached(`brick:${color}:${tile}:${bump}`, () => {
+    const size = 1024
+    const { c, ctx, img } = canvas(size)
+    const [r0, g0, b0] = hexToRgb(color)
+    const n = makeNoise(41, 64)
+    const R = rng(19)
+    const bw = (0.24 / tile) * size
+    const bh = (0.0625 / tile) * size
+    const mortar = Math.max(2, (0.01 / tile) * size)
+    const tones = Array.from({ length: 512 }, () => 0.72 + R() * 0.45)
+    const hue = Array.from({ length: 512 }, () => (R() - 0.5) * 0.18)
+    for (let y = 0; y < size; y++) {
+      const row = Math.floor(y / bh)
+      for (let x = 0; x < size; x++) {
+        const xo = x + (row % 2) * bw * 0.5
+        const col = Math.floor(xo / bw)
+        const fx = xo % bw
+        const fy = y % bh
+        const isMortar = fx < mortar || fy < mortar
+        const k = (row * 31 + col * 7) & 511
+        const i = (y * size + x) * 4
+        const v = fbm(n, (x / size) * 40, (y / size) * 40, 3)
+        if (bump) {
+          const b = isMortar ? 40 : 170 + v * 60
+          img.data[i] = img.data[i + 1] = img.data[i + 2] = b
+        } else if (isMortar) {
+          img.data[i] = 168
+          img.data[i + 1] = 160
+          img.data[i + 2] = 150
+        } else {
+          const t = tones[k] * (0.9 + 0.2 * v)
+          img.data[i] = clamp(r0 * t * (1 + hue[k]))
+          img.data[i + 1] = clamp(g0 * t)
+          img.data[i + 2] = clamp(b0 * t * (1 - hue[k]))
+        }
+        img.data[i + 3] = 255
+      }
+    }
+    ctx.putImageData(img, 0, 0)
+    return finish(c, tile, !bump)
+  })
+}
+
+/** Monocrystalline PV module: black cells, fine busbars, silver frame strip handled in geometry */
+export function solarTexture() {
+  return cached('solar', () => {
+    const size = 512
+    const { c, ctx } = canvas(size)
+    ctx.fillStyle = '#0b0f17'
+    ctx.fillRect(0, 0, size, size)
+    const cols = 6
+    const rows = 10
+    const cw = size / cols
+    const ch = size / rows
+    for (let r = 0; r < rows; r++) {
+      for (let k = 0; k < cols; k++) {
+        const x = k * cw + 2
+        const y = r * ch + 2
+        const g = ctx.createLinearGradient(x, y, x + cw, y + ch)
+        g.addColorStop(0, '#141b2a')
+        g.addColorStop(1, '#0d121d')
+        ctx.fillStyle = g
+        ctx.fillRect(x, y, cw - 4, ch - 4)
+        ctx.fillStyle = 'rgba(170,180,200,0.22)'
+        for (let b = 1; b <= 3; b++) ctx.fillRect(x + (b * (cw - 4)) / 4, y, 1, ch - 4)
+      }
+    }
+    const t = new THREE.CanvasTexture(c)
+    t.colorSpace = THREE.SRGBColorSpace
+    t.anisotropy = 8
+    return t
+  })
+}

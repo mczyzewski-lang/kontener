@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import * as THREE from 'three'
-import { BASE_Y, EXTERIOR, FLOOR_Y, HALF_L, HALF_W, ROOF_Y } from '../../config/dimensions'
+import { EXTERIOR, FLOOR_Y, HALF_L, HALF_W, ROOF_Y } from '../../config/dimensions'
 import type { LayoutDef } from '../../config/types'
 import { claddingTexture } from '../../lib/textures'
 import { shared, useExteriorMats, washMaterial } from '../../lib/materials'
@@ -53,18 +53,18 @@ function Cornice() {
   const ext = useExteriorMats()
   if (!ext.style.ledCornice) return null
   const wash = washMaterial(ext.style.lampColor, 'exterior', 0.35)
-  const y = ROOF_Y - 0.13
+  const y = ROOF_Y - 0.16
   return (
     <group>
       {[1, -1].map((sz) => (
         <group key={sz}>
-          <Box s={[EXTERIOR.length - 0.4, 0.012, 0.012]} p={[0, y, sz * (HALF_W + 0.012)]} m={ext.cornice} cast={false} />
+          <Box s={[EXTERIOR.length - 0.4, 0.014, 0.02]} p={[0, y, sz * (HALF_W + 0.03)]} m={ext.cornice} cast={false} />
           <mesh position={[0, y - 0.5, sz * (HALF_W + 0.003)]} rotation-y={sz < 0 ? Math.PI : 0} scale={[EXTERIOR.length * 1.05, 1.2, 1]} material={wash}>
             <planeGeometry />
           </mesh>
         </group>
       ))}
-      <Box s={[0.012, 0.012, EXTERIOR.width - 0.4]} p={[HALF_L + 0.012, y, 0]} m={ext.cornice} cast={false} />
+      <Box s={[0.02, 0.014, EXTERIOR.width - 0.4]} p={[HALF_L + 0.03, y, 0]} m={ext.cornice} cast={false} />
     </group>
   )
 }
@@ -88,7 +88,7 @@ function Entrance({ layout }: { layout: LayoutDef }) {
       <Box s={[0.9, 0.005, 0.5]} p={[x, 0.3625, z + 0.32]} m={shared.black} cast={false} />
       {/* canopy */}
       <Box s={[1.7, 0.07, 1.05]} p={[x, canopyY, z + 0.52]} m={ext.canopy} />
-      {s.canopy !== 'steel' && <Box s={[1.72, 0.02, 1.07]} p={[x, canopyY + 0.045, z + 0.52]} m={ext.frame} />}
+      {s.canopy !== 'steel' && <Box s={[1.72, 0.02, 1.07]} p={[x, canopyY + 0.045, z + 0.52]} m={ext.roofEdge} />}
       {/* house number plaque */}
       <Box s={[0.18, 0.18, 0.012]} p={[x - 0.75, FLOOR_Y + 1.55, z + 0.008]} m={ext.lampBody} cast={false} />
     </group>
@@ -176,15 +176,32 @@ export function Grasses({ p, spread, count = 60, color = '#8b9a5b' }: { p: [numb
   return <primitive object={mesh} position={p} />
 }
 
+const inverterMat = new THREE.MeshStandardMaterial({ color: '#d9dbdc', roughness: 0.5, metalness: 0.2 })
+
+/** Inverter + isolator on the back wall when PV is fitted */
+function Inverter() {
+  const solar = useConfig((s) => s.solar)
+  if (!solar) return null
+  return (
+    <group position={[-HALF_L + 1.2, FLOOR_Y + 1.0, -HALF_W - 0.08]}>
+      <Box s={[0.44, 0.58, 0.16]} m={inverterMat} />
+      <Box s={[0.3, 0.06, 0.005]} p={[0, 0.15, -0.081]} m={shared.black} cast={false} />
+      <Box s={[0.16, 0.2, 0.1]} p={[0.42, -0.1, 0.03]} m={inverterMat} />
+      <Box s={[0.04, 1.8, 0.04]} p={[-0.62, 0.95, 0.05]} m={shared.steelDark} />
+    </group>
+  )
+}
+
 export function ExteriorDetails({ layout }: { layout: LayoutDef }) {
   return (
     <group>
+      <Inverter />
       <WallLights layout={layout} />
       <Cornice />
       <Entrance layout={layout} />
       <Terrace layout={layout} />
       {/* rainwater downpipe at the back-left corner */}
-      <Cyl r={0.04} h={EXTERIOR.height} p={[-HALF_L + 0.25, BASE_Y + EXTERIOR.height / 2, -HALF_W - 0.05]} m={shared.steelDark} seg={12} />
+      <Cyl r={0.04} h={ROOF_Y - 0.1} p={[-HALF_L + 0.25, (ROOF_Y + 0.1) / 2, -HALF_W - 0.05]} m={shared.steelDark} seg={12} />
     </group>
   )
 }

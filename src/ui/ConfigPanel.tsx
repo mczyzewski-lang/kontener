@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { BedDouble, Check, Gauge, Moon, Sparkles, Sun, Sunset, Tag, Trees } from 'lucide-react'
+import { BedDouble, Check, Gauge, Moon, Sparkles, Sun, SunMedium, Sunset, Tag, Trees } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { INTERIOR as INT } from '../config/dimensions'
 import { LAYOUTS, LAYOUT_ORDER, usableArea } from '../config/layouts'
@@ -7,6 +7,7 @@ import { EXTERIORS, EXTERIOR_ORDER, INTERIORS, INTERIOR_ORDER, LIGHTING_ORDER } 
 import type { LightingId } from '../config/types'
 import { useConfig } from '../store'
 import { PlanThumb } from './PlanThumb'
+import { SOLAR, SOLAR_KWP } from '../three/building/Solar'
 
 function Section({ title, hint, children }: { title: string; hint?: string; children: ReactNode }) {
   return (
@@ -99,7 +100,7 @@ export function ConfigPanel() {
           <div className="border-b border-black/[0.06] px-5 pb-4 pt-5">
             <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-sand-500">Haven 40 · 40′ High Cube</div>
             <h2 className="mt-1 text-[22px] font-semibold tracking-tight text-ink-900">Configure your home</h2>
-            <p className="mt-1 text-[13px] leading-snug text-ink-900/55">27 combinations · one container · real dimensions</p>
+            <p className="mt-1 text-[13px] leading-snug text-ink-900/55">72 combinations · one container · real dimensions</p>
           </div>
 
           <div className="scrollbar-thin flex-1 overflow-y-auto overscroll-contain">
@@ -166,18 +167,16 @@ export function ConfigPanel() {
 
             <div className="mx-5 h-px bg-black/[0.06]" />
 
-            <Section title="Exterior">
-              <div className="space-y-2">
+            <Section title="Exterior" hint="200 mm insulated envelope">
+              <div className="grid grid-cols-2 gap-2">
                 {EXTERIOR_ORDER.map((id) => {
                   const st = EXTERIORS[id]
                   return (
                     <OptionCard key={id} active={s.exterior === id} onClick={() => s.set({ exterior: id })}>
-                      <div className="flex items-center gap-3.5 p-3">
+                      <div className="p-3">
                         <Swatches colors={st.swatches} />
-                        <div>
-                          <div className="text-[14px] font-semibold text-ink-900">{st.name}</div>
-                          <div className="text-[12px] text-ink-900/55">{st.subtitle}</div>
-                        </div>
+                        <div className="mt-2 pr-4 text-[13px] font-semibold leading-tight text-ink-900">{st.name}</div>
+                        <div className="mt-0.5 text-[11px] leading-snug text-ink-900/55">{st.subtitle}</div>
                       </div>
                     </OptionCard>
                   )
@@ -204,6 +203,20 @@ export function ConfigPanel() {
             <Section title="Options">
               <div className="-mx-2">
                 <Toggle label="Wooden terrace" icon={<Trees size={16} />} on={s.terrace} onChange={(v) => s.set({ terrace: v })} />
+                <Toggle label="Rooftop solar (PV)" icon={<SunMedium size={16} />} on={s.solar} onChange={(v) => s.set({ solar: v })} />
+                <AnimatePresence>
+                  {s.solar && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="mx-3 mb-1 overflow-hidden rounded-xl bg-black/[0.04] px-3 py-2 text-[12px] leading-relaxed text-ink-900/70"
+                    >
+                      {SOLAR.modules} × {SOLAR.wp} Wp modules · <b className="font-semibold text-ink-900">{SOLAR_KWP.toFixed(2)} kWp</b>
+                      <br />≈ {(Math.round((SOLAR_KWP * SOLAR.yieldPerKwp) / 100) * 100).toLocaleString('en-US')} kWh / year, tilted {SOLAR.tilt}° on ballast frames
+                    </motion.div>
+                  )}
+                </AnimatePresence>
                 <Toggle label="Room names & dimensions" icon={<Tag size={16} />} on={s.labels} onChange={(v) => s.set({ labels: v })} />
                 <Toggle
                   label={s.layout === 'studio' ? 'Murphy bed unfolded' : 'Murphy bed (Studio only)'}
@@ -245,7 +258,7 @@ export function ConfigPanel() {
               </div>
             </div>
             <div className="mt-2 flex items-center gap-1.5 text-[11px] text-ink-900/45">
-              <Sparkles size={12} /> Net floor area inside insulated walls, partitions excluded
+              <Sparkles size={12} /> Net floor area inside the walls, partitions excluded
             </div>
           </div>
         </motion.aside>

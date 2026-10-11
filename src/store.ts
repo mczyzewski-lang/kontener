@@ -8,6 +8,7 @@ export interface ConfigState {
   mode: CameraMode
   lighting: LightingId
   terrace: boolean
+  solar: boolean
   labels: boolean
   murphyOpen: boolean
   highQuality: boolean
@@ -23,10 +24,17 @@ export interface ConfigState {
   goTo: (viewpoint: string) => void
 }
 
-const LAYOUTS: LayoutId[] = ['couple', 'family', 'studio']
+const LAYOUTS: LayoutId[] = ['couple', 'family', 'studio', 'open']
 const INTERIORS: InteriorId[] = ['japandi', 'luxury', 'minimal']
-const EXTERIORS: ExteriorId[] = ['wood', 'black', 'contemporary']
+const EXTERIORS: ExteriorId[] = ['wood', 'black', 'contemporary', 'charred', 'scandi', 'brick']
 const LIGHTS: LightingId[] = ['day', 'sunset', 'night']
+
+/** Phones / tablets start in the lighter rendering mode */
+function isSmallDevice() {
+  if (typeof window === 'undefined') return false
+  const coarse = window.matchMedia?.('(pointer: coarse)').matches ?? false
+  return coarse || window.innerWidth < 768
+}
 
 function fromHash() {
   if (typeof window === 'undefined') return {}
@@ -40,6 +48,7 @@ function fromHash() {
   if (INTERIORS.includes(i)) out.interior = i
   if (EXTERIORS.includes(e)) out.exterior = e
   if (LIGHTS.includes(t)) out.lighting = t
+  if (p.get('solar') === '1') out.solar = true
   return out
 }
 
@@ -50,9 +59,10 @@ export const useConfig = create<ConfigState>((set) => ({
   mode: 'exterior',
   lighting: 'day',
   terrace: true,
+  solar: false,
   labels: true,
   murphyOpen: true,
-  highQuality: true,
+  highQuality: !isSmallDevice(),
   panelOpen: typeof window !== 'undefined' ? window.innerWidth >= 900 : true,
   resetNonce: 0,
   walkTarget: null,

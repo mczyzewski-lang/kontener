@@ -1,6 +1,6 @@
 # Haven 40 — Container Home Configurator
 
-An interactive, browser-based 3D configurator for a modular home built from **one 40 ft High Cube shipping container**.
+An interactive, browser-based 3D configurator for a modular home built from **one 40 ft High Cube shipping container**, insulated on the outside with 200 mm of mineral wool / EPS so the finished house no longer looks like a container.
 Everything you see (the shell, walls, windows, furniture, landscape and textures) is built procedurally in real time with Three.js. There are no static renders or downloaded models.
 
 ```bash
@@ -16,14 +16,14 @@ Stack: React 18 + TypeScript, Three.js, React Three Fiber, Drei, @react-three/po
 
 | Control | Options |
 | --- | --- |
-| **Floor plan** | Couple Retreat · Small Family · Premium Studio |
+| **Floor plan** | Couple Retreat · Small Family · Premium Studio · Open Living (front door straight into the living-kitchen, bathroom across the short end) |
 | **Interior** | Japandi · Modern Luxury · Contemporary Minimalist |
-| **Exterior** | Modern Wood · Black Premium · Contemporary House |
+| **Exterior** | Modern Wood · Shou Sugi Ban · Nordic White · Black Premium · Clinker & Larch · Contemporary House |
 | **Camera** | Exterior · Dollhouse · Top Down · Walkthrough |
 | **Lighting** | Day · Sunset · Night (blends smoothly between them) |
-| **Options** | Wooden terrace, room labels & dimensions, Murphy bed fold (Studio), quality toggle |
+| **Options** | Wooden terrace, rooftop PV (10 × 435 Wp = 4.35 kWp), room labels & dimensions, Murphy bed fold (Studio), quality toggle |
 
-All 27 plan × interior × exterior combinations work in all four camera modes, and changing any of them never reloads the page.
+All 72 plan × interior × exterior combinations work in all four camera modes, and changing any of them never reloads the page.
 The configuration is stored in the URL hash (`#plan=studio&interior=luxury&exterior=black&light=night`), so the **Share** button copies a link that reopens the same configuration.
 
 ### Camera modes
@@ -40,17 +40,24 @@ The configuration is stored in the URL hash (`#plan=studio&interior=luxury&exter
 
 ## Realistic dimensions
 
-`src/config/dimensions.ts` is the single source of truth:
+`src/config/dimensions.ts` is the single source of truth. The steel container is wrapped from the outside, so it is hidden completely and only a thin service lining is lost on the inside.
+
+| Wall build-up (outside → inside) | |
+| --- | --- |
+| Façade finish (cladding, panels, brick slips or render) | 30 mm |
+| Mineral wool / EPS | 200 mm |
+| Container corrugated steel (incl. rib depth) | 45 mm |
+| Battens + service void + lining | 40 mm |
+| **Total** | **315 mm** |
 
 | | |
 | --- | --- |
-| Exterior (ISO 40′ HC) | 12.19 × 2.44 × 2.90 m |
-| Wall build-up (steel + PIR insulation + lining) | 130 mm per side |
-| Interior | 11.93 × 2.18 m, 2.50 m clear ceiling height |
-| Partitions | 80 mm |
-| Net usable area | ≈ 25.4–25.6 m² depending on the plan (partitions excluded) |
+| Container (ISO 40′ HC, hidden) | 12.19 × 2.44 × 2.90 m |
+| Finished building | 12.65 × 2.90 m, 3.57 m high incl. 220 mm roof insulation |
+| Interior | 11.95 × 2.27 m, 2.62 m clear ceiling height |
+| Net usable area | ≈ 26.5–26.8 m² depending on the plan (partitions excluded) |
 
-The layouts respect that 2.18 m interior width. A 140×200 double bed has to be placed lengthwise against an end wall or the back wall, the bathrooms are compact wet rooms, and every room is reached through a real door opening.
+Windows are set in the insulation layer, which gives deep reveals. In Dollhouse and Top Down views the section cut draws the real wall layers (façade, insulation, steel, lining) with a legend.
 
 ## Architecture
 
@@ -89,4 +96,5 @@ src/
 - **Walkthrough collision.** Furniture is approximated by rectangles. Doors are always shown open, the front door opens automatically in walkthrough mode, and the camera cannot climb steps or go outside once it is inside.
 - **Camera switch.** Moving between perspective and orthographic (Top Down) cannot be morphed continuously, so a short fade hides the swap.
 - **Structure.** Large openings in a real container side wall remove structural corrugation and need welded steel box frames and an engineer's sign-off. The model shows those frames, but it is a visualisation, not a construction document.
-- **Performance.** The page is designed for a desktop or laptop GPU. On weaker devices, turn off **High-quality rendering** in the panel to disable AO, bloom and 4K shadows and lower the resolution.
+- **Phones and tablets** start in the lighter rendering mode (no AO/bloom, 2K shadows, fewer grass blades). Touch works in every mode: drag to orbit, pinch to zoom, two fingers to pan, and in Walkthrough drag to look and tap the floor to walk there, or use the on-screen pad.
+- **Performance.** On desktop, turn off **High-quality rendering** in the panel if the frame rate drops.

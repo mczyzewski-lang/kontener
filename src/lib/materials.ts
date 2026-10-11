@@ -1,14 +1,16 @@
 import * as THREE from 'three'
 import { useMemo } from 'react'
-import { EXTERIORS, INTERIORS, type ExteriorStyle, type InteriorStyle } from '../config/styles'
+import { EXTERIORS, INTERIORS, type ExteriorStyle, type Finish, type InteriorStyle } from '../config/styles'
 import type { ExteriorId, InteriorId } from '../config/types'
 import { useConfig } from '../store'
 import {
+  brickTexture,
+  charredTexture,
   claddingTexture,
   concreteTexture,
-  corrugationColor,
-  corrugationNormal,
   fabricTexture,
+  panelTexture,
+  rotated90,
   stackedStoneBump,
   stackedStoneTexture,
   stoneTexture,
@@ -163,7 +165,10 @@ export interface ExteriorMats {
   style: ExteriorStyle
   longSkin: THREE.MeshStandardMaterial
   endSkin: THREE.MeshStandardMaterial
-  frame: THREE.MeshStandardMaterial
+  /** flat dark trims: base band, corner trims, roof-edge flashing */
+  trim: THREE.MeshStandardMaterial
+  base: THREE.MeshStandardMaterial
+  roofEdge: THREE.MeshStandardMaterial
   roof: THREE.MeshStandardMaterial
   windowFrame: THREE.MeshStandardMaterial
   reveal: THREE.MeshStandardMaterial
@@ -177,17 +182,53 @@ export interface ExteriorMats {
 
 const exteriorCache = new Map<ExteriorId, ExteriorMats>()
 
-function corrugated(color: string, rough = 0.55, metal = 0.35) {
-  return std(
-    {
-      map: corrugationColor(color),
-      normalMap: corrugationNormal(),
-      normalScale: new THREE.Vector2(1.4, 1.4),
-      roughness: rough,
-      metalness: metal,
-    },
-    true,
-  )
+function finishMaterial(f: Finish): THREE.MeshStandardMaterial {
+  const c = f.color
+  switch (f.kind) {
+    case 'vboards':
+      return std(
+        {
+          map: claddingTexture(c, { board: 0.11, tile: 1.32, seed: 13 }),
+          bumpMap: claddingTexture(c, { board: 0.11, tile: 1.32, seed: 13, bump: true }),
+          bumpScale: 1.5,
+          roughness: 0.72,
+        },
+        true,
+      )
+    case 'hboards': {
+      const map = rotated90(claddingTexture(c, { board: 0.13, tile: 1.3, seed: 31 }), `h:${c}`)
+      const bump = rotated90(claddingTexture(c, { board: 0.13, tile: 1.3, seed: 31, bump: true }), `hb:${c}`, false)
+      return std({ map, bumpMap: bump, bumpScale: 1.5, roughness: 0.7 }, true)
+    }
+    case 'panels':
+      return std(
+        {
+          map: panelTexture(c, { w: 1.25, h: 2.5, tile: 2.5 }),
+          bumpMap: panelTexture(c, { w: 1.25, h: 2.5, tile: 2.5, bump: true }),
+          bumpScale: 1.2,
+          roughness: 0.62,
+          metalness: 0.15,
+        },
+        true,
+      )
+    case 'seam':
+      return std(
+        {
+          map: panelTexture(c, { w: 0.5, h: 10, tile: 2, seam: true, seed: 9 }),
+          bumpMap: panelTexture(c, { w: 0.5, h: 10, tile: 2, seam: true, seed: 9, bump: true }),
+          bumpScale: 2,
+          roughness: 0.45,
+          metalness: 0.55,
+        },
+        true,
+      )
+    case 'brick':
+      return std({ map: brickTexture(c), bumpMap: brickTexture(c, { bump: true }), bumpScale: 2.5, roughness: 0.88 }, true)
+    case 'charred':
+      return std({ map: charredTexture(), bumpMap: charredTexture({ bump: true }), bumpScale: 2.5, roughness: 0.82, metalness: 0.05 }, true)
+    default:
+      return std({ map: concreteTexture(c, { tile: 4, seed: 51, strength: 0.6, pores: false }), roughness: 0.9 }, true)
+  }
 }
 
 export function getExteriorMats(id: ExteriorId): ExteriorMats {
@@ -195,53 +236,48 @@ export function getExteriorMats(id: ExteriorId): ExteriorMats {
   if (hit) return hit
   const s = EXTERIORS[id]
   const render = (c: string) => std({ map: concreteTexture(c, { tile: 4, seed: 51, strength: 0.6, pores: false }), roughness: 0.9 }, true)
-  const cladding = std(
-    {
-      map: claddingTexture(s.cladding, { board: 0.11, tile: 1.32, seed: 13 }),
-      bumpMap: claddingTexture(s.cladding, { board: 0.11, tile: 1.32, seed: 13, bump: true }),
-      bumpScale: 1.5,
-      roughness: 0.72,
-    },
-    true,
-  )
-  const longSkin =
-    s.longFinish === 'woodCladding' ? cladding : s.longFinish === 'corrugated' ? corrugated(s.skin, 0.72, 0.25) : render(s.skin)
-  const endSkin = s.endFinish === 'corrugated' ? corrugated(s.skin, 0.6, 0.3) : render(s.skin)
+  const oak = (c: string) =>
+    std(
+      {
+        map: claddingTexture(c, { board: 0.09, tile: 1.08, seed: 23, gap: 0.01 }),
+        bumpMap: claddingTexture(c, { board: 0.09, tile: 1.08, seed: 23, gap: 0.01, bump: true }),
+        bumpScale: 1.2,
+        roughness: 0.6,
+      },
+      true,
+    )
   const accent =
     s.accent === 'stone'
       ? std({ map: stackedStoneTexture(s.accentColor), bumpMap: stackedStoneBump(s.accentColor), bumpScale: 3, roughness: 0.9 }, true)
-      : std(
-          {
-            map: claddingTexture(s.accentColor, { board: 0.09, tile: 1.08, seed: 23, gap: 0.016 }),
-            bumpMap: claddingTexture(s.accentColor, { board: 0.09, tile: 1.08, seed: 23, gap: 0.016, bump: true }),
-            bumpScale: 1.5,
-            roughness: 0.6,
-          },
-          true,
-        )
+      : oak(s.accentColor)
   const doorMat =
     s.doorKind === 'oak'
       ? std({ map: woodTexture(s.door, { boards: false, tile: 1.2, seed: 81 }), roughness: 0.55 }, true)
       : s.doorKind === 'timberBlack'
         ? std({ map: claddingTexture(s.door, { board: 0.08, tile: 0.96, gap: 0.01, seed: 4 }), roughness: 0.55 }, true)
         : std({ color: s.door, roughness: 0.45, metalness: 0.4 }, true)
+  const metal = (c: string) => std({ color: c, roughness: 0.5, metalness: 0.45 }, true)
   const mats: ExteriorMats = {
     style: s,
-    longSkin,
-    endSkin,
-    frame: std({ color: s.frame, roughness: 0.55, metalness: 0.45 }, true),
-    roof: std({ map: corrugationColor(s.roofEdge), normalMap: corrugationNormal(0.5), roughness: 0.65, metalness: 0.3, transparent: true }, true),
+    longSkin: finishMaterial(s.long),
+    endSkin: finishMaterial(s.end),
+    trim: metal(s.cornerTrim ?? s.roofEdge),
+    base: s.long.kind === 'render' ? render(s.base) : metal(s.base),
+    roofEdge: metal(s.roofEdge),
+    roof: std({ map: concreteTexture('#4b4d50', { tile: 3, seed: 12, strength: 0.8 }), roughness: 0.92 }, true),
     windowFrame: std({ color: s.windowFrame, roughness: 0.4, metalness: 0.55 }, true),
-    reveal: std({ color: s.longFinish === 'render' ? '#c9c2b6' : s.frame, roughness: 0.6, metalness: 0.3 }, true),
+    reveal: s.id === 'charred' ? oak(s.reveal) : s.long.kind === 'render' ? render(s.reveal) : metal(s.reveal),
     door: doorMat,
     accent,
     canopy:
       s.canopy === 'timber'
         ? std({ map: woodTexture('#4a3426', { boards: false, tile: 1.2, seed: 2 }), roughness: 0.6 }, true)
-        : s.canopy === 'render'
-          ? render('#bdb5a9')
-          : std({ color: s.frame, roughness: 0.5, metalness: 0.5 }, true),
-    lampBody: std({ color: id === 'contemporary' ? '#3a3836' : '#1d1e20', roughness: 0.45, metalness: 0.6 }, true),
+        : s.canopy === 'oak'
+          ? oak(s.accentColor)
+          : s.canopy === 'render'
+            ? render('#bdb5a9')
+            : metal(s.roofEdge),
+    lampBody: std({ color: s.windowFrame, roughness: 0.45, metalness: 0.6 }, true),
     lampGlow: glow(s.lampColor, 'exterior', 6 * s.lampIntensity),
     cornice: glow(s.lampColor, 'exterior', s.ledCornice ? 5 : 0),
   }
@@ -285,6 +321,10 @@ export const shared = {
   seal: std({ color: '#1a1a1a', roughness: 0.8 }, true),
   ceilingShadow: std({ color: '#222', roughness: 1 }, true),
   poche: new THREE.MeshBasicMaterial({ color: '#2a2b2e' }),
+  capFacade: new THREE.MeshBasicMaterial({ color: '#5b5650' }),
+  capInsulation: new THREE.MeshBasicMaterial({ color: '#e9dca6' }),
+  capSteel: new THREE.MeshBasicMaterial({ color: '#141517' }),
+  capLining: new THREE.MeshBasicMaterial({ color: '#c9c2b6' }),
   pocheLight: new THREE.MeshBasicMaterial({ color: '#3b3d41' }),
 }
 

@@ -145,97 +145,178 @@ export const INTERIORS: Record<InteriorId, InteriorStyle> = {
   },
 }
 
+export type FinishKind = 'vboards' | 'hboards' | 'panels' | 'seam' | 'render' | 'brick' | 'charred'
+
+export interface Finish {
+  kind: FinishKind
+  color: string
+}
+
 export interface ExteriorStyle {
   id: ExteriorId
   name: string
   subtitle: string
   swatches: string[]
-  /** finish of the long façades */
-  longFinish: 'woodCladding' | 'corrugated' | 'render'
-  /** finish of the container ends */
-  endFinish: 'corrugated' | 'render'
-  skin: string
-  /** steel frame, corner posts, castings */
-  frame: string
-  cladding: string
+  /** finish of the long façades (front / back) */
+  long: Finish
+  /** finish of the short ends */
+  end: Finish
+  /** window frames, flashing, lamp bodies */
   windowFrame: string
+  /** roof-edge flashing / parapet cap */
   roofEdge: string
+  /** base band at the bottom of the façade */
+  base: string
+  /** exterior reveals of openings */
+  reveal: string
   door: string
-  doorKind: 'oak' | 'timberBlack' | 'anthracite'
-  /** decorative accent panels */
-  accent: 'none' | 'timber' | 'stone'
+  doorKind: 'oak' | 'timberBlack' | 'anthracite' | 'white'
+  /** decorative accent panels around the entrance / one end */
+  accent: 'none' | 'timber' | 'stone' | 'oak'
   accentColor: string
+  /** charcoal corner trims (board façades) */
+  cornerTrim: string | null
   lampColor: string
   lampIntensity: number
   /** linear LED strip under the roof edge */
   ledCornice: boolean
-  /** extend sill of picture windows to the floor where feasible */
-  canopy: 'steel' | 'timber' | 'render'
+  canopy: 'steel' | 'timber' | 'render' | 'oak'
+  /** protruding box frames around windows: depth per opening type */
+  boxFrames: { picture: number; window: number }
 }
 
 export const EXTERIORS: Record<ExteriorId, ExteriorStyle> = {
   wood: {
     id: 'wood',
     name: 'Modern Wood',
-    subtitle: 'Vertical oak cladding · charcoal steel',
+    subtitle: 'Vertical oak cladding · charcoal standing seam',
     swatches: ['#c19a6b', '#2c2e31', '#8f6f4c'],
-    longFinish: 'woodCladding',
-    endFinish: 'corrugated',
-    skin: '#2f3134',
-    frame: '#2a2c2f',
-    cladding: '#c39a69',
+    long: { kind: 'vboards', color: '#c39a69' },
+    end: { kind: 'seam', color: '#33363a' },
     windowFrame: '#26282b',
     roofEdge: '#2a2c2f',
+    base: '#2a2c2f',
+    reveal: '#2a2c2f',
     door: '#b88d5e',
     doorKind: 'oak',
     accent: 'none',
     accentColor: '#c39a69',
+    cornerTrim: '#2a2c2f',
     lampColor: '#ffbf7a',
     lampIntensity: 1,
     ledCornice: false,
     canopy: 'steel',
+    boxFrames: { picture: 0.2, window: 0 },
   },
   black: {
     id: 'black',
     name: 'Black Premium',
-    subtitle: 'Matte anthracite · dark timber · LED',
-    swatches: ['#232427', '#4a3426', '#d9b98a'],
-    longFinish: 'corrugated',
-    endFinish: 'corrugated',
-    skin: '#242528',
-    frame: '#1d1e20',
-    cladding: '#4b3527',
+    subtitle: 'Anthracite panels · dark timber · LED',
+    swatches: ['#26282b', '#4a3426', '#d9b98a'],
+    long: { kind: 'panels', color: '#2a2c2f' },
+    end: { kind: 'panels', color: '#2a2c2f' },
     windowFrame: '#151617',
     roofEdge: '#1d1e20',
+    base: '#1d1e20',
+    reveal: '#1d1e20',
     door: '#4b3527',
     doorKind: 'timberBlack',
     accent: 'timber',
-    accentColor: '#4d3627',
+    accentColor: '#6e4c33',
+    cornerTrim: null,
     lampColor: '#ffd29a',
     lampIntensity: 1.1,
     ledCornice: true,
     canopy: 'timber',
+    boxFrames: { picture: 0.14, window: 0.12 },
   },
   contemporary: {
     id: 'contemporary',
     name: 'Contemporary House',
-    subtitle: 'Warm-grey render · natural stone',
+    subtitle: 'Warm-grey render on EPS · natural stone',
     swatches: ['#cfc8bd', '#9d9182', '#3a3836'],
-    longFinish: 'render',
-    endFinish: 'render',
-    skin: '#d2cbc0',
-    frame: '#8f877c',
-    cladding: '#d2cbc0',
+    long: { kind: 'render', color: '#d2cbc0' },
+    end: { kind: 'render', color: '#d2cbc0' },
     windowFrame: '#3a3836',
-    roofEdge: '#b9b1a5',
+    roofEdge: '#9a9389',
+    base: '#8a847b',
+    reveal: '#c9c2b6',
     door: '#3a3836',
     doorKind: 'anthracite',
     accent: 'stone',
     accentColor: '#a39583',
+    cornerTrim: null,
     lampColor: '#ffc684',
     lampIntensity: 1,
     ledCornice: false,
     canopy: 'render',
+    boxFrames: { picture: 0.08, window: 0 },
+  },
+  charred: {
+    id: 'charred',
+    name: 'Shou Sugi Ban',
+    subtitle: 'Charred timber · natural oak entrance',
+    swatches: ['#1b1a19', '#b8875a', '#3b3229'],
+    long: { kind: 'charred', color: '#1b1a19' },
+    end: { kind: 'charred', color: '#1b1a19' },
+    windowFrame: '#3b3229',
+    roofEdge: '#1c1b1a',
+    base: '#1c1b1a',
+    reveal: '#b8875a',
+    door: '#b8875a',
+    doorKind: 'oak',
+    accent: 'oak',
+    accentColor: '#bb8b5c',
+    cornerTrim: null,
+    lampColor: '#ffb86e',
+    lampIntensity: 1.1,
+    ledCornice: false,
+    canopy: 'oak',
+    boxFrames: { picture: 0.22, window: 0.1 },
+  },
+  scandi: {
+    id: 'scandi',
+    name: 'Nordic White',
+    subtitle: 'White board-on-board · larch details',
+    swatches: ['#eceae4', '#c49a6c', '#8e9196'],
+    long: { kind: 'vboards', color: '#ecebe6' },
+    end: { kind: 'vboards', color: '#ecebe6' },
+    windowFrame: '#6f7378',
+    roofEdge: '#8e9196',
+    base: '#6f7378',
+    reveal: '#e4e2dc',
+    door: '#c49a6c',
+    doorKind: 'oak',
+    accent: 'oak',
+    accentColor: '#c79c6a',
+    cornerTrim: '#e4e2dc',
+    lampColor: '#ffc988',
+    lampIntensity: 1,
+    ledCornice: false,
+    canopy: 'oak',
+    boxFrames: { picture: 0.16, window: 0.08 },
+  },
+  brick: {
+    id: 'brick',
+    name: 'Clinker & Larch',
+    subtitle: 'Brick-slip ETICS · horizontal larch ends',
+    swatches: ['#7c4a37', '#b38a5e', '#232426'],
+    long: { kind: 'brick', color: '#80503b' },
+    end: { kind: 'hboards', color: '#b48a5d' },
+    windowFrame: '#232426',
+    roofEdge: '#232426',
+    base: '#2a2b2d',
+    reveal: '#232426',
+    door: '#232426',
+    doorKind: 'anthracite',
+    accent: 'none',
+    accentColor: '#b48a5d',
+    cornerTrim: '#232426',
+    lampColor: '#ffbf7a',
+    lampIntensity: 1,
+    ledCornice: false,
+    canopy: 'steel',
+    boxFrames: { picture: 0.18, window: 0.1 },
   },
 }
 
@@ -330,5 +411,5 @@ export const LIGHTING: Record<LightingId, LightingPreset> = {
 }
 
 export const INTERIOR_ORDER: InteriorId[] = ['japandi', 'luxury', 'minimal']
-export const EXTERIOR_ORDER: ExteriorId[] = ['wood', 'black', 'contemporary']
+export const EXTERIOR_ORDER: ExteriorId[] = ['wood', 'charred', 'scandi', 'black', 'brick', 'contemporary']
 export const LIGHTING_ORDER: LightingId[] = ['day', 'sunset', 'night']

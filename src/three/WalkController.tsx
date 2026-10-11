@@ -9,7 +9,12 @@ import { footprint } from './furniture/Furniture'
 
 /** Shared input channel so on-screen controls and the keyboard drive the same walker */
 export const walkInput = { forward: 0, strafe: 0, turn: 0 }
-export const walkBus: { goToPoint: ((x: number, z: number) => void) | null } = { goToPoint: null }
+export const walkBus: { goToPoint: ((x: number, z: number) => void) | null; lastPointer: string; downX: number; downY: number } = {
+  goToPoint: null,
+  lastPointer: 'mouse',
+  downX: 0,
+  downY: 0,
+}
 
 interface Pose {
   x: number
@@ -145,6 +150,9 @@ export function WalkController({ layout }: { layout: LayoutDef }) {
     let lx = 0
     let ly = 0
     const pd = (e: PointerEvent) => {
+      walkBus.lastPointer = e.pointerType
+      walkBus.downX = e.clientX
+      walkBus.downY = e.clientY
       dragging = true
       lx = e.clientX
       ly = e.clientY

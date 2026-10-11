@@ -16,7 +16,7 @@ import {
   X,
 } from 'lucide-react'
 import { useEffect, useState, type ReactNode } from 'react'
-import { EXTERIOR, INTERIOR } from '../config/dimensions'
+import { CONTAINER, EXTERIOR, INTERIOR, WALL } from '../config/dimensions'
 import { LAYOUTS } from '../config/layouts'
 import { EXTERIORS, INTERIORS } from '../config/styles'
 import type { CameraMode } from '../config/types'
@@ -127,11 +127,11 @@ export function ModeBar() {
           <button
             key={m.id}
             onClick={() => set({ mode: m.id, autoTour: false })}
-            className={`relative flex items-center gap-2 rounded-[16px] px-3.5 py-2.5 text-[13px] font-medium transition-colors sm:px-4 ${active ? 'text-ink-900' : 'text-white/70 hover:text-white'}`}
+            className={`relative flex min-w-[68px] flex-col items-center gap-0.5 rounded-[16px] px-2.5 py-2 text-[10.5px] font-medium transition-colors sm:min-w-0 sm:flex-row sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[13px] ${active ? 'text-ink-900' : 'text-white/70 hover:text-white'}`}
           >
             {active && <motion.span layoutId="mode-pill" className="absolute inset-0 rounded-[16px] bg-white" transition={{ type: 'spring', stiffness: 420, damping: 34 }} />}
             <span className="relative z-10">{m.icon}</span>
-            <span className="relative z-10 hidden sm:inline">{m.label}</span>
+            <span className="relative z-10">{m.label}</span>
           </button>
         )
       })}
@@ -147,6 +147,13 @@ const HINTS: Record<CameraMode, string> = {
   topdown: 'Orthographic plan · Drag to pan · Scroll to zoom',
   walkthrough: 'Drag to look · WASD / arrows to move · Double-click the floor to walk there',
 }
+const TOUCH_HINTS: Record<CameraMode, string> = {
+  exterior: 'Drag to orbit · Pinch to zoom · Two fingers to pan',
+  dollhouse: 'Roof lifted · Drag to orbit · Pinch to zoom',
+  topdown: 'Drag to pan · Pinch to zoom',
+  walkthrough: 'Drag to look · Tap the floor to walk there',
+}
+const isTouch = typeof window !== 'undefined' && window.matchMedia?.('(pointer: coarse)').matches
 
 export function ModeHint() {
   const mode = useConfig((s) => s.mode)
@@ -167,7 +174,7 @@ export function ModeHint() {
             exit={{ opacity: 0, y: 8 }}
             className="whitespace-nowrap rounded-full bg-black/45 px-4 py-1.5 text-[12px] text-white/90 backdrop-blur-md max-sm:max-w-[92vw] max-sm:truncate"
           >
-            {HINTS[mode]}
+            {(isTouch ? TOUCH_HINTS : HINTS)[mode]}
           </motion.div>
         )}
       </AnimatePresence>
@@ -187,18 +194,22 @@ export function SpecsCard() {
       transition={{ delay: 0.6 }}
       className="pointer-events-auto absolute bottom-4 left-3 z-20 hidden rounded-2xl border border-white/50 bg-white/70 px-4 py-3 shadow-glass backdrop-blur-xl xl:block"
     >
-      <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-900/45">40′ High Cube shell</div>
+      <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-900/45">40′ High Cube · insulated outside</div>
       <div className="mt-1.5 grid grid-cols-[auto_auto] gap-x-4 gap-y-0.5 text-[12px] tabular-nums">
-        <span className="text-ink-900/55">Exterior</span>
+        <span className="text-ink-900/55">Building</span>
         <span className="font-medium text-ink-900">
-          {EXTERIOR.length.toFixed(2)} × {EXTERIOR.width.toFixed(2)} × {EXTERIOR.height.toFixed(2)} m
+          {EXTERIOR.length.toFixed(2)} × {EXTERIOR.width.toFixed(2)} m · h {EXTERIOR.height.toFixed(2)} m
+        </span>
+        <span className="text-ink-900/55">Container</span>
+        <span className="font-medium text-ink-900">
+          {CONTAINER.length.toFixed(2)} × {CONTAINER.width.toFixed(2)} × {CONTAINER.height.toFixed(2)} m
         </span>
         <span className="text-ink-900/55">Interior</span>
         <span className="font-medium text-ink-900">
           {INTERIOR.length.toFixed(2)} × {INTERIOR.width.toFixed(2)} × {INTERIOR.height.toFixed(2)} m
         </span>
         <span className="text-ink-900/55">Walls</span>
-        <span className="font-medium text-ink-900">130 mm insulated</span>
+        <span className="font-medium text-ink-900">{Math.round(WALL * 1000)} mm · 200 mm wool / EPS</span>
       </div>
     </motion.div>
   )
@@ -263,7 +274,7 @@ export function WalkHUD() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="pointer-events-auto absolute bottom-[88px] left-3 z-20 grid grid-cols-3 gap-1 rounded-2xl bg-ink-900/55 p-1.5 backdrop-blur-xl"
+            className={`pointer-events-auto absolute bottom-[88px] left-3 z-20 grid grid-cols-3 gap-1 rounded-2xl bg-ink-900/55 p-1.5 backdrop-blur-xl ${panelOpen ? 'max-[899px]:hidden' : ''}`}
           >
             <span />
             <HoldButton label="Forward" onChange={(on) => (walkInput.forward = on ? 1 : 0)}>
@@ -291,6 +302,42 @@ export function WalkHUD() {
             Eye level 1.62 m · ceiling 2.50 m
           </motion.div>
         </>
+      )}
+    </AnimatePresence>
+  )
+}
+
+/* ------------------------------------------------------------------ */
+/** Explains the colours of the section cut (wall build-up) */
+export function SectionLegend() {
+  const mode = useConfig((s) => s.mode)
+  const labels = useConfig((s) => s.labels)
+  const show = labels && (mode === 'dollhouse' || mode === 'topdown')
+  const items: [string, string][] = [
+    ['#5b5650', 'Façade 30 mm'],
+    ['#e9dca6', 'Insulation 200 mm'],
+    ['#141517', 'Container steel'],
+    ['#c9c2b6', 'Lining 40 mm'],
+  ]
+  return (
+    <AnimatePresence>
+      {show && (
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 8 }}
+          className="pointer-events-auto absolute left-3 top-[76px] z-20 hidden rounded-2xl border border-white/50 bg-white/75 px-3.5 py-2.5 shadow-glass backdrop-blur-xl sm:block"
+        >
+          <div className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-ink-900/45">Wall section</div>
+          <div className="mt-1.5 grid gap-1">
+            {items.map(([c, t]) => (
+              <div key={t} className="flex items-center gap-2 text-[11.5px] text-ink-900/80">
+                <span className="h-2.5 w-5 rounded-sm ring-1 ring-black/10" style={{ background: c }} />
+                {t}
+              </div>
+            ))}
+          </div>
+        </motion.div>
       )}
     </AnimatePresence>
   )

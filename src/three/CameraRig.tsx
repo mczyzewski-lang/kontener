@@ -10,6 +10,12 @@ import { WalkController } from './WalkController'
 
 const ACTION = CameraControlsImpl.ACTION
 
+/** Pull the camera back on narrow / portrait screens so the whole 12.65 m house stays in frame */
+function fitScale(w: number, h: number) {
+  const aspect = w / h
+  return aspect >= 1.3 ? 1 : THREE.MathUtils.clamp(1.3 / aspect, 1, 2.0) * 0.82
+}
+
 /** Width of the right-hand panel in px that the 3D framing should avoid */
 function panelPx(width: number, open: boolean) {
   return open && width >= 900 ? 400 : 0
@@ -59,7 +65,7 @@ export function CameraRig({ layout }: { layout: LayoutDef }) {
       c.mouseButtons.wheel = ACTION.DOLLY
       c.touches.one = ACTION.TOUCH_ROTATE
       c.touches.two = ACTION.TOUCH_DOLLY_TRUCK
-      const k = size.width < 700 ? 1.22 : 1
+      const k = fitScale(size.width, size.height)
       c.setLookAt(13.6 * k, 4.1 * k, 16.0 * k, 0.2, 1.7, 0, animate)
       c.setFocalOffset(off ? 2.1 : 0, 0, 0, animate)
     } else if (mode === 'dollhouse') {
@@ -74,7 +80,7 @@ export function CameraRig({ layout }: { layout: LayoutDef }) {
       c.mouseButtons.wheel = ACTION.DOLLY
       c.touches.one = ACTION.TOUCH_ROTATE
       c.touches.two = ACTION.TOUCH_DOLLY_TRUCK
-      const k = size.width < 700 ? 1.5 : 1
+      const k = fitScale(size.width, size.height) * 1.05
       // 45° elevation looking at the interior
       c.setLookAt(3.6 * k, FLOOR_Y + 12.4 * k, 12.2 * k, 0.3, FLOOR_Y + 0.2, 0, animate)
       c.setFocalOffset(off ? 1.6 : 0, 0, 0, animate)

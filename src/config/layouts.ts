@@ -4,8 +4,9 @@ import type { LayoutDef, LayoutId, Room } from './types'
 /*
  * All coordinates are in metres, relative to the container centre and the
  * finished floor. Interior usable box:
- *   X: −5.965 … +5.965   (11.93 m)
- *   Z: −1.090 … +1.090   ( 2.18 m)
+ *   X: −5.975 … +5.975   (11.95 m)
+ *   Z: −1.135 … +1.135   ( 2.27 m)
+ * (the container is insulated on the outside, so only a thin lining is lost inside)
  * Partitions are 80 mm thick and are given by their centre line.
  */
 const X0 = INTERIOR.x0
@@ -250,7 +251,7 @@ const studio: LayoutDef = {
   ],
   furniture: [
     // Sleep & lounge
-    { type: 'murphyBed', x: X0 + 0.225, z: 0, rot: 90, w: 2.18, d: 0.45, h: 2.3 },
+    { type: 'murphyBed', x: X0 + 0.225, z: 0, rot: 90, w: Z1 - Z0, d: 0.45, h: 2.3 },
     { type: 'armchair', x: -3.12, z: -0.62, rot: 35, variant: 1 },
     { type: 'floorLamp', x: -2.98, z: -0.15, variant: 1 },
     { type: 'rug', x: -4.45, z: 0, w: 2.2, d: 1.6, block: false },
@@ -307,8 +308,100 @@ const studio: LayoutDef = {
   terrace: [2.35, 6.4],
 }
 
-export const LAYOUTS: Record<LayoutId, LayoutDef> = { couple, family, studio }
-export const LAYOUT_ORDER: LayoutId[] = ['couple', 'family', 'studio']
+
+/* ------------------------------------------------------------------ */
+/* Layout D — Open Living                                              */
+/* Front door opens straight into the living room / kitchen;           */
+/* the bathroom spans the right-hand short end.                        */
+/* ------------------------------------------------------------------ */
+const open: LayoutDef = {
+  id: 'open',
+  name: 'Open Living',
+  tagline: '1 bedroom · open living-kitchen',
+  sleeps: 'Sleeps 2',
+  description:
+    'You step straight into a 6.9 m living-kitchen with the terrace slider on one side and the dining window on the other. The bathroom fills the short end of the house, the bedroom sits privately at the opposite end.',
+  features: ['Entry directly into living room', 'End-wall bathroom', 'Queen bed 160×200', '2.9 m kitchen with dishwasher', 'Terrace off the living room'],
+  rooms: [
+    { id: 'bed', name: 'Bedroom', x: [X0, -2.7 - H], z: [Z0, Z1] },
+    { id: 'living', name: 'Living Room', x: [-2.7 + H, 1.2], z: [Z0, Z1] },
+    { id: 'kitchen', name: 'Kitchen & Dining', x: [1.2, 4.2 - H], z: [Z0, Z1] },
+    { id: 'bath', name: 'Bathroom', x: [4.2 + H, X1], z: [Z0, Z1], wet: true },
+  ],
+  partitions: [
+    { a: [-2.7, Z0], b: [-2.7, Z1], openings: [{ from: 0.38, to: 1.1, type: 'door', swing: -1 }] },
+    { a: [4.2, Z0], b: [4.2, Z1], openings: [{ from: 0.42, to: 1.1, type: 'pocket' }] },
+  ],
+  openings: [
+    { side: 'front', from: -5.5, to: -3.9, sill: 0.9, head: 2.15, kind: 'window' },
+    { side: 'front', from: -2.45, to: -0.4, sill: 0, head: 2.3, kind: 'slider' },
+    { side: 'front', from: 0.15, to: 1.1, sill: 0, head: 2.1, kind: 'door' },
+    { side: 'front', from: 1.8, to: 3.6, sill: 0.9, head: 2.15, kind: 'window' },
+    { side: 'back', from: -5.4, to: -4.2, sill: 1.45, head: 2.15, kind: 'window' },
+    { side: 'back', from: -2.2, to: -0.6, sill: 0.95, head: 2.15, kind: 'window' },
+    { side: 'back', from: 2.85, to: 3.65, sill: 1.05, head: 2.15, kind: 'window' },
+    { side: 'right', from: -0.95, to: -0.25, sill: 1.55, head: 2.15, kind: 'window' },
+  ],
+  furniture: [
+    // Bedroom
+    { type: 'bed', x: X0 + 1.05, z: 0, rot: 90, w: 1.6, d: 2.1, nightstands: true },
+    { type: 'wardrobe', x: -2.7 - H - 0.3, z: Z0 + 0.65, rot: 270, w: 1.3, d: 0.6, h: 2.3 },
+    { type: 'rug', x: -3.6, z: 0.15, w: 0.7, d: 1.5, block: false },
+    { type: 'pendant', x: -4.9, z: -0.7, variant: 1, block: false },
+    { type: 'pendant', x: -4.9, z: 0.7, variant: 1, block: false },
+    // Living (entered directly from the front door)
+    { type: 'rug', x: -1.45, z: 0.05, w: 2.2, d: 1.5, block: false },
+    { type: 'sofa', x: -1.45, z: Z0 + 0.47, w: 2.1, d: 0.92 },
+    { type: 'coffeeTable', x: -1.45, z: 0.35, round: true, w: 0.72 },
+    { type: 'floorLamp', x: -0.25, z: Z0 + 0.25 },
+    { type: 'plant', x: -2.42, z: Z0 + 0.25, variant: 0 },
+    { type: 'coatRack', x: 0.62, z: Z0 + 0.05, w: 0.8, block: false },
+    // Kitchen & dining
+    {
+      type: 'kitchen',
+      x: 1.25 + 2.9 / 2,
+      z: Z0 + 0.3,
+      w: 2.9,
+      d: 0.6,
+      modules: [
+        { kind: 'fridge', w: 0.6 },
+        { kind: 'hob', w: 0.6 },
+        { kind: 'drawers', w: 0.5 },
+        { kind: 'sink', w: 0.6 },
+        { kind: 'dishwasher', w: 0.6 },
+      ],
+      uppers: [[0.6, 1.6]],
+    },
+    { type: 'diningTable', x: 2.7, z: Z1 - 0.36, w: 1.1, d: 0.7 },
+    { type: 'chair', x: 1.93, z: Z1 - 0.38, rot: 90 },
+    { type: 'chair', x: 3.47, z: Z1 - 0.38, rot: -90 },
+    { type: 'pendant', x: 2.7, z: Z1 - 0.36, variant: 0, block: false },
+    // Bathroom across the short end
+    { type: 'vanity', x: 4.65, z: Z0 + 0.225, w: 0.7, d: 0.45 },
+    { type: 'shower', x: (5.075 + X1) / 2, z: (Z0 + 0.1) / 2, rot: 270, w: 0.1 - Z0, d: X1 - 5.075 },
+    { type: 'toilet', x: X1 - 0.28, z: 0.6, rot: 270 },
+  ],
+  lights: [
+    [-4.4, 0],
+    [-1.45, 0],
+    [0.6, 0.3],
+    [2.6, -0.2],
+    [3.6, 0.3],
+    [5.1, 0],
+  ],
+  viewpoints: [
+    { id: 'entry', name: 'Entry', x: 0.62, z: 0.6, yaw: 196 },
+    { id: 'living', name: 'Living', x: 0.9, z: 0.35, yaw: 186 },
+    { id: 'kitchen', name: 'Kitchen', x: 0.35, z: 0.25, yaw: 8 },
+    { id: 'bedroom', name: 'Bedroom', x: -3.1, z: 0.75, yaw: 190, pitch: -8 },
+    { id: 'bathroom', name: 'Bathroom', x: 4.45, z: 0.8, yaw: 340, pitch: -12 },
+  ],
+  entranceX: (0.15 + 1.1) / 2,
+  terrace: [-3.0, -0.2],
+}
+
+export const LAYOUTS: Record<LayoutId, LayoutDef> = { couple, family, studio, open }
+export const LAYOUT_ORDER: LayoutId[] = ['couple', 'family', 'studio', 'open']
 
 export const roomArea = (r: Room) => Math.abs(r.x[1] - r.x[0]) * Math.abs(r.z[1] - r.z[0])
 

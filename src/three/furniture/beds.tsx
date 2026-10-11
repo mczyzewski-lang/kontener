@@ -148,7 +148,7 @@ function BunkBedding({ w, len, accent = false }: { w: number; len: number; accen
 export function MurphyBed({ item }: { item: FurnitureItem }) {
   const m = useInteriorMats()
   const open = useConfig((s) => s.murphyOpen)
-  const W = item.w ?? 2.18
+  const W = item.w ?? 2.27
   const D = item.d ?? 0.45
   const H = item.h ?? 2.3
   const bay = 1.58
