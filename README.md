@@ -18,12 +18,12 @@ Stack: React 18 + TypeScript, Three.js, React Three Fiber, Drei, @react-three/po
 | --- | --- |
 | **Floor plan** | Couple Retreat · Small Family · Premium Studio · Open Living (front door straight into the living-kitchen, bathroom across the short end) |
 | **Interior** | Japandi · Modern Luxury · Contemporary Minimalist |
-| **Exterior** | Modern Wood · Shou Sugi Ban · Nordic White · Black Premium · Clinker & Larch · Contemporary House |
+| **Exterior** | Natural Wood · Modern Stone (riveted HPL) · Modern Wood · Shou Sugi Ban · Nordic White · Black Premium · Clinker & Larch · Contemporary House |
 | **Camera** | Exterior · Dollhouse · Top Down · Walkthrough |
 | **Lighting** | Day · Sunset · Night (blends smoothly between them) |
 | **Options** | Wooden terrace, rooftop PV (10 × 435 Wp = 4.35 kWp), room labels & dimensions, Murphy bed fold (Studio), quality toggle |
 
-All 72 plan × interior × exterior combinations work in all four camera modes, and changing any of them never reloads the page.
+All 96 plan × interior × exterior combinations work in all four camera modes, and changing any of them never reloads the page.
 The configuration is stored in the URL hash (`#plan=studio&interior=luxury&exterior=black&light=night`), so the **Share** button copies a link that reopens the same configuration.
 
 ### Camera modes

@@ -1,6 +1,6 @@
 export type LayoutId = 'couple' | 'family' | 'studio' | 'open'
 export type InteriorId = 'japandi' | 'luxury' | 'minimal'
-export type ExteriorId = 'wood' | 'black' | 'contemporary' | 'charred' | 'scandi' | 'brick'
+export type ExteriorId = 'natural' | 'wood' | 'hpl' | 'black' | 'contemporary' | 'charred' | 'scandi' | 'brick'
 export type CameraMode = 'exterior' | 'dollhouse' | 'topdown' | 'walkthrough'
 export type LightingId = 'day' | 'sunset' | 'night'
 

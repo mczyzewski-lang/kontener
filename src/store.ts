@@ -26,7 +26,7 @@ export interface ConfigState {
 
 const LAYOUTS: LayoutId[] = ['couple', 'family', 'studio', 'open']
 const INTERIORS: InteriorId[] = ['japandi', 'luxury', 'minimal']
-const EXTERIORS: ExteriorId[] = ['wood', 'black', 'contemporary', 'charred', 'scandi', 'brick']
+const EXTERIORS: ExteriorId[] = ['natural', 'hpl', 'wood', 'black', 'contemporary', 'charred', 'scandi', 'brick']
 const LIGHTS: LightingId[] = ['day', 'sunset', 'night']
 
 /** Phones / tablets start in the lighter rendering mode */

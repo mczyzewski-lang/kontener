@@ -528,9 +528,9 @@ export function rotated90(src: THREE.Texture, key: string, srgb = true) {
 }
 
 /** Large-format façade panels (fibre-cement / metal) with recessed joints */
-export function panelTexture(color: string, opts: { w?: number; h?: number; tile?: number; seed?: number; bump?: boolean; seam?: boolean } = {}) {
-  const { w = 1.25, h = 3.0, tile = 2.5, seed = 6, bump = false, seam = false } = opts
-  return cached(`panel:${color}:${w}:${h}:${tile}:${seed}:${bump}:${seam}`, () => {
+export function panelTexture(color: string, opts: { w?: number; h?: number; tile?: number; seed?: number; bump?: boolean; seam?: boolean; rivets?: boolean } = {}) {
+  const { w = 1.25, h = 3.0, tile = 2.5, seed = 6, bump = false, seam = false, rivets = false } = opts
+  return cached(`panel:${color}:${w}:${h}:${tile}:${seed}:${bump}:${seam}:${rivets}`, () => {
     const size = 512
     const { c, ctx, img } = canvas(size)
     const [r0, g0, b0] = hexToRgb(color)
@@ -538,7 +538,7 @@ export function panelTexture(color: string, opts: { w?: number; h?: number; tile
     const R = rng(seed)
     const pw = (w / tile) * size
     const ph = (h / tile) * size
-    const tones = Array.from({ length: 64 }, () => 0.96 + R() * 0.08)
+    const tones = Array.from({ length: 64 }, () => (rivets ? 0.985 + R() * 0.03 : 0.96 + R() * 0.08))
     for (let y = 0; y < size; y++) {
       for (let x = 0; x < size; x++) {
         const col = Math.floor(x / pw)
@@ -553,7 +553,7 @@ export function panelTexture(color: string, opts: { w?: number; h?: number; tile
           const b = joint ? 30 : seam && fx < 7 ? 230 : 150 + v * 20
           img.data[i] = img.data[i + 1] = img.data[i + 2] = b
         } else {
-          const s = joint ? 0.35 : tones[(col * 7 + row) & 63] * (0.97 + 0.06 * v) * edge
+          const s = joint ? (rivets ? 0.72 : 0.35) : tones[(col * 7 + row) & 63] * (rivets ? 0.99 + 0.02 * v : 0.97 + 0.06 * v) * edge
           img.data[i] = clamp(r0 * s)
           img.data[i + 1] = clamp(g0 * s)
           img.data[i + 2] = clamp(b0 * s)
@@ -562,6 +562,24 @@ export function panelTexture(color: string, opts: { w?: number; h?: number; tile
       }
     }
     ctx.putImageData(img, 0, 0)
+    if (rivets) {
+      // exposed fixings: edge columns + centre column, ~300 mm apart
+      const step = (0.31 / tile) * size
+      for (let px = 0; px < size; px += pw) {
+        for (const fx of [0.07, 0.5, 0.93]) {
+          for (let py = 0; py < size; py += ph) {
+            for (let k = step * 0.5; k < ph; k += step) {
+              const x = px + fx * pw
+              const y = py + k
+              ctx.beginPath()
+              ctx.arc(x, y, 2.2, 0, Math.PI * 2)
+              ctx.fillStyle = bump ? 'rgb(70,70,70)' : `rgb(${clamp(r0 * 0.55)},${clamp(g0 * 0.55)},${clamp(b0 * 0.55)})`
+              ctx.fill()
+            }
+          }
+        }
+      }
+    }
     return finish(c, tile, !bump)
   })
 }

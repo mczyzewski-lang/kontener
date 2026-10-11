@@ -195,6 +195,27 @@ function finishMaterial(f: Finish): THREE.MeshStandardMaterial {
         },
         true,
       )
+    case 'slats':
+      return std(
+        {
+          map: claddingTexture(c, { board: 0.042, tile: 0.672, gap: 0.007, seed: 57 }),
+          bumpMap: claddingTexture(c, { board: 0.042, tile: 0.672, gap: 0.007, seed: 57, bump: true }),
+          bumpScale: 2.2,
+          roughness: 0.75,
+        },
+        true,
+      )
+    case 'hpl':
+      return std(
+        {
+          map: panelTexture(c, { w: 1.25, h: 1.25, tile: 2.5, seed: 14, rivets: true }),
+          bumpMap: panelTexture(c, { w: 1.25, h: 1.25, tile: 2.5, seed: 14, rivets: true, bump: true }),
+          bumpScale: 1.4,
+          roughness: 0.55,
+          metalness: 0.02,
+        },
+        true,
+      )
     case 'hboards': {
       const map = rotated90(claddingTexture(c, { board: 0.13, tile: 1.3, seed: 31 }), `h:${c}`)
       const bump = rotated90(claddingTexture(c, { board: 0.13, tile: 1.3, seed: 31, bump: true }), `hb:${c}`, false)

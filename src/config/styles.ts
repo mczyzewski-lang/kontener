@@ -145,7 +145,7 @@ export const INTERIORS: Record<InteriorId, InteriorStyle> = {
   },
 }
 
-export type FinishKind = 'vboards' | 'hboards' | 'panels' | 'seam' | 'render' | 'brick' | 'charred'
+export type FinishKind = 'vboards' | 'slats' | 'hboards' | 'panels' | 'hpl' | 'seam' | 'render' | 'brick' | 'charred'
 
 export interface Finish {
   kind: FinishKind
@@ -186,6 +186,50 @@ export interface ExteriorStyle {
 }
 
 export const EXTERIORS: Record<ExteriorId, ExteriorStyle> = {
+  natural: {
+    id: 'natural',
+    name: 'Natural Wood',
+    subtitle: 'Fine larch battens all round · black details',
+    swatches: ['#dcb582', '#1c1d1f', '#6b4128'],
+    long: { kind: 'slats', color: '#dcb582' },
+    end: { kind: 'slats', color: '#dcb582' },
+    windowFrame: '#1c1d1f',
+    roofEdge: '#1c1d1f',
+    base: '#5e3a24',
+    reveal: '#1c1d1f',
+    door: '#1c1d1f',
+    doorKind: 'anthracite',
+    accent: 'none',
+    accentColor: '#c89a63',
+    cornerTrim: null,
+    lampColor: '#ffc27e',
+    lampIntensity: 1,
+    ledCornice: false,
+    canopy: 'steel',
+    boxFrames: { picture: 0, window: 0 },
+  },
+  hpl: {
+    id: 'hpl',
+    name: 'Modern Stone',
+    subtitle: 'Riveted HPL façade panels · light frames',
+    swatches: ['#e7e2d9', '#cfc9be', '#3b3b3b'],
+    long: { kind: 'hpl', color: '#e7e2d9' },
+    end: { kind: 'hpl', color: '#e7e2d9' },
+    windowFrame: '#d6d2cb',
+    roofEdge: '#efebe4',
+    base: '#bfb9ae',
+    reveal: '#e2ddd4',
+    door: '#d6d2cb',
+    doorKind: 'white',
+    accent: 'none',
+    accentColor: '#e7e2d9',
+    cornerTrim: null,
+    lampColor: '#ffcf96',
+    lampIntensity: 0.9,
+    ledCornice: false,
+    canopy: 'render',
+    boxFrames: { picture: 0.05, window: 0.035 },
+  },
   wood: {
     id: 'wood',
     name: 'Modern Wood',
@@ -411,5 +455,5 @@ export const LIGHTING: Record<LightingId, LightingPreset> = {
 }
 
 export const INTERIOR_ORDER: InteriorId[] = ['japandi', 'luxury', 'minimal']
-export const EXTERIOR_ORDER: ExteriorId[] = ['wood', 'charred', 'scandi', 'black', 'brick', 'contemporary']
+export const EXTERIOR_ORDER: ExteriorId[] = ['natural', 'hpl', 'wood', 'charred', 'scandi', 'black', 'brick', 'contemporary']
 export const LIGHTING_ORDER: LightingId[] = ['day', 'sunset', 'night']

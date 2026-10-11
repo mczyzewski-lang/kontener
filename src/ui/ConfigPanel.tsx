@@ -100,7 +100,7 @@ export function ConfigPanel() {
           <div className="border-b border-black/[0.06] px-5 pb-4 pt-5">
             <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-sand-500">Haven 40 · 40′ High Cube</div>
             <h2 className="mt-1 text-[22px] font-semibold tracking-tight text-ink-900">Configure your home</h2>
-            <p className="mt-1 text-[13px] leading-snug text-ink-900/55">72 combinations · one container · real dimensions</p>
+            <p className="mt-1 text-[13px] leading-snug text-ink-900/55">{LAYOUT_ORDER.length * INTERIOR_ORDER.length * EXTERIOR_ORDER.length} combinations · one container · real dimensions</p>
           </div>
 
           <div className="scrollbar-thin flex-1 overflow-y-auto overscroll-contain">
