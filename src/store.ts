@@ -67,5 +67,9 @@ export const useConfig = create<ConfigState>((set) => ({
 // Keep the shareable configuration in the URL hash (no reloads).
 useConfig.subscribe((s) => {
   const hash = `plan=${s.layout}&interior=${s.interior}&exterior=${s.exterior}&light=${s.lighting}`
-  if (window.location.hash.slice(1) !== hash) window.history.replaceState(null, '', `#${hash}`)
+  try {
+    if (window.location.hash.slice(1) !== hash) window.history.replaceState(null, '', `#${hash}`)
+  } catch {
+    /* sandboxed frames may refuse history updates */
+  }
 })
