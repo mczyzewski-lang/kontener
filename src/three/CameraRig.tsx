@@ -59,7 +59,7 @@ export function CameraRig({ layout }: { layout: LayoutDef }) {
       c.mouseButtons.wheel = ACTION.DOLLY
       c.touches.one = ACTION.TOUCH_ROTATE
       c.touches.two = ACTION.TOUCH_DOLLY_TRUCK
-      const k = size.width < 700 ? 1.45 : 1
+      const k = size.width < 700 ? 1.22 : 1
       c.setLookAt(13.6 * k, 4.1 * k, 16.0 * k, 0.2, 1.7, 0, animate)
       c.setFocalOffset(off ? 2.1 : 0, 0, 0, animate)
     } else if (mode === 'dollhouse') {

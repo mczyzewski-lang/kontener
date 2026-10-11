@@ -187,7 +187,7 @@ export function LightingRig({ layout }: { layout: LayoutDef }) {
         <Lightformer form="rect" intensity={1.4} color="#cfe0ff" position={[0, 4, 30]} scale={[60, 8, 1]} />
         <Lightformer form="rect" intensity={1.0} color="#fff1dd" position={[30, 4, 0]} rotation-y={-Math.PI / 2} scale={[60, 8, 1]} />
         <Lightformer form="rect" intensity={0.8} color="#dfe9ff" position={[-30, 4, 0]} rotation-y={Math.PI / 2} scale={[60, 8, 1]} />
-        <Lightformer form="rect" intensity={0.5} color="#a7b38a" position={[0, -3, 0]} rotation-x={-Math.PI / 2} scale={[60, 60, 1]} />
+        <Lightformer form="rect" intensity={0.5} color="#b8b0a0" position={[0, -3, 0]} rotation-x={-Math.PI / 2} scale={[60, 60, 1]} />
       </Environment>
     </>
   )

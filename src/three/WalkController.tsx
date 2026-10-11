@@ -113,6 +113,18 @@ export function WalkController({ layout }: { layout: LayoutDef }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [walkNonce])
 
+  // Reset View while walking: back to the entry
+  const resetNonce = useConfig((st) => st.resetNonce)
+  const firstReset = useRef(true)
+  useEffect(() => {
+    if (firstReset.current) {
+      firstReset.current = false
+      return
+    }
+    s.current.queue = route(vpPose(layout.viewpoints[0]))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resetNonce])
+
   // Layout swapped while walking: move to the new entry point
   useEffect(() => {
     if (s.current.inside) s.current.queue = [vpPose(layout.viewpoints[0])]
@@ -205,7 +217,9 @@ export function WalkController({ layout }: { layout: LayoutDef }) {
   }
 
   useFrame((_, dtRaw) => {
+    // manual movement uses a small step (collision safety); glides use real time so they finish on schedule on slow GPUs
     const dt = Math.min(dtRaw, 0.05)
+    const gdt = Math.min(dtRaw, 0.5)
     const st = s.current
     const p = st.pose
     const k = keys.current
@@ -227,7 +241,7 @@ export function WalkController({ layout }: { layout: LayoutDef }) {
       const dy = t.y - p.y
       const dz = t.z - p.z
       const dist = Math.hypot(dx, dy, dz)
-      const move = Math.min(dist, Math.max(dist * (1 - Math.exp(-2.4 * dt)), (st.inside ? 1.1 : 2.4) * dt))
+      const move = Math.min(dist, Math.max(dist * (1 - Math.exp(-2.4 * gdt)), (st.inside ? 1.1 : 2.4) * gdt))
       if (dist > 1e-4) {
         p.x += (dx / dist) * move
         p.y += (dy / dist) * move
@@ -236,8 +250,8 @@ export function WalkController({ layout }: { layout: LayoutDef }) {
       // look roughly where we are going while travelling, then settle on the target view
       const travelYaw = dist > 0.6 && Math.hypot(dx, dz) > 0.3 ? Math.atan2(dz, dx) : t.yaw
       const wantYaw = st.queue.length > 1 || dist > 0.6 ? travelYaw : t.yaw
-      p.yaw += angleDelta(p.yaw, wantYaw) * (1 - Math.exp(-3.2 * dt))
-      p.pitch = THREE.MathUtils.damp(p.pitch, dist > 0.6 ? rad(-2) : t.pitch, 3, dt)
+      p.yaw += angleDelta(p.yaw, wantYaw) * (1 - Math.exp(-3.2 * gdt))
+      p.pitch = THREE.MathUtils.damp(p.pitch, dist > 0.6 ? rad(-2) : t.pitch, 3, gdt)
       if (dist < 0.02 && Math.abs(angleDelta(p.yaw, t.yaw)) < 0.03) {
         st.queue.shift()
         if (st.queue.length === 0) st.inside = true

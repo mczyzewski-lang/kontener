@@ -15,10 +15,9 @@ export function exteriorLightSpots(layout: LayoutDef): LightSpot[] {
   const y = FLOOR_Y + 2.05
   const out: LightSpot[] = []
   const free = (side: Side, along: number) => {
-    const f = SIDES[side]
     const lim = (side === 'front' || side === 'back' ? HALF_L : HALF_W) - 0.3
     if (Math.abs(along) > lim) return false
-    return !layout.openings.some((o) => o.side === side && along > Math.min(o.from, o.to) - 0.2 && along < Math.max(o.from, o.to) + 0.2) && !!f
+    return !layout.openings.some((o) => o.side === side && along > Math.min(o.from, o.to) - 0.2 && along < Math.max(o.from, o.to) + 0.2)
   }
   const add = (side: Side, along: number, primary: boolean) => {
     if (!free(side, along)) return

@@ -114,11 +114,12 @@ export function ModeBar() {
   const mode = useConfig((s) => s.mode)
   const set = useConfig((s) => s.set)
   return (
+    <div className="pointer-events-none absolute inset-x-0 bottom-4 z-30 flex justify-center">
     <motion.nav
       initial={{ y: 30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 0.5, type: 'spring', stiffness: 200, damping: 24 }}
-      className="pointer-events-auto absolute bottom-4 left-1/2 z-30 flex -translate-x-1/2 gap-1 rounded-[22px] border border-white/15 bg-ink-900/80 p-1.5 shadow-glass backdrop-blur-xl"
+      className="pointer-events-auto flex gap-1 rounded-[22px] border border-white/15 bg-ink-900/80 p-1.5 shadow-glass backdrop-blur-xl"
     >
       {MODES.map((m) => {
         const active = mode === m.id
@@ -135,6 +136,7 @@ export function ModeBar() {
         )
       })}
     </motion.nav>
+    </div>
   )
 }
 
@@ -155,19 +157,21 @@ export function ModeHint() {
     return () => clearTimeout(t)
   }, [mode])
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          key={mode}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 8 }}
-          className="pointer-events-none absolute bottom-[86px] left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/45 px-4 py-1.5 text-[12px] text-white/90 backdrop-blur-md max-sm:max-w-[92vw] max-sm:truncate"
-        >
-          {HINTS[mode]}
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div className="pointer-events-none absolute inset-x-0 bottom-[86px] z-20 flex justify-center">
+      <AnimatePresence>
+        {visible && (
+          <motion.div
+            key={mode}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            className="whitespace-nowrap rounded-full bg-black/45 px-4 py-1.5 text-[12px] text-white/90 backdrop-blur-md max-sm:max-w-[92vw] max-sm:truncate"
+          >
+            {HINTS[mode]}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }
 
@@ -231,13 +235,14 @@ export function WalkHUD() {
     <AnimatePresence>
       {mode === 'walkthrough' && (
         <>
+          <div key="rooms-wrap" className={`pointer-events-none absolute inset-x-0 top-[76px] z-20 flex justify-center ${panelOpen ? 'min-[900px]:pr-[400px]' : ''}`}>
           <motion.div
             key="rooms"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ delay: 0.4 }}
-            className={`pointer-events-auto absolute left-1/2 top-[76px] z-20 flex max-w-[94vw] -translate-x-1/2 items-center gap-1 overflow-x-auto rounded-2xl border border-white/15 bg-ink-900/70 p-1.5 backdrop-blur-xl ${panelOpen ? 'min-[900px]:-ml-[195px]' : ''}`}
+            className="pointer-events-auto flex max-w-[94vw] items-center gap-1 overflow-x-auto rounded-2xl border border-white/15 bg-ink-900/70 p-1.5 backdrop-blur-xl"
           >
             <button
               onClick={() => set({ autoTour: !autoTour })}
@@ -252,6 +257,7 @@ export function WalkHUD() {
               </button>
             ))}
           </motion.div>
+          </div>
           <motion.div
             key="pad"
             initial={{ opacity: 0, scale: 0.9 }}

@@ -272,7 +272,7 @@ export const LIGHTING: Record<LightingId, LightingPreset> = {
     sunColor: '#fff0da',
     sunIntensity: 3.4,
     hemiSky: '#cfe2ff',
-    hemiGround: '#7d8a5a',
+    hemiGround: '#8c8676',
     hemiIntensity: 0.55,
     envIntensity: 0.85,
     fog: '#c9d8e6',

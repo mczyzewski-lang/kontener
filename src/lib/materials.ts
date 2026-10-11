@@ -259,7 +259,7 @@ export function useExteriorMats() {
 /* ------------------------------------------------------------------ */
 export const shared = {
   glass: std(
-    { color: '#c9dbe3', roughness: 0.04, metalness: 0.1, transparent: true, opacity: 0.22, envMapIntensity: 2.2, depthWrite: false },
+    { color: '#bfd2db', roughness: 0.04, metalness: 0.1, transparent: true, opacity: 0.16, envMapIntensity: 2.2, depthWrite: false },
     true,
   ),
   showerGlass: phys({ color: '#e8f2f2', roughness: 0.03, metalness: 0, transparent: true, opacity: 0.18, envMapIntensity: 2, depthWrite: false }, true),
