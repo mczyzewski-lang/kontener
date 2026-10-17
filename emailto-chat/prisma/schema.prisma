@@ -1,0 +1,272 @@
+// emailto.chat — persistence model.
+//
+// Gmail stays the source of truth. We keep a *metadata index* (threads, messages headers,
+// contacts, participants, attachment metadata) so the person-first sidebar can be built fast.
+// Message bodies are NEVER stored: they are fetched live from Gmail when a thread is opened.
+// Snippets (Gmail's ~200 char preview) are stored for the sidebar.
+//
+// Every mail-related row hangs off MailAccount with onDelete: Cascade, so disconnecting Gmail
+// (deleting the MailAccount row) removes all synced mail data in one statement.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String          @id @default(cuid())
+  email      String
+  name       String?
+  image      String?
+  googleSub  String          @unique
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+  sessions   Session[]
+  preference UserPreference?
+  accounts   MailAccount[]
+
+  @@index([email])
+}
+
+/// id = sha256(hex) of the random cookie token. The raw token only ever lives in the cookie.
+model Session {
+  id         String   @id
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  expiresAt  DateTime
+  lastSeenAt DateTime @default(now())
+  userAgent  String?
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model UserPreference {
+  id                     String   @id @default(cuid())
+  userId                 String   @unique
+  user                   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  enterToSend            Boolean  @default(true)
+  theme                  String   @default("system")
+  alwaysLoadRemoteImages Boolean  @default(false)
+  pollIntervalSec        Int      @default(45)
+  updatedAt              DateTime @updatedAt
+}
+
+model MailAccount {
+  id                   String    @id @default(cuid())
+  userId               String
+  user                 User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  provider             String    @default("gmail")
+  emailAddress         String
+  googleSub            String
+  /// AES-256-GCM, format v1:iv:tag:ciphertext (base64url). Never logged.
+  accessToken          String?
+  /// AES-256-GCM, format v1:iv:tag:ciphertext (base64url). Never logged.
+  refreshToken         String?
+  accessTokenExpiresAt DateTime?
+  scopes               String    @default("")
+  /// active | needs_reauth
+  status               String    @default("active")
+  /// Send-as aliases (normalized e-mail addresses), primary excluded.
+  aliases              String[]  @default([])
+  pushExpiration       DateTime?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  syncState     SyncState?
+  contacts      Contact[]
+  threads       EmailThread[]
+  messages      EmailMessage[]
+  attachments   AttachmentMetadata[]
+  drafts        Draft[]
+  outbound      OutboundMessage[]
+
+  @@unique([userId, provider])
+  @@index([emailAddress])
+}
+
+/// A person. Identity = normalized e-mail address only (never the display name).
+model Contact {
+  id           String              @id @default(cuid())
+  accountId    String
+  account      MailAccount         @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  email        String
+  /// Best known display name (most recent non-empty one seen in headers).
+  name         String?
+  lastSeenAt   DateTime?
+  createdAt    DateTime            @default(now())
+  participants ThreadParticipant[]
+
+  @@unique([accountId, email])
+}
+
+/// One Gmail thread = one "topic" (tab). Identity = Gmail threadId, never the subject.
+model EmailThread {
+  id                String   @id @default(cuid())
+  accountId         String
+  account           MailAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  gmailThreadId     String
+  subject           String
+  snippet           String
+  lastMessageAt     DateTime
+  messageCount      Int
+  unreadCount       Int
+  labelIds          String[]
+  inInbox           Boolean
+  starred           Boolean
+  hasSent           Boolean
+  /// In TRASH or SPAM.
+  hidden            Boolean
+  hasAttachments    Boolean
+  isGroup           Boolean
+  isSelfThread      Boolean
+  groupKey          String?
+  counterpartEmail  String?
+  lastFromMe        Boolean
+  lastSenderEmail   String?
+  lastSenderName    String?
+  /// Denormalized "others" (Address[]) as analysed by core analyzeThread — avoids a join on list.
+  participantsJson  Json     @default("[]")
+  historyId         String?
+  /// Last time a full listing (initial / repair sync) saw this thread. Used to prune deleted
+  /// threads only after a *complete* successful listing.
+  listedAt          DateTime?
+  indexedAt         DateTime @default(now())
+
+  messages     EmailMessage[]
+  participants ThreadParticipant[]
+
+  @@unique([accountId, gmailThreadId])
+  @@index([accountId, lastMessageAt])
+  @@index([accountId, groupKey])
+  @@index([accountId, counterpartEmail])
+}
+
+/// Message metadata (headers, labels). No bodies.
+model EmailMessage {
+  id             String      @id @default(cuid())
+  accountId      String
+  account        MailAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  threadId       String
+  thread         EmailThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  gmailMessageId String
+  gmailThreadId  String
+  rfcMessageId   String?
+  inReplyTo      String?
+  references     String?
+  subject        String
+  snippet        String
+  internalDate   DateTime
+  labelIds       String[]
+  isUnread       Boolean
+  isStarred      Boolean
+  isFromMe       Boolean
+  fromEmail      String?
+  fromName       String?
+  toJson         Json        @default("[]")
+  ccJson         Json        @default("[]")
+  bccJson        Json        @default("[]")
+  replyToJson    Json        @default("[]")
+  hasAttachments Boolean
+  attachments    AttachmentMetadata[]
+
+  @@unique([accountId, gmailMessageId])
+  @@index([threadId, internalDate])
+  @@index([accountId, rfcMessageId])
+}
+
+/// Person → threads index ("ContactThreadIndex"): one row per (thread, other participant).
+/// For notes-to-self threads the participant is my own primary address.
+model ThreadParticipant {
+  id           String      @id @default(cuid())
+  threadId     String
+  thread       EmailThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  contactId    String
+  contact      Contact     @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  /// from | to | cc (as seen over all messages of the thread)
+  roles        String[]
+  messageCount Int         @default(0)
+
+  @@unique([threadId, contactId])
+  @@index([contactId])
+}
+
+model AttachmentMetadata {
+  id                String       @id @default(cuid())
+  messageId         String
+  message           EmailMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  accountId         String
+  account           MailAccount  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  /// EmailThread.id (internal)
+  threadId          String
+  gmailMessageId    String
+  gmailAttachmentId String?
+  partId            String
+  filename          String
+  mimeType          String
+  size              Int
+  contentId         String?
+  isInline          Boolean      @default(false)
+
+  @@unique([messageId, partId])
+  @@index([accountId, gmailMessageId])
+  @@index([threadId])
+}
+
+model SyncState {
+  id                  String      @id @default(cuid())
+  accountId           String      @unique
+  account             MailAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  historyId           String?
+  /// idle | syncing | error
+  status              String      @default("idle")
+  initialSyncComplete Boolean     @default(false)
+  backfillComplete    Boolean     @default(false)
+  backfillPageToken   String?
+  backfillCount       Int         @default(0)
+  /// Set when a full listing (initial or repair) starts; threads with listedAt < this are pruned
+  /// when that listing completes.
+  fullSyncStartedAt   DateTime?
+  lastSyncAt          DateTime?
+  lastFullSyncAt      DateTime?
+  lockedUntil         DateTime?
+  consecutiveErrors   Int         @default(0)
+  lastError           String?
+  threadCount         Int         @default(0)
+  updatedAt           DateTime    @updatedAt
+}
+
+/// Mapping only — the content lives in the Gmail draft.
+model Draft {
+  id           String      @id @default(cuid())
+  accountId    String
+  account      MailAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  gmailDraftId String
+  threadId     String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  @@unique([accountId, gmailDraftId])
+}
+
+/// Idempotency ledger for sends: a client retry with the same key never sends twice.
+model OutboundMessage {
+  id             String      @id @default(cuid())
+  accountId      String
+  account        MailAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  idempotencyKey String
+  /// pending | sent | failed
+  status         String      @default("pending")
+  rfcMessageId   String
+  gmailMessageId String?
+  gmailThreadId  String?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  @@unique([accountId, idempotencyKey])
+}
