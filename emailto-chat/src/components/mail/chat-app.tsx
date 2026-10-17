@@ -47,6 +47,17 @@ function Shell({ embedded, accountActions, onExit, className }: ChatAppProps) {
   const { client } = useMail();
   useGlobalShortcuts(!embedded);
 
+  // Landing-page embed on wide screens: open a conversation right away so visitors see bubbles, not an empty state.
+  const autoOpened = React.useRef(false);
+  React.useEffect(() => {
+    if (!embedded || autoOpened.current || !window.matchMedia("(min-width: 768px)").matches) return;
+    autoOpened.current = true;
+    void client.listConversations({ mailbox: "inbox", filter: "all" }).then((list) => {
+      const pick = list.people.find((p) => p.threadCount > 2) ?? list.people[0];
+      if (pick) app.openConversation({ kind: "person", id: pick.id });
+    });
+  }, [embedded, client, app]);
+
   const signOut = accountActions ? () => void accountActions.signOut() : onExit;
   const listScreen = app.mobileView === "list";
 
