@@ -28,7 +28,7 @@ Without Google credentials everything except `/app` works: landing, `/demo`, leg
 | --- | --- |
 | `npm run dev` | Dev server |
 | `npm run build` / `npm start` | Production build (runs `prisma generate`) |
-| `npm test` | Unit + integration tests (vitest). Integration tests need `DATABASE_URL` pointing at a disposable Postgres DB and are skipped otherwise |
+| `npm test` | Unit + integration tests (vitest, 90 tests). Integration tests use `TEST_DATABASE_URL` (a disposable Postgres DB; migrations are applied automatically) with an in-memory fake Gmail, and are skipped with a message when no DB is reachable |
 | `npm run lint` / `npm run typecheck` | ESLint (flat config) / TypeScript |
 | `npm run db:migrate` / `npm run db:deploy` | Prisma migrations (dev / production) |
 
@@ -96,6 +96,12 @@ Rules (implemented in `src/core/grouping.ts`, tested in `tests/core-grouping.tes
 - A DB lock prevents concurrent syncs per account; retries use exponential backoff with jitter.
 - It is e-mail, not a real-time chat: the UI never shows typing indicators, presence or read receipts.
 
+### API (all JSON, session cookie, Origin-checked mutations)
+
+`GET /api/me` · `PATCH /api/preferences` · `GET /api/conversations?mailbox&filter` · `GET /api/conversations/person/:id` · `GET /api/conversations/group/:id` · `GET /api/people/lookup?email` · `GET /api/threads/:threadId` · `POST /api/threads/:threadId/modify` · `POST /api/messages/:id/modify` · `GET /api/messages/:id/original` · `GET /api/attachments?scope&id` · `GET /api/attachments/:messageId/:attachmentId` · `POST /api/send` (multipart) · `POST /api/drafts` · `DELETE /api/drafts/:id` · `GET /api/search?q` · `GET|POST /api/sync` · `POST /api/webhooks/gmail` (Pub/Sub, OIDC-verified) · `GET /api/cron/sync` (Bearer `CRON_SECRET`) · `POST /api/account/disconnect` · `DELETE /api/account` · OAuth: `GET /api/auth/google/login|connect|callback`, `POST /api/auth/logout`.
+
+Behaviour notes: while Gmail access needs re-authorization, the stored index (sidebar, topics, files list, local search) keeps working and only Gmail-backed calls return `needs_reauth`. The repair sync after an expired cursor keeps serving existing rows and deletes threads that disappeared only after a *complete* listing. Inline signature images (Content-ID) are not listed as attachments.
+
 ### Security & privacy
 
 - OAuth 2.0 Authorization Code + PKCE + state, server-side only. **Sign-in** (`openid email profile`) is separate from **Gmail consent** (`gmail.modify` only, incremental authorization). We do not request `https://mail.google.com/`.
@@ -124,7 +130,24 @@ Rules (implemented in `src/core/grouping.ts`, tested in `tests/core-grouping.tes
 - Details panel: people/participants with copy, shared files (grid/list, All/Images/Documents/Other, this topic / all conversations, viewer, jump to source message), conversation history.
 - Keyboard shortcuts (`?` lists them), loading skeletons, empty/error/offline states, toasts with Undo for archive.
 - PWA: manifest, generated icons, offline shell, push handler prepared.
-- Gmail backend: OAuth, sync engine, REST API and tests — see the server section of the test results below.
+- Gmail backend (covered by integration tests against Postgres + a fake Gmail; needs your Google credentials to run for real): sign-in and separate Gmail consent with PKCE, encrypted tokens and refresh, progressive initial sync + backfill, History API incremental sync, expired-cursor repair, Pub/Sub webhook, cron + watch renewal, people/groups/topics read model, thread view with sanitized HTML, send/reply/reply-all/new topic/forward with correct `threadId`/`In-Reply-To`/`References`, idempotent sending (own `Message-ID` + `X-Emailto-Chat-Key` lookup in Sent before any retry), Gmail drafts, read/unread/star/archive/trash, attachments (list + safe download), Gmail full-text search, disconnect and delete account.
+
+#### The 12 required scenarios → tests
+
+| # | Scenario | Test |
+| --- | --- | --- |
+| 1 | 20 messages, 5 threads → 1 person, 5 topics | `core-grouping`, `server-sync` |
+| 2 | One e-mail to 4 recipients → group | `core-grouping`, `server-sync` |
+| 3 | Reply lands in the right Gmail thread (threadId, In-Reply-To, References, Re:) | `server-send` |
+| 4 | New topic with the same person → separate thread | `core-grouping`, `server-send` |
+| 5 | Same name, different addresses → separate contacts | `core-grouping`, `server-sync` |
+| 6 | Message sent from classic Gmail appears after sync | `server-sync` |
+| 7 | Archiving one topic leaves the person's other topics alone | `core-grouping`, `server-actions` |
+| 8 | Disconnect → tokens and data gone, no more Gmail calls | `server-account` |
+| 9 | Several attachments → listed, safe download headers | `server-attachments` |
+| 10 | Dangerous HTML → sanitized, remote images blocked | `server-sanitize` |
+| 11 | Interrupted send → retry never sends twice | `server-send` |
+| 12 | Expired history cursor → repair full sync | `server-sync` |
 
 ### Requires external configuration (not code)
 

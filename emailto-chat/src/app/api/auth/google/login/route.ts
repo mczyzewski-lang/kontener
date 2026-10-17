@@ -15,6 +15,6 @@ export async function GET(req: NextRequest) {
     return new Response(null, { status: 302, headers: { Location: url, "Set-Cookie": cookie, "Cache-Control": "no-store" } });
   } catch (e) {
     log.error("oauth_login_start_failed", { code: (e as Error).name });
-    return appUrl === "/" ? Response.json({ error: { code: "server", message: "Server is misconfigured" } }, { status: 500 }) : redirectTo(appUrl, "/?auth_error=server");
+    return appUrl === "/" ? new Response(null, { status: 302, headers: { Location: "/?auth_error=not_configured", "Cache-Control": "no-store" } }) : redirectTo(appUrl, "/?auth_error=server");
   }
 }

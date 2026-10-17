@@ -86,4 +86,12 @@ describe("10. e-mail HTML sanitizer", () => {
   it("plain HTML without remote content reports no remote images", () => {
     expect(sanitizeEmailHtml("<p>Hi</p>")).toEqual({ html: "<p>Hi</p>", hasRemoteImages: false });
   });
+  it("cleans style attributes on links and images too (no CSS url() tracking)", () => {
+    const { html } = sanitizeEmailHtml(
+      '<a href="https://x.com" style="color:red;background:url(https://t.example/p.gif)">x</a><img src="https://t.example/a.png" style="width:10px;background-image:url(https://t.example/b.gif)">',
+    );
+    expect(html).not.toMatch(/url\(/i);
+    expect(html).toContain("color:red");
+    expect(html).toContain("width:10px");
+  });
 });

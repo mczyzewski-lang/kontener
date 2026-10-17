@@ -17,7 +17,7 @@ const self = makeSelf(ME, ["me.alias@example.org"]);
 const contactId = (e: string) => `c:${e}`;
 
 let seq = 0;
-function msg(p: Partial<IndexableMessage> & { threadId: string; from: string; to: string[]; cc?: string[] }): IndexableMessage {
+function msg(p: Partial<Omit<IndexableMessage, "from" | "to" | "cc">> & { threadId: string; from: string; to: string[]; cc?: string[] }): IndexableMessage {
   seq++;
   const fromMe = [ME, "me.alias@example.org"].includes(p.from);
   return {

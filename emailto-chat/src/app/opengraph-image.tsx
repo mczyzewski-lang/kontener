@@ -40,7 +40,7 @@ export default function OpengraphImage() {
           {bubble("Can you send the offer?", false)}
           {bubble("Sure, today!", true)}
           {bubble("Great, thanks!", false)}
-          {bubble("Just attached it 📎", true)}
+          {bubble("Just attached it.", true)}
         </div>
       </div>
     ),

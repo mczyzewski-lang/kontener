@@ -62,7 +62,13 @@ export default async function LandingPage({ searchParams }: { searchParams: Prom
 
       {params.auth_error && (
         <div className="mx-auto mt-4 max-w-xl rounded-xl bg-danger-soft px-4 py-3 text-center text-sm" role="alert">
-          {params.auth_error === "access_denied" ? "Sign-in was cancelled." : "We couldn’t sign you in with Google. Please try again."}
+          {params.auth_error === "access_denied"
+            ? "Sign-in was cancelled."
+            : params.auth_error === "not_configured"
+              ? "Google sign-in isn’t configured on this server yet (see GOOGLE_SETUP_PL.md). You can still try the demo."
+              : params.auth_error === "rate_limited"
+                ? "Too many sign-in attempts. Please wait a minute and try again."
+                : "We couldn’t sign you in with Google. Please try again."}
         </div>
       )}
       {params.deleted && (

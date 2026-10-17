@@ -105,7 +105,13 @@ export function sanitizeEmailHtml(input: string, opts: SanitizeOptions = {}): Sa
       },
       a: (tagName, attribs) => {
         const href = (attribs.href ?? "").trim();
+        // A tag-specific transform replaces the "*" one, so clean style here too.
         const out: sanitizeHtml.Attributes = { ...attribs };
+        if (out.style) {
+          const st = cleanStyle(out.style);
+          if (st) out.style = st;
+          else delete out.style;
+        }
         if (/^(https?:|mailto:|tel:)/i.test(href)) {
           out.href = href;
           out.target = "_blank";
@@ -120,7 +126,9 @@ export function sanitizeEmailHtml(input: string, opts: SanitizeOptions = {}): Sa
       img: (tagName, attribs) => {
         const src = (attribs.src ?? "").trim();
         const out: sanitizeHtml.Attributes = {};
-        for (const k of ["alt", "width", "height", "style", "border", "title", "align"]) if (attribs[k]) out[k] = attribs[k];
+        for (const k of ["alt", "width", "height", "border", "title", "align"]) if (attribs[k]) out[k] = attribs[k];
+        const imgStyle = attribs.style ? cleanStyle(attribs.style) : "";
+        if (imgStyle) out.style = imgStyle;
         if (/^cid:/i.test(src)) {
           const url = opts.cidMap?.get(src.slice(4).replace(/^<|>$/g, "").trim().toLowerCase());
           out.src = url ?? TRANSPARENT_GIF;
