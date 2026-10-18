@@ -1,0 +1,282 @@
+# Hablo — słownictwo, część 1 (rdzeń: słowa funkcyjne i najczęstsze czasowniki)
+# Format: lemma|pos|tłumaczenia (;)|przykłady es=pl (;;)|kolokacje (;)|formy (,; "-forma" = wyklucz z liczenia korpusu)|tematy|gramatyka|uwaga
+# pos: v, n.m, n.f, n.mf, adj, adv, pron, prep, conj, det, art, interj, num
+de|prep|z; od; (dopełniacz)|Soy de Polonia.=Jestem z Polski.;;Es la casa de mi madre.=To dom mojej mamy.|de nada; de acuerdo; de vez en cuando|de, del|basics|g01-basics|de + el = del
+que|conj|że; który; (w porównaniach) niż|Creo que tienes razón.=Myślę, że masz rację.;;El libro que compré es muy bueno.=Książka, którą kupiłem, jest bardzo dobra.|tener que; creo que; más que|que|basics|g01-basics,g04-tener-haber-gustar|
+no|adv|nie|No sé.=Nie wiem.;;No me gusta el café.=Nie lubię kawy.|no lo sé; ya no; todavía no|no|basics|g01-basics|Przeczenie stoi przed czasownikiem.
+ser|v|być (cecha, tożsamość, pochodzenie)|Soy polaco.=Jestem Polakiem.;;¿Qué hora es?=Która godzina?|ser de; es que; es verdad|soy, eres, es, somos, sois, son, era, fue, fui, sido, sea|basics|g03-ser-estar,g02-present|
+el|art|(rodzajnik określony) ten, ta, to|El coche está fuera.=Samochód jest na zewnątrz.;;La casa es grande.=Dom jest duży.|el lunes; la semana que viene|el, la, los, las, -lo|basics|g01-basics|Formy: el, la, los, las.
+a|prep|do; na; o (godzinie)|Voy a Madrid.=Jadę do Madrytu.;;Llego a las ocho.=Przyjeżdżam o ósmej.|ir a; a las dos; a la derecha|a, al|basics|g01-basics,g05-ir-a|a + el = al
+uno|det|jeden; jakiś (rodzajnik nieokreślony)|Tengo un hermano.=Mam (jednego) brata.;;Quiero una cerveza.=Poproszę piwo.|un poco; una vez; unos días|un, una, unos, unas, uno|basics,numbers|g01-basics|
+estar|v|być (stan, położenie)|Estoy cansado.=Jestem zmęczony.;;¿Dónde está el baño?=Gdzie jest łazienka?|estar bien; estar de acuerdo; estar listo|estoy, estás, está, estamos, estáis, están, estaba, estuve, estado, esté|basics|g03-ser-estar,g02-present|
+y|conj|i; a|Tengo un hijo y una hija.=Mam syna i córkę.;;¿Y tú?=A ty?|¿y tú?; y además|y, e|basics|g01-basics|Przed "i-/hi-" zmienia się w "e".
+en|prep|w; na; (środkiem transportu)|Vivo en Valencia.=Mieszkam w Walencji.;;Voy en coche.=Jadę samochodem.|en casa; en serio; en coche|en|basics|g01-basics|
+lo|pron|go; to|No lo sé.=Nie wiem (tego).;;Lo siento.=Przykro mi.|lo siento; lo que; lo mismo|lo, los|basics|g10-imperativo-pronombres|
+haber|v|(czas. posiłkowy) mieć; hay = jest/są|Hay un bar cerca.=Niedaleko jest bar.;;He comido.=Zjadłem.|hay que; no hay problema; ha sido|hay, he, has, ha, hemos, habéis, han, había, habido, haya|basics|g04-tener-haber-gustar,g06-perfecto|"Hay" = istnieje/jest/są.
+tener|v|mieć|Tengo dos hijos.=Mam dwoje dzieci.;;Tengo que trabajar.=Muszę pracować.|tener que; tener hambre; tener razón|tengo, tienes, tiene, tenemos, tenéis, tienen, tenía, tuve, tenido, tenga|basics,family|g04-tener-haber-gustar,g02-present|
+por|prep|przez; za; dla (przyczyna); po|Gracias por todo.=Dziękuję za wszystko.;;Paseo por el parque.=Spaceruję po parku.|por favor; por qué; por la mañana|por|basics|g10-imperativo-pronombres|Por = przyczyna, droga, wymiana.
+ir|v|iść; jechać|Voy al trabajo.=Idę do pracy.;;Vamos a la playa.=Jedziemy na plażę.|ir a + bezokolicznik; vamos; ir de compras|voy, vas, va, vamos, vais, van, iba, fui, fue, ido, vaya|basics,travel|g05-ir-a,g02-present|
+qué|pron|co; jaki|¿Qué quieres?=Czego chcesz?;;¿Qué haces?=Co robisz?|¿qué tal?; ¿qué pasa?; ¡qué bien!|qué|basics|g01-basics|
+me|pron|mi; mnie; się|Me llamo Marek.=Nazywam się Marek.;;Me gusta.=Podoba mi się.|me gusta; me llamo; me parece|me|basics|g04-tener-haber-gustar,g10-imperativo-pronombres|
+este|det|ten; ta; to|Este coche es nuevo.=Ten samochód jest nowy.;;¿Qué es esto?=Co to jest?|esta semana; este año; esto es|este, esta, esto, estos, estas|basics|g01-basics|
+ese|det|tamten; ten (bliżej rozmówcy)|Eso es verdad.=To prawda.;;¿Me das esa bolsa?=Podasz mi tę torbę?|eso es; por eso; ese día|ese, esa, eso, esos, esas|basics|g01-basics|
+poder|v|móc; potrafić|¿Puedo pagar con tarjeta?=Czy mogę zapłacić kartą?;;No puedo ir hoy.=Nie mogę dziś iść.|¿puedes...?; se puede; no puedo más|puedo, puedes, puede, podemos, podéis, pueden, podía, pude, podido, podría|basics|g04-tener-haber-gustar|
+se|pron|się; (bezosobowo) się|¿Cómo se dice en español?=Jak to się mówi po hiszpańsku?;;Se llama Ana.=Ma na imię Ana.|se puede; se dice; se llama|se|basics|g10-imperativo-pronombres|
+te|pron|ci; cię; się|Te quiero.=Kocham cię.;;¿Te gusta?=Podoba ci się?|te llamo; te lo digo|te|basics|g10-imperativo-pronombres|
+con|prep|z|Vivo con mi mujer.=Mieszkam z żoną.;;Un café con leche, por favor.=Kawę z mlekiem, proszę.|con mucho gusto; café con leche|con|basics,food|g01-basics|conmigo, contigo
+hacer|v|robić; (pogoda) być|¿Qué haces?=Co robisz?;;Hace calor.=Jest gorąco.|hacer la compra; hace frío; hace dos años|hago, haces, hace, hacemos, hacéis, hacen, hacía, hice, hizo, hecho, haga|basics,weather|g02-present,g07-indefinido|Hace + czas = temu.
+mi|det|mój; moja|Mi casa está cerca.=Mój dom jest blisko.;;Mis hijos son pequeños.=Moje dzieci są małe.|mi familia; mis amigos|mi, mis|basics,family|g01-basics|
+su|det|jego; jej; ich; Pana/Pani|Su hermano vive en Sevilla.=Jego brat mieszka w Sewilli.;;¿Es su coche?=Czy to Pana samochód?|su casa; sus hijos|su, sus|basics|g01-basics|
+querer|v|chcieć; kochać|Quiero un café.=Chcę kawę.;;Te quiero mucho.=Bardzo cię kocham.|querer decir; quisiera|quiero, quieres, quiere, queremos, queréis, quieren, quería, quise, querido, quiera|basics,feelings|g02-present|"Quería..." to grzeczna prośba.
+todo|det|cały; wszystko; wszyscy|Todo está bien.=Wszystko jest w porządku.;;Trabajo todos los días.=Pracuję codziennie.|todo el día; todos los días; sobre todo|todo, toda, todos, todas|basics,time|g01-basics|
+pero|conj|ale|Es caro, pero es bueno.=Jest drogie, ale dobre.;;Pero ¿por qué?=Ale dlaczego?|pero bueno|pero|basics|g01-basics|
+sí|adv|tak|Sí, claro.=Tak, oczywiście.;;Creo que sí.=Myślę, że tak.|creo que sí; sí, por favor|sí|basics|g01-basics|Z akcentem: "tak". Bez: si = jeśli.
+si|conj|jeśli; czy|Si quieres, vamos.=Jeśli chcesz, chodźmy.;;No sé si viene.=Nie wiem, czy przyjdzie.|si quieres; como si|si|basics|g01-basics|
+saber|v|wiedzieć; umieć|No lo sé.=Nie wiem.;;¿Sabes nadar?=Umiesz pływać?|no lo sé; ya lo sé; sabe bien|sé, sabes, sabe, sabemos, sabéis, saben, sabía, supe, sabido, sepa|basics,communication|g02-present|
+decir|v|mówić; powiedzieć|¿Qué dices?=Co mówisz?;;Me dijo que no.=Powiedział mi, że nie.|¿cómo se dice...?; es decir; querer decir|digo, dices, dice, decimos, decís, dicen, decía, dije, dijo, dicho, diga|communication|g02-present,g07-indefinido|
+bien|adv|dobrze|Estoy bien, gracias.=Dobrze się czuję, dziękuję.;;Hablas muy bien.=Mówisz bardzo dobrze.|muy bien; está bien; bien hecho|bien|basics,feelings|g01-basics|
+yo|pron|ja|Yo soy Marta.=Ja jestem Marta.;;Yo también.=Ja też.|yo también; yo tampoco|yo|basics|g01-basics|Zaimek często się pomija.
+tu|det|twój; twoja|¿Es tu coche?=To twój samochód?;;Tus padres son muy simpáticos.=Twoi rodzice są bardzo sympatyczni.|tu casa; tus amigos|tu, tus|basics|g01-basics|
+él|pron|on; (ella) ona|Él es mi hermano.=On jest moim bratem.;;Ella trabaja aquí.=Ona tu pracuje.|con él; para ella|él, ella, ello|basics|g01-basics|
+tú|pron|ty|¿Y tú?=A ty?;;Tú tienes razón.=Ty masz rację.|¿y tú?|tú|basics|g01-basics|
+usted|pron|Pan; Pani (forma grzecznościowa)|¿Usted es el dueño?=Czy Pan jest właścicielem?;;¿Cómo está usted?=Jak się Pan/Pani miewa?|¿y usted?|usted, ustedes|basics,communication|g01-basics|W Hiszpanii "tú" jest bardzo częste; "usted" wobec starszych i formalnie.
+aquí|adv|tutaj|Vivo aquí.=Mieszkam tutaj.;;Ven aquí.=Chodź tutaj.|por aquí; aquí mismo|aquí|basics,places|g01-basics|
+más|adv|więcej; bardziej; najbardziej|Quiero más agua.=Chcę więcej wody.;;Es más caro.=Jest droższe.|más o menos; nada más; cada vez más|más|basics|g01-basics|
+ver|v|widzieć; oglądać|¿Ves la playa?=Widzisz plażę?;;Vemos una película.=Oglądamy film.|a ver; nos vemos; ver la tele|veo, ves, ve, vemos, veis, ven, veía, vi, vio, visto, vea|basics|g02-present|
+le|pron|jemu; jej; Panu/Pani|Le doy el libro.=Daję mu książkę.;;¿Le gusta?=Czy Panu się podoba?|le gusta; le digo|le, les|basics|g04-tener-haber-gustar,g10-imperativo-pronombres|
+ya|adv|już; (ya no) już nie|Ya he comido.=Już jadłem.;;Ya no vivo allí.=Już tam nie mieszkam.|ya está; ya no; ya veremos|ya|time|g06-perfecto|
+ahora|adv|teraz|Ahora no puedo.=Teraz nie mogę.;;Ahora mismo voy.=Zaraz idę.|ahora mismo; hasta ahora; por ahora|ahora|time|g02-present|
+muy|adv|bardzo|Es muy bonito.=Jest bardzo ładne.;;Muy bien.=Bardzo dobrze.|muy bien; muy poco|muy|basics|g01-basics|"Muy" przed przymiotnikiem; "mucho" przy czasowniku.
+así|adv|tak; w ten sposób|Se hace así.=Robi się to tak.;;¿Así está bien?=Tak jest dobrze?|así que; así es|así|basics|g01-basics|
+algo|pron|coś|¿Quieres algo?=Chcesz coś?;;Algo más?=Coś jeszcze?|algo más; algo de|algo|basics,shopping|g01-basics|
+o|conj|lub; albo|¿Café o té?=Kawa czy herbata?;;Hoy o mañana.=Dziś albo jutro.|o sea; más o menos|o, u|basics|g01-basics|
+vez|n.f|raz|Una vez a la semana.=Raz w tygodniu.;;Otra vez, por favor.=Jeszcze raz, proszę.|otra vez; a veces; de vez en cuando|vez, veces|time|g01-basics|
+cuando|conj|kiedy (gdy)|Cuando llego a casa, ceno.=Kiedy wracam do domu, jem kolację.;;Llámame cuando puedas.=Zadzwoń, kiedy będziesz mógł.|cuando quieras|cuando|time|g08-imperfecto,g11-subjuntivo|Bez akcentu w zdaniach twierdzących.
+deber|v|powinien; musieć; być winnym|Debes descansar.=Powinieneś odpocząć.;;¿Cuánto le debo?=Ile płacę? (Ile jestem winien?)|deber de; ¿cuánto le debo?|debo, debes, debe, debemos, deben, debería, debía|basics,shopping|g04-tener-haber-gustar|
+nada|pron|nic|No pasa nada.=Nic się nie stało.;;De nada.=Nie ma za co.|de nada; nada más; no pasa nada|nada|basics|g01-basics|Podwójne przeczenie: No quiero nada.
+cómo|adv|jak|¿Cómo estás?=Jak się masz?;;¿Cómo se dice "okno"?=Jak się mówi "okno"?|¿cómo se dice?; ¿cómo te llamas?|cómo|basics,communication|g01-basics|
+otro|det|inny; drugi; kolejny|Otro café, por favor.=Jeszcze jedną kawę, proszę.;;Prefiero el otro.=Wolę ten drugi.|otra vez; el otro día|otro, otra, otros, otras|basics|g01-basics|Nigdy "un otro".
+mucho|det|dużo; bardzo|Trabajo mucho.=Dużo pracuję.;;Muchas gracias.=Bardzo dziękuję.|muchas gracias; mucho gusto; mucho tiempo|mucho, mucha, muchos, muchas|basics|g01-basics|
+gracias|interj|dziękuję|Muchas gracias.=Bardzo dziękuję.;;Gracias por venir.=Dzięki, że przyszedłeś.|muchas gracias; gracias por|gracias|basics,communication||
+hablar|v|mówić; rozmawiać|¿Hablas inglés?=Mówisz po angielsku?;;Hablamos mañana.=Pogadamy jutro.|hablar con; hablar de; hablar por teléfono|hablo, hablas, habla, hablamos, habláis, hablan, hablaba, hablé, habló, hablado|communication|g02-present|
+venir|v|przychodzić; przyjeżdżać|¿Vienes a la fiesta?=Przyjdziesz na imprezę?;;Vengo de casa.=Idę z domu.|venir de; ¡ven aquí!; el año que viene|vengo, vienes, viene, venimos, venís, vienen, venía, vine, vino, venido, venga|basics,travel|g02-present|
+creer|v|wierzyć; sądzić|Creo que sí.=Myślę, że tak.;;No me lo creo.=Nie wierzę.|creo que; no creo|creo, crees, cree, creemos, creen, creía, creí, creyó|communication|g02-present,g11-subjuntivo|"No creo que" + subjuntivo.
+solo|adv|tylko; sam|Solo quiero un café.=Chcę tylko kawę.;;Vivo solo.=Mieszkam sam.|solo un poco; a solas|solo, sola, solos, solas, sólo|basics|g01-basics|Dawniej pisane "sólo" (tylko).
+pensar|v|myśleć; zamierzać|¿Qué piensas?=Co myślisz?;;Pienso ir mañana.=Zamierzam iść jutro.|pensar en; pensar que|pienso, piensas, piensa, pensamos, piensan, pensaba, pensé|communication|g02-present|e→ie
+dar|v|dawać|¿Me das la sal?=Podasz mi sól?;;Me da igual.=Wszystko mi jedno.|me da igual; dar las gracias; dar un paseo|doy, das, da, damos, dais, dan, daba, di, dio, dado, dé|basics|g02-present|
+señor|n.m|pan; (señora) pani|Buenos días, señor.=Dzień dobry panu.;;La señora García.=Pani García.|señor y señora|señor, señora, señores, señoras|people|g01-basics|
+porque|conj|ponieważ; bo|No voy porque estoy cansado.=Nie idę, bo jestem zmęczony.|porque sí|porque|basics|g01-basics|"¿Por qué?" = dlaczego; "porque" = bo.
+necesitar|v|potrzebować|Necesito más tiempo.=Potrzebuję więcej czasu.;;¿Necesitas ayuda?=Potrzebujesz pomocy?|necesitar ayuda; necesitar tiempo|necesito, necesitas, necesita, necesitamos, necesitan, necesitaba, necesité|basics|g02-present|
+nuestro|det|nasz|Nuestra casa está en el pueblo.=Nasz dom jest na wsi.;;Es nuestro hijo.=To nasz syn.|nuestra familia|nuestro, nuestra, nuestros, nuestras|basics,family|g01-basics|
+día|n.m|dzień|Buenos días.=Dzień dobry.;;Trabajo todos los días.=Pracuję codziennie.|buenos días; todos los días; al día siguiente|día, días|time|g01-basics|Rodzaj męski mimo końcówki -a.
+hombre|n.m|mężczyzna; człowiek; (wykrzyk.) no wiesz|Es un hombre muy amable.=To bardzo uprzejmy mężczyzna.;;¡Hombre, qué sorpresa!=O, co za niespodzianka!|¡hombre!|hombre, hombres|people|g01-basics|
+entonces|adv|wtedy; więc|Entonces, ¿vamos?=No to idziemy?;;Entonces vivía en Madrid.=Wtedy mieszkałem w Madrycie.|entonces...|entonces|basics,time|g08-imperfecto|
+hola|interj|cześć; dzień dobry|Hola, ¿qué tal?=Cześć, co słychać?|hola, ¿qué tal?|hola|basics,communication||
+casa|n.f|dom; mieszkanie|Estoy en casa.=Jestem w domu.;;Vamos a casa.=Wracamy do domu.|en casa; a casa; casa de|casa, casas|home|g01-basics|
+verdad|n.f|prawda|Es verdad.=To prawda.;;¿Verdad?=Prawda?|de verdad; ¿verdad?|verdad, verdades|communication|g03-ser-estar|
+quién|pron|kto|¿Quién es?=Kto to?;;¿Con quién vives?=Z kim mieszkasz?|¿quién es?|quién, quiénes|basics|g01-basics|
+alguno|det|jakiś; niektóry|¿Tienes alguna pregunta?=Masz jakieś pytanie?;;Algún día iré.=Kiedyś pojadę.|algún día; alguna vez|alguno, alguna, algunos, algunas, algún|basics|g01-basics|Przed rzeczownikiem m.: algún.
+tiempo|n.m|czas; pogoda|No tengo tiempo.=Nie mam czasu.;;¿Qué tiempo hace?=Jaka jest pogoda?|mucho tiempo; a tiempo; hace buen tiempo|tiempo, tiempos|time,weather|g01-basics|
+chico|n.m|chłopak; (chica) dziewczyna|Es un chico muy simpático.=To bardzo sympatyczny chłopak.;;Las chicas están en la playa.=Dziewczyny są na plaży.|chicos y chicas|chico, chica, chicos, chicas|people|g01-basics|
+tan|adv|tak (bardzo)|¡Es tan bonito!=To takie ładne!;;No es tan difícil.=To nie jest aż tak trudne.|tan... como|tan|basics|g01-basics|
+volver|v|wracać|Vuelvo a las seis.=Wracam o szóstej.;;Vuelve pronto.=Wracaj szybko.|volver a casa; volver a + bezokolicznik (znowu)|vuelvo, vuelves, vuelve, volvemos, vuelven, volvía, volví, volvió, vuelto|travel|g02-present|o→ue
+dos|num|dwa|Dos cafés, por favor.=Dwie kawy, proszę.|las dos; dos veces|dos|numbers|g01-basics|
+nunca|adv|nigdy|Nunca como carne.=Nigdy nie jem mięsa.;;No he estado nunca en Cuba.=Nigdy nie byłem na Kubie.|casi nunca|nunca|time|g06-perfecto|
+dónde|adv|gdzie|¿Dónde vives?=Gdzie mieszkasz?;;¿De dónde eres?=Skąd jesteś?|¿de dónde?; ¿adónde?|dónde|basics,places|g01-basics|
+año|n.m|rok|Tengo cuarenta años.=Mam czterdzieści lat.;;El año pasado fui a Mallorca.=W zeszłym roku pojechałem na Majorkę.|el año pasado; el año que viene; cumplir años|año, años|time|g07-indefinido|Wiek: tener ... años.
+parecer|v|wydawać się|Me parece bien.=Wydaje mi się w porządku.;;Pareces cansado.=Wyglądasz na zmęczonego.|me parece que; ¿qué te parece?|parece, pareces, parecen, parecía, pareció, parecer|communication,feelings|g04-tener-haber-gustar|
+favor|n.m|przysługa|Por favor.=Proszę.;;¿Me haces un favor?=Zrobisz mi przysługę?|por favor; hacer un favor|favor, favores|basics,communication||
+mejor|adj|lepszy; lepiej; najlepszy|Es mejor así.=Tak jest lepiej.;;Mi mejor amigo vive en Bilbao.=Mój najlepszy przyjaciel mieszka w Bilbao.|a lo mejor; mejor que; lo mejor|mejor, mejores|basics|g01-basics|"A lo mejor" = może.
+pasar|v|dziać się; spędzać; przechodzić; podawać|¿Qué pasa?=Co się dzieje?;;Pasamos el verano en la costa.=Spędzamy lato na wybrzeżu.|¿qué pasa?; pasarlo bien; pasar por|pasa, paso, pasas, pasamos, pasan, pasaba, pasé, pasó, pasado|basics,time|g02-present,g07-indefinido|
+gustar|v|podobać się; lubić|Me gusta el café.=Lubię kawę.;;¿Te gustan los perros?=Lubisz psy?|me gusta; me gustaría; ¿te gusta?|gusta, gustan, gustaba, gustó, gustaría, guste|feelings,food|g04-tener-haber-gustar|Konstrukcja jak "podobać się": me gusta(n).
+encontrar|v|znajdować; spotykać|No encuentro las llaves.=Nie mogę znaleźć kluczy.;;Me encuentro mejor.=Czuję się lepiej.|encontrarse bien; encontrar trabajo|encuentro, encuentras, encuentra, encontramos, encuentran, encontré, encontró, encontrado|basics|g02-present|o→ue
+noche|n.f|noc; wieczór|Buenas noches.=Dobranoc / Dobry wieczór.;;Esta noche salimos.=Dziś wieczorem wychodzimy.|buenas noches; esta noche; por la noche|noche, noches|time|g01-basics|
+esperar|v|czekać; mieć nadzieję; oczekiwać|Espera un momento.=Poczekaj chwilę.;;Espero que estés bien.=Mam nadzieję, że u ciebie dobrze.|esperar a alguien; espero que|espero, esperas, espera, esperamos, esperan, esperaba, esperé, esperando|basics,feelings|g02-present,g11-subjuntivo|"Espero que" + subjuntivo.
+mismo|adj|ten sam; sam|Tenemos el mismo coche.=Mamy ten sam samochód.;;Ahora mismo.=Natychmiast.|lo mismo; ahora mismo; yo mismo|mismo, misma, mismos, mismas|basics|g01-basics|
+vida|n.f|życie|Me encanta la vida en España.=Uwielbiam życie w Hiszpanii.|en mi vida; así es la vida|vida, vidas|feelings|g01-basics|
+también|adv|też; także|Yo también.=Ja też.;;También hablo inglés.=Mówię też po angielsku.|yo también|también|basics|g01-basics|Przeczenie: tampoco.
+hijo|n.m|syn; (hija) córka; (hijos) dzieci|Tengo dos hijos.=Mam dwoje dzieci.;;Mi hija estudia en Madrid.=Moja córka studiuje w Madrycie.|hijo mayor; hija pequeña|hijo, hija, hijos, hijas|family|g01-basics|
+cosa|n.f|rzecz; sprawa|Tengo muchas cosas que hacer.=Mam dużo rzeczy do zrobienia.;;Otra cosa.=Jeszcze jedna sprawa.|cualquier cosa; otra cosa|cosa, cosas|basics|g01-basics|
+sobre|prep|o; na; około|Hablamos sobre el viaje.=Rozmawiamy o podróży.;;Llego sobre las cinco.=Przyjadę około piątej.|sobre todo|sobre|basics|g01-basics|
+sin|prep|bez|Un café sin azúcar.=Kawa bez cukru.;;Sin problema.=Bez problemu.|sin duda; sin embargo|sin|basics|g01-basics|
+dejar|v|zostawiać; pozwalać; przestać (dejar de)|Dejé el coche en el garaje.=Zostawiłem samochód w garażu.;;Déjame pensar.=Daj mi pomyśleć.;;He dejado de fumar.=Rzuciłem palenie.|dejar de; déjame|dejo, dejas, deja, dejamos, dejan, dejé, dejó, dejado|basics|g02-present,g07-indefinido|
+sentir|v|czuć; żałować|Lo siento mucho.=Bardzo mi przykro.;;Me siento bien.=Czuję się dobrze.|lo siento; sentirse bien|siento, sientes, siente, sentimos, sienten, sentía, sentí, sintió|feelings|g02-present|e→ie
+llevar|v|nosić; zabierać; spędzać (czas)|Llevo dos años aquí.=Jestem tu od dwóch lat.;;¿Te llevo a casa?=Podwieźć cię do domu?|llevar tiempo; para llevar|llevo, llevas, lleva, llevamos, llevan, llevaba, llevé, llevó, llevado|basics,food|g02-present|"Para llevar" = na wynos.
+amigo|n.m|przyjaciel; kolega; (amiga) przyjaciółka|Es mi amigo.=To mój przyjaciel.;;Salgo con mis amigos.=Wychodzę z przyjaciółmi.|un amigo mío; hacer amigos|amigo, amiga, amigos, amigas|people|g01-basics|
+llegar|v|przybywać; docierać|¿A qué hora llegas?=O której przyjeżdżasz?;;Llegué tarde.=Spóźniłem się.|llegar tarde; llegar a tiempo|llego, llegas, llega, llegamos, llegan, llegaba, llegué, llegó, llegado|travel,time|g02-present,g07-indefinido|
+alguien|pron|ktoś|¿Hay alguien?=Jest tu ktoś?|alguien más|alguien|basics|g01-basics|
+poco|det|mało; trochę (un poco)|Hablo un poco de español.=Mówię trochę po hiszpańsku.;;Tengo poco tiempo.=Mam mało czasu.|un poco; poco a poco|poco, poca, pocos, pocas|basics|g01-basics|
+padre|n.m|ojciec; (padres) rodzice|Mi padre es médico.=Mój tata jest lekarzem.;;Mis padres viven en Polonia.=Moi rodzice mieszkają w Polsce.|padres|padre, padres|family|g01-basics|
+entrar|v|wchodzić|¿Puedo entrar?=Czy mogę wejść?;;Entramos en el restaurante.=Wchodzimy do restauracji.|entrar en|entro, entras, entra, entramos, entran, entré, entró, entrado, -entre|basics,places|g02-present|W Hiszpanii: entrar en.
+siempre|adv|zawsze|Siempre desayuno en casa.=Zawsze jem śniadanie w domu.|como siempre; para siempre|siempre|time|g02-present|
+hasta|prep|do; aż; nawet|Hasta luego.=Na razie / Do zobaczenia.;;Trabajo hasta las siete.=Pracuję do siódmej.|hasta luego; hasta mañana; hasta pronto|hasta|time,communication|g01-basics|
+oír|v|słyszeć|No te oigo bien.=Nie słyszę cię dobrze.;;¡Oye!=Słuchaj! / Hej!|¡oye!; oír hablar de|oigo, oyes, oye, oímos, oyen, oía, oí, oyó, oído|communication|g02-present|
+seguir|v|kontynuować; iść dalej; podążać|Sigue recto.=Idź prosto.;;Sigo trabajando aquí.=Nadal tu pracuję.|seguir recto; seguir + gerundio|sigo, sigues, sigue, seguimos, siguen, seguía, seguí, siguió, seguido|places,travel|g02-present|
+antes|adv|przedtem; wcześniej|Antes vivía en Polonia.=Wcześniej mieszkałem w Polsce.;;Antes de comer.=Przed jedzeniem.|antes de; cuanto antes|antes|time|g08-imperfecto|
+llamar|v|dzwonić; nazywać (się)|Te llamo mañana.=Zadzwonię do ciebie jutro.;;¿Cómo te llamas?=Jak masz na imię?|llamarse; llamar por teléfono|llamo, llamas, llama, llamamos, llaman, llamé, llamó, llamado|communication|g02-present|
+salir|v|wychodzić; wyjeżdżać|Salgo de casa a las ocho.=Wychodzę z domu o ósmej.;;¿Salimos esta noche?=Wychodzimy dziś wieczorem?|salir de; salir con; salir bien|salgo, sales, sale, salimos, salen, salía, salí, salió, salido|basics,places|g02-present|
+conocer|v|znać; poznawać|¿Conoces Granada?=Znasz Granadę?;;Encantado de conocerte.=Miło cię poznać.|encantado de conocerte; conocer a alguien|conozco, conoces, conoce, conocemos, conocen, conocía, conocí, conoció, conocido|people|g02-present|Ludzi: conocer a.
+nosotros|pron|my|Nosotros vivimos aquí.=My tu mieszkamy.|con nosotros|nosotros, nosotras|basics|g01-basics|
+seguro|adj|pewny; bezpieczny; ubezpieczenie (n.)|¿Estás seguro?=Jesteś pewien?;;Seguro que sí.=Na pewno tak.|seguro que; estar seguro|seguro, segura, seguros, seguras|basics|g03-ser-estar|
+trabajo|n.m|praca|Voy al trabajo en metro.=Jeżdżę do pracy metrem.;;Tengo mucho trabajo.=Mam dużo pracy.|buscar trabajo; en el trabajo|trabajo, trabajos|work|g01-basics|
+ellos|pron|oni; (ellas) one|Ellos son mis vecinos.=Oni są moimi sąsiadami.|con ellos|ellos, ellas|basics|g01-basics|
+acuerdo|n.m|porozumienie; zgoda|Estoy de acuerdo.=Zgadzam się.;;De acuerdo.=Zgoda.|de acuerdo; estar de acuerdo|acuerdo, acuerdos|communication|g03-ser-estar|
+poner|v|kłaść; stawiać; włączać|¿Dónde pongo esto?=Gdzie to położyć?;;Pon la tele.=Włącz telewizor.|ponerse; poner la mesa|pongo, pones, pone, ponemos, ponen, ponía, puse, puso, puesto, ponga|home|g02-present,g07-indefinido|
+gente|n.f|ludzie|Hay mucha gente.=Jest dużo ludzi.;;La gente aquí es muy amable.=Ludzie tutaj są bardzo mili.|mucha gente|gente|people|g01-basics|Liczba pojedyncza: la gente es...
+mirar|v|patrzeć; oglądać|Mira, es mi casa.=Spójrz, to mój dom.;;Solo estoy mirando, gracias.=Tylko się rozglądam, dziękuję.|¡mira!; mirar por la ventana|miro, miras, mira, miramos, miran, miré, miró, mirado|basics,shopping|g02-present,g10-imperativo-pronombres|
+tomar|v|brać; pić; jeść (coś małego)|¿Qué vas a tomar?=Co weźmiesz (do picia)?;;Tomamos un café.=Napijmy się kawy.|tomar algo; tomar el sol; tomar el autobús|tomo, tomas, toma, tomamos, toman, tomé, tomó, tomado|food,travel|g02-present|
+mujer|n.f|kobieta; żona|Mi mujer es española.=Moja żona jest Hiszpanką.|mi mujer|mujer, mujeres|people,family|g01-basics|
+nadie|pron|nikt|No hay nadie.=Nikogo nie ma.|nadie más|nadie|basics|g01-basics|
+niño|n.m|dziecko; chłopiec|Los niños juegan en el parque.=Dzieci bawią się w parku.|de niño|niño, niña, niños, niñas|people,family|g08-imperfecto|"De niño..." = kiedy byłem dzieckiem.
+entender|v|rozumieć|No entiendo.=Nie rozumiem.;;¿Me entiendes?=Rozumiesz mnie?|no entiendo; entender bien|entiendo, entiendes, entiende, entendemos, entienden, entendí, entendido|communication|g02-present|e→ie
+momento|n.m|chwila; moment|Un momento, por favor.=Chwileczkę, proszę.|un momento; en este momento|momento, momentos|time|g01-basics|
+hora|n.f|godzina|¿Qué hora es?=Która godzina?;;Tengo una hora libre.=Mam godzinę wolnego.|¿a qué hora?; ya es hora|hora, horas|time|g01-basics|
+después|adv|potem; po|Después de comer, descanso.=Po obiedzie odpoczywam.;;Te llamo después.=Zadzwonię później.|después de; poco después|después|time|g07-indefinido|
+problema|n.m|problem|No hay problema.=Nie ma problemu.;;Tengo un problema con el coche.=Mam problem z samochodem.|no hay problema; ningún problema|problema, problemas|basics,problems|g01-basics|Rodzaj męski.
+nuevo|adj|nowy|Tengo un coche nuevo.=Mam nowy samochód.|de nuevo; Año Nuevo|nuevo, nueva, nuevos, nuevas|basics|g01-basics|"De nuevo" = znowu.
+desde|prep|od; z|Vivo aquí desde 2020.=Mieszkam tu od 2020 roku.;;Te llamo desde el tren.=Dzwonię z pociągu.|desde hace; desde luego|desde|time|g01-basics|"Desde luego" = oczywiście.
+mundo|n.m|świat|Todo el mundo lo sabe.=Wszyscy to wiedzą.|todo el mundo|mundo|basics|g01-basics|"Todo el mundo" = wszyscy.
+morir|v|umierać|Me muero de hambre.=Umieram z głodu.|morirse de|muero, mueres, muere, morir, murió, muerto|feelings|g02-present|
+lugar|n.m|miejsce|Es un lugar muy tranquilo.=To bardzo spokojne miejsce.|en lugar de; tener lugar|lugar, lugares|places|g01-basics|
+claro|adv|oczywiście; jasny|¡Claro!=Jasne!;;Claro que sí.=Oczywiście, że tak.|claro que sí; ¿está claro?|claro, clara|communication|g01-basics|
+dinero|n.m|pieniądze|No tengo dinero.=Nie mam pieniędzy.|ganar dinero; sacar dinero|dinero|shopping,work|g01-basics|Liczba pojedyncza.
+tipo|n.m|rodzaj; typ; facet|¿Qué tipo de música te gusta?=Jaką muzykę lubisz?|tipo de|tipo, tipos|basics|g01-basics|
+trabajar|v|pracować|Trabajo en una oficina.=Pracuję w biurze.;;¿En qué trabajas?=Czym się zajmujesz?|trabajar en; trabajar de|trabajo, trabajas, trabaja, trabajamos, trabajan, trabajaba, trabajé, trabajado|work|g02-present|
+madre|n.f|matka|Mi madre vive en Cracovia.=Moja mama mieszka w Krakowie.|madre mía|madre, madres|family|g01-basics|"¡Madre mía!" = O rany!
+mañana|adv|jutro; (n.f) rano|Mañana trabajo.=Jutro pracuję.;;Por la mañana voy al gimnasio.=Rano chodzę na siłownię.|hasta mañana; por la mañana; mañana por la mañana|mañana, mañanas|time|g05-ir-a|
+acabar|v|kończyć; (acabar de) właśnie coś zrobić|Acabo de llegar.=Właśnie przyjechałem.;;¿Has acabado?=Skończyłeś?|acabar de + bezokolicznik|acabo, acabas, acaba, acabamos, acaban, acabé, acabó, acabado|time|g06-perfecto|W Hiszpanii częściej "acabar" niż "terminar".
+vale|interj|dobrze; okej|¿Quedamos a las seis? — Vale.=Spotykamy się o szóstej? — Okej.|vale, vale|vale|communication|g01-basics|Bardzo typowe dla Hiszpanii.
+vivir|v|mieszkać; żyć|Vivo en Alicante.=Mieszkam w Alicante.;;Vivimos juntos.=Mieszkamy razem.|vivir en; vivir de|vivo, vives, vive, vivimos, vivís, viven, vivía, viví, vivió, vivido|home,places|g02-present|
+allí|adv|tam|Mi hermano vive allí.=Mój brat tam mieszka.|por allí; allí mismo|allí, ahí, allá|places|g01-basics|ahí = tam (bliżej), allí = tam (dalej).
+menos|adv|mniej; za (przy godzinach)|Son las tres menos cuarto.=Jest za kwadrans trzecia.;;Cuesta menos.=Kosztuje mniej.|por lo menos; menos mal; más o menos|menos|basics,time|g01-basics|"Menos mal" = całe szczęście.
+grande|adj|duży; wielki|Una casa grande.=Duży dom.;;Es un gran día.=To wielki dzień.|un gran...|grande, grandes, gran|basics|g01-basics|Przed rzecz. l.poj.: gran.
+ninguno|det|żaden|No tengo ningún problema.=Nie mam żadnego problemu.|ninguna parte; de ninguna manera|ninguno, ninguna, ningún|basics|g01-basics|
+importar|v|mieć znaczenie; przeszkadzać|No importa.=Nieważne.;;¿Te importa si abro la ventana?=Przeszkadza ci, jeśli otworzę okno?|no importa; ¿te importa?|importa, importan, importaba|communication|g04-tener-haber-gustar|Konstrukcja jak gustar.
+parte|n.f|część; strona|¿De parte de quién?=Kto mówi? (przez telefon)|en todas partes; por otra parte; de parte de|parte, partes|basics|g01-basics|
+luego|adv|potem; później|Hasta luego.=Na razie.;;Luego te llamo.=Później do ciebie zadzwonię.|hasta luego; desde luego|luego|time|g01-basics|
+hermano|n.m|brat; (hermana) siostra|Tengo una hermana.=Mam siostrę.|hermano mayor; hermana pequeña|hermano, hermana, hermanos, hermanas|family|g01-basics|
+hoy|adv|dziś|Hoy hace calor.=Dziś jest gorąco.;;¿Qué haces hoy?=Co dziś robisz?|hoy en día; de hoy|hoy|time|g02-present,g06-perfecto|"Hoy" zwykle z pretérito perfecto: Hoy he trabajado.
+tres|num|trzy|Tres entradas, por favor.=Trzy bilety, proszę.|las tres|tres|numbers|g01-basics|
+perder|v|tracić; gubić; spóźnić się na|He perdido las llaves.=Zgubiłem klucze.;;Perdimos el tren.=Spóźniliśmy się na pociąg.|perder el tren; perder tiempo|pierdo, pierdes, pierde, perdemos, pierden, perdí, perdió, perdido|problems|g06-perfecto|
+nombre|n.m|imię; nazwa|¿Cuál es tu nombre?=Jak masz na imię?|nombre y apellido|nombre, nombres|people|g01-basics|
+quedar|v|umawiać się; zostawać; pasować|¿Quedamos mañana?=Umówimy się jutro?;;Me quedo en casa.=Zostaję w domu.;;Te queda bien.=Dobrze ci w tym.|quedar con; quedarse; quedar bien|quedo, quedas, queda, quedamos, quedan, quedé, quedó, quedado|people,shopping|g02-present|Bardzo częste w Hiszpanii: "¿quedamos?".
+buscar|v|szukać|Busco una farmacia.=Szukam apteki.;;Te busco en el aeropuerto.=Odbiorę cię z lotniska.|buscar trabajo; ir a buscar|busco, buscas, busca, buscamos, buscan, busqué, buscó, buscado|basics|g02-present|
+empezar|v|zaczynać|La película empieza a las nueve.=Film zaczyna się o dziewiątej.|empezar a + bezokolicznik|empiezo, empiezas, empieza, empezamos, empiezan, empecé, empezó, empezado|time|g02-present|e→ie
+vosotros|pron|wy|¿Vosotros venís?=Wy przyjdziecie?|con vosotros|vosotros, vosotras|basics|g01-basics|Używane w Hiszpanii (w Ameryce Łacińskiej: ustedes).
+mano|n.f|ręka; dłoń|Lávate las manos.=Umyj ręce.|a mano; echar una mano|mano, manos|body|g01-basics|Rodzaj żeński. "Echar una mano" = pomóc.
+conseguir|v|osiągnąć; zdobyć; zdołać|Conseguí trabajo.=Dostałem pracę.;;No consigo dormir.=Nie mogę zasnąć.|conseguir + bezokolicznik|consigo, consigues, consigue, conseguimos, consiguen, conseguí, consiguió, conseguido|work|g07-indefinido|
+último|adj|ostatni|La última vez.=Ostatnim razem.|por último; última vez|último, última, últimos, últimas|time|g07-indefinido|
+mal|adv|źle|Me encuentro mal.=Źle się czuję.|no está mal; ir mal|mal|feelings,health|g01-basics|
+intentar|v|próbować|Lo intento.=Próbuję.;;Intenta hablar más despacio.=Spróbuj mówić wolniej.|intentar + bezokolicznik|intento, intentas, intenta, intentamos, intentan, intenté, intentó, intentado|basics|g02-present|
+pequeño|adj|mały|Mi hija es pequeña.=Moja córka jest mała.|de pequeño|pequeño, pequeña, pequeños, pequeñas|basics|g08-imperfecto|
+terminar|v|kończyć|¿A qué hora terminas?=O której kończysz?|terminar de|termino, terminas, termina, terminamos, terminan, terminé, terminó, terminado|time,work|g02-present|
+escuchar|v|słuchać|Escucha, tengo una idea.=Słuchaj, mam pomysł.;;Me gusta escuchar música.=Lubię słuchać muzyki.|escuchar música|escucho, escuchas, escucha, escuchamos, escuchan, escuché, escuchado|communication|g02-present|
+primero|adj|pierwszy; najpierw|Primero, desayuno.=Najpierw jem śniadanie.;;Es la primera vez.=To pierwszy raz.|primera vez; primero de todo|primero, primera, primeros, primeras, primer|basics,numbers|g01-basics|
+usar|v|używać|¿Puedo usar tu móvil?=Mogę użyć twojej komórki?|usar el ordenador|uso, usas, usa, usamos, usan, usé, usado|basics|g02-present|
+cada|det|każdy|Cada día aprendo algo.=Każdego dnia czegoś się uczę.|cada día; cada vez más|cada|time|g01-basics|Nieodmienne.
+persona|n.f|osoba|Es una persona muy simpática.=To bardzo sympatyczna osoba.;;Mesa para dos personas.=Stolik dla dwóch osób.|por persona|persona, personas|people|g01-basics|Zawsze rodzaj żeński.
+razón|n.f|rację; powód|Tienes razón.=Masz rację.|tener razón|razón, razones|communication|g04-tener-haber-gustar|
+preocupar|v|martwić (się)|No te preocupes.=Nie martw się.;;Me preocupa el precio.=Martwi mnie cena.|no te preocupes; preocuparse por|preocupa, preocupo, preocupes, preocupado|feelings|g10-imperativo-pronombres|
+traer|v|przynosić|¿Me trae la cuenta, por favor?=Poproszę rachunek.;;Traigo vino.=Przynoszę wino.|traer la cuenta|traigo, traes, trae, traemos, traen, traje, trajo, traído|food,shopping|g02-present|
+tarde|adv|późno; (n.f) popołudnie|Llego tarde.=Spóźnię się.;;Por la tarde trabajo.=Po południu pracuję.|buenas tardes; por la tarde; más tarde|tarde, tardes|time|g01-basics|
+idea|n.f|pomysł; pojęcie|¡Buena idea!=Dobry pomysł!;;No tengo ni idea.=Nie mam pojęcia.|ni idea; buena idea|idea, ideas|communication|g01-basics|
+preguntar|v|pytać|¿Puedo preguntar algo?=Mogę o coś zapytać?|preguntar por|pregunto, preguntas, pregunta, preguntamos, preguntan, pregunté, preguntó, preguntado|communication|g02-present|Pytać = preguntar; prosić = pedir.
+pedir|v|prosić; zamawiać|¿Pedimos?=Zamawiamy?;;Te pido un favor.=Proszę cię o przysługę.|pedir la cuenta; pedir perdón|pido, pides, pide, pedimos, piden, pedí, pidió, pedido|food,shopping|g02-present|e→i
+minuto|n.m|minuta|Llego en cinco minutos.=Będę za pięć minut.|un minuto|minuto, minutos|time|g01-basics|
+semana|n.f|tydzień|La semana que viene.=W przyszłym tygodniu.;;Dos veces a la semana.=Dwa razy w tygodniu.|esta semana; fin de semana|semana, semanas|time|g05-ir-a|
+demasiado|adv|za dużo; zbyt|Es demasiado caro.=To jest za drogie.|demasiado tarde|demasiado, demasiada, demasiados, demasiadas|shopping|g01-basics|
+malo|adj|zły; niedobry|No es mala idea.=To nie jest zły pomysł.|mala suerte|malo, mala, malos, malas, mal|basics|g01-basics|
+familia|n.f|rodzina|Mi familia es grande.=Moja rodzina jest duża.|en familia|familia, familias|family|g01-basics|
+ayudar|v|pomagać|¿Te puedo ayudar?=Mogę ci pomóc?;;¿Me ayudas?=Pomożesz mi?|ayudar a + bezokolicznik|ayudo, ayudas, ayuda, ayudamos, ayudan, ayudé, ayudó, ayudado|communication|g02-present|
+cuánto|adv|ile|¿Cuánto cuesta?=Ile to kosztuje?;;¿Cuántos años tienes?=Ile masz lat?|¿cuánto es?; ¿cuánto tiempo?|cuánto, cuánta, cuántos, cuántas|shopping,numbers|g01-basics|
+cambiar|v|zmieniać; wymieniać|Quiero cambiar esta camisa.=Chcę wymienić tę koszulę.|cambiar de idea; cambiar dinero|cambio, cambias, cambia, cambiamos, cambian, cambié, cambió, cambiado|shopping|g02-present|
+amor|n.m|miłość|El amor de mi vida.=Miłość mojego życia.|mi amor|amor|feelings|g01-basics|
+cuenta|n.f|rachunek; konto|La cuenta, por favor.=Rachunek, proszę.|darse cuenta; cuenta bancaria|cuenta, cuentas|food,shopping|g01-basics|"Darse cuenta" = zorientować się.
+recordar|v|pamiętać; przypominać|No recuerdo su nombre.=Nie pamiętam jego imienia.;;Recuérdame llamar a Pedro.=Przypomnij mi, żebym zadzwonił do Pedra.|si recuerdo bien|recuerdo, recuerdas, recuerda, recordamos, recuerdan, recordé, recordado|communication|g02-present|o→ue
+viejo|adj|stary|Un coche viejo.=Stary samochód.|un viejo amigo|viejo, vieja, viejos, viejas|basics|g01-basics|O osobach grzeczniej: mayor.
+tratar|v|próbować; traktować; (tratarse de) chodzić o|Trato de entender.=Staram się zrozumieć.;;¿De qué se trata?=O co chodzi?|tratar de; se trata de|trato, tratas, trata, tratamos, tratan, traté, tratado|communication|g02-present|
+dormir|v|spać|Duermo ocho horas.=Śpię osiem godzin.;;¿Has dormido bien?=Dobrze spałeś?|dormir bien; irse a dormir|duermo, duermes, duerme, dormimos, duermen, dormía, dormí, durmió, dormido|home,health|g02-present|o→ue
+todavía|adv|jeszcze; wciąż|Todavía no.=Jeszcze nie.;;Todavía vivo aquí.=Wciąż tu mieszkam.|todavía no|todavía|time|g06-perfecto|
+cabeza|n.f|głowa|Me duele la cabeza.=Boli mnie głowa.|dolor de cabeza|cabeza, cabezas|body,health|g04-tener-haber-gustar|
+lado|n.m|strona; bok|Al lado del banco.=Obok banku.|al lado de; por otro lado|lado, lados|places|g01-basics|
+abrir|v|otwierać|¿A qué hora abre la tienda?=O której otwierają sklep?|abrir la puerta|abro, abres, abre, abrimos, abren, abrí, abrió, abierto|shopping,home|g02-present|Imiesłów: abierto.
+historia|n.f|historia; opowieść|Te cuento una historia.=Opowiem ci pewną historię.|contar una historia|historia, historias|communication|g07-indefinido|
+puerta|n.f|drzwi|Cierra la puerta, por favor.=Zamknij drzwi, proszę.|abrir la puerta|puerta, puertas|home|g01-basics|
+rápido|adj|szybki; szybko|Habla muy rápido.=Mówi bardzo szybko.|más rápido|rápido, rápida, rápidos, rápidas|basics|g01-basics|
+significar|v|znaczyć|¿Qué significa esta palabra?=Co znaczy to słowo?|¿qué significa...?|significa, significan, significado|communication|g01-basics|
+jugar|v|grać; bawić się|Los niños juegan en la playa.=Dzieci bawią się na plaży.;;Juego al pádel.=Gram w padla.|jugar al fútbol|juego, juegas, juega, jugamos, juegan, jugué, jugó, jugado|free-time|g02-present|u→ue; jugar a + sport
+olvidar|v|zapominać|Se me ha olvidado.=Zapomniałem.;;No olvides las llaves.=Nie zapomnij kluczy.|olvidarse de|olvido, olvidas, olvida, olvidé, olvidó, olvidado|communication|g06-perfecto|
+cuál|pron|który; jaki|¿Cuál prefieres?=Który wolisz?|¿cuál es...?|cuál, cuáles|basics|g01-basics|
+leer|v|czytać|Me gusta leer en la playa.=Lubię czytać na plaży.|leer un libro|leo, lees, lee, leemos, leen, leí, leyó, leído|free-time|g02-present|
+ganar|v|wygrywać; zarabiać|¿Quién ha ganado?=Kto wygrał?;;Gana poco.=Mało zarabia.|ganar dinero; ganar un partido|gano, ganas, gana, ganamos, ganan, gané, ganó, ganado|work,free-time|g02-present|
+pues|conj|no więc; to|Pues no sé.=No nie wiem.;;Pues vamos.=To chodźmy.|pues nada; pues bien|pues|communication|g01-basics|Typowy "wypełniacz" w mowie.
+adiós|interj|do widzenia; cześć|Adiós, hasta mañana.=Cześć, do jutra.|adiós|adiós|basics,communication||
+ojo|n.m|oko; (wykrz.) uwaga!|Tiene los ojos azules.=Ma niebieskie oczy.;;¡Ojo!=Uwaga!|¡ojo!|ojo, ojos|body|g01-basics|
+quizá|adv|może|Quizá mañana.=Może jutro.|quizá(s)|quizá, quizás|communication|g11-subjuntivo|
+encantar|v|uwielbiać; bardzo się podobać|Me encanta España.=Uwielbiam Hiszpanię.;;Encantado.=Miło mi.|me encanta; encantado de conocerte|encanta, encantan, encantado, encantada, encantaría|feelings|g04-tener-haber-gustar|Konstrukcja jak gustar.
+durante|prep|podczas; przez|Durante el verano.=Podczas lata.;;Viví allí durante dos años.=Mieszkałem tam przez dwa lata.|durante la semana|durante|time|g07-indefinido|
+ayuda|n.f|pomoc|Necesito ayuda.=Potrzebuję pomocy.;;Gracias por tu ayuda.=Dziękuję za pomoc.|pedir ayuda|ayuda|communication|g01-basics|
+ocurrir|v|zdarzać się; przychodzić do głowy|¿Qué ha ocurrido?=Co się stało?;;Se me ocurre una idea.=Wpadł mi do głowy pomysł.|se me ocurre|ocurre, ocurrió, ocurrido|problems|g06-perfecto|
+palabra|n.f|słowo|¿Qué significa esta palabra?=Co znaczy to słowo?|palabra por palabra|palabra, palabras|communication|g01-basics|
+importante|adj|ważny|Es muy importante.=To bardzo ważne.|lo más importante|importante, importantes|basics|g03-ser-estar|
+jefe|n.m|szef|Mi jefe es muy exigente.=Mój szef jest bardzo wymagający.|el jefe|jefe, jefa, jefes|work|g01-basics|
+ciudad|n.f|miasto|Valencia es una ciudad bonita.=Walencja to ładne miasto.|en la ciudad; el centro de la ciudad|ciudad, ciudades|places,travel|g01-basics|
+dentro|adv|wewnątrz; w środku; za (czas)|Está dentro.=Jest w środku.;;Dentro de una semana.=Za tydzień.|dentro de|dentro|places,time|g01-basics|
+casi|adv|prawie|Casi nunca.=Prawie nigdy.;;Son casi las diez.=Jest prawie dziesiąta.|casi siempre|casi|basics|g01-basics|
+comprar|v|kupować|Voy a comprar pan.=Idę kupić chleb.;;¿Dónde lo compraste?=Gdzie to kupiłeś?|comprar en; ir de compras|compro, compras, compra, compramos, compran, compré, compró, comprado|shopping|g02-present,g07-indefinido|
+listo|adj|gotowy (estar); bystry (ser)|¿Estás listo?=Jesteś gotowy?;;Es muy lista.=Ona jest bardzo bystra.|estar listo|listo, lista, listos, listas|basics|g03-ser-estar|Znaczenie zależy od ser/estar.
+hacia|prep|w kierunku; około|Vamos hacia el centro.=Idziemy w stronę centrum.|hacia las cinco|hacia|places|g01-basics|
+pagar|v|płacić|¿Puedo pagar con tarjeta?=Mogę zapłacić kartą?;;Pago yo.=Ja płacę.|pagar con tarjeta; pagar en efectivo|pago, pagas, paga, pagamos, pagan, pagué, pagó, pagado|shopping,food|g02-present|
+propio|adj|własny|Tengo mi propia empresa.=Mam własną firmę.|propio|propio, propia, propios, propias|work|g01-basics|
+funcionar|v|działać; funkcjonować|El aire acondicionado no funciona.=Klimatyzacja nie działa.|no funciona|funciona, funcionan, funcionaba, funcionó|problems,home|g02-present|
+pronto|adv|wkrótce; wcześnie|¡Hasta pronto!=Do zobaczenia wkrótce!;;Me levanto pronto.=Wstaję wcześnie.|hasta pronto; lo antes posible|pronto|time|g01-basics|W Hiszpanii "pronto" = też "wcześnie".
+suerte|n.f|szczęście (los)|¡Buena suerte!=Powodzenia!;;¡Qué suerte!=Co za szczęście!|buena suerte; tener suerte|suerte|feelings|g04-tener-haber-gustar|
+agua|n.f|woda|Un agua sin gas, por favor.=Wodę niegazowaną, proszę.|agua con gas; agua del grifo|agua, aguas|food|g01-basics|"El agua" (rodzaj żeński, ale rodzajnik el).
+miedo|n.m|strach|Tengo miedo.=Boję się.|tener miedo de; dar miedo|miedo|feelings|g04-tener-haber-gustar|
+pregunta|n.f|pytanie|Tengo una pregunta.=Mam pytanie.|hacer una pregunta|pregunta, preguntas|communication|g01-basics|
+contar|v|liczyć; opowiadać|Te cuento lo que pasó.=Opowiem ci, co się stało.;;¿Qué me cuentas?=Co słychać?|¿qué me cuentas?; contar con|cuento, cuentas, cuenta, contamos, cuentan, conté, contó, contado|communication|g07-indefinido|o→ue
+coche|n.m|samochód|Voy en coche.=Jadę samochodem.;;Quiero alquilar un coche.=Chcę wynająć samochód.|alquilar un coche; aparcar el coche|coche, coches|travel|g01-basics|W Hiszpanii "coche" (w Ameryce Łac.: carro/auto).
+difícil|adj|trudny|El español no es tan difícil.=Hiszpański nie jest aż tak trudny.|es difícil|difícil, difíciles|basics|g03-ser-estar|
+bastante|adv|dość; całkiem|Hablo bastante bien.=Mówię całkiem dobrze.|bastante bien|bastante, bastantes|basics|g01-basics|
+cuidado|n.m|ostrożność|¡Cuidado!=Uważaj!;;Ten cuidado con el perro.=Uważaj na psa.|tener cuidado; cuidarse|cuidado|problems|g10-imperativo-pronombres|
+beber|v|pić|¿Qué quieres beber?=Co chcesz do picia?|beber agua|bebo, bebes, bebe, bebemos, beben, bebí, bebió, bebido|food|g02-present|
+número|n.m|numer; liczba|¿Me das tu número?=Dasz mi swój numer?|número de teléfono|número, números|numbers,communication|g01-basics|
+cerca|adv|blisko|¿Hay un supermercado cerca?=Czy jest blisko supermarket?|cerca de; aquí cerca|cerca|places|g01-basics|
+escribir|v|pisać|¿Cómo se escribe?=Jak to się pisze?;;Te escribo un mensaje.=Napiszę ci wiadomość.|escribir un mensaje|escribo, escribes, escribe, escribimos, escriben, escribí, escribió, escrito|communication|g02-present|Imiesłów: escrito.
+fiesta|n.f|impreza; święto|Esta noche hay una fiesta.=Dziś wieczorem jest impreza.|fiesta de cumpleaños; las fiestas del pueblo|fiesta, fiestas|free-time|g01-basics|
+cuándo|adv|kiedy (pytanie)|¿Cuándo vienes?=Kiedy przyjedziesz?|¿desde cuándo?|cuándo|time|g01-basics|
+cuatro|num|cztery|Somos cuatro.=Jest nas czworo.|las cuatro|cuatro|numbers|g01-basics|
+teléfono|n.m|telefon|¿Cuál es tu número de teléfono?=Jaki jest twój numer telefonu?|por teléfono|teléfono, teléfonos|communication|g01-basics|W mowie częściej: el móvil.
+cerrar|v|zamykać|¿A qué hora cierra el banco?=O której zamykają bank?|cerrar la puerta|cierro, cierras, cierra, cerramos, cierran, cerré, cerró, cerrado|shopping,home|g02-present|e→ie
+escuela|n.f|szkoła|Mis hijos van a la escuela.=Moje dzieci chodzą do szkoły.|ir a la escuela|escuela, escuelas|family,places|g01-basics|W Hiszpanii często: el colegio / el cole.
+subir|v|wchodzić (w górę); podnosić|Subimos a la terraza.=Wchodzimy na taras.;;Han subido los precios.=Ceny wzrosły.|subir al coche|subo, subes, sube, subimos, suben, subí, subió, subido|places|g02-present|
+habitación|n.f|pokój|Quiero una habitación doble.=Chcę pokój dwuosobowy.|habitación doble|habitación, habitaciones|home,travel|g01-basics|
+tocar|v|dotykać; grać (na instrumencie); przypadać (kolej)|Te toca a ti.=Twoja kolej.;;Toco la guitarra.=Gram na gitarze.|te toca; tocar la guitarra|toco, tocas, toca, tocamos, tocan, toqué, tocó, tocado|free-time|g04-tener-haber-gustar|
+libro|n.m|książka|Estoy leyendo un libro.=Czytam książkę.|un libro de|libro, libros|free-time|g01-basics|
+mes|n.m|miesiąc|El mes que viene.=W przyszłym miesiącu.|al mes; el mes pasado|mes, meses|time|g01-basics|
+fácil|adj|łatwy|Es muy fácil.=To bardzo łatwe.|no es fácil|fácil, fáciles|basics|g03-ser-estar|
+bonito|adj|ładny|¡Qué bonito!=Jakie ładne!|muy bonito|bonito, bonita, bonitos, bonitas|basics|g01-basics|
+comida|n.f|jedzenie; obiad|La comida española me encanta.=Uwielbiam hiszpańskie jedzenie.;;¿A qué hora es la comida?=O której jest obiad?|comida casera|comida, comidas|food|g01-basics|W Hiszpanii "la comida" to też obiad (ok. 14:00).
+próximo|adj|następny; przyszły|El próximo tren sale a las diez.=Następny pociąg odjeżdża o dziesiątej.|la próxima vez|próximo, próxima, próximos, próximas|time,travel|g05-ir-a|
+pie|n.m|stopa|Vamos a pie.=Idziemy pieszo.|a pie; de pie|pie, pies|body,travel|g01-basics|
+alto|adj|wysoki; głośny|Mi hermano es muy alto.=Mój brat jest bardzo wysoki.|en voz alta|alto, alta, altos, altas|basics|g03-ser-estar|
+luz|n.f|światło; prąd|Apaga la luz.=Zgaś światło.;;No hay luz.=Nie ma prądu.|la factura de la luz|luz, luces|home|g10-imperativo-pronombres|W Hiszpanii "la luz" = też prąd.
+aprender|v|uczyć się (czegoś)|Estoy aprendiendo español.=Uczę się hiszpańskiego.|aprender a + bezokolicznik|aprendo, aprendes, aprende, aprendemos, aprenden, aprendí, aprendido, aprendiendo|communication|g02-present|
+perfecto|adj|doskonały; świetnie|¡Perfecto!=Świetnie!|perfecto|perfecto, perfecta|communication|g01-basics|
+diferente|adj|inny; różny|Es muy diferente.=Jest zupełnie inne.|diferente de|diferente, diferentes|basics|g01-basics|
+probar|v|próbować (smakować, przymierzać)|¿Puedo probármelo?=Mogę to przymierzyć?;;Prueba la paella.=Spróbuj paelli.|probarse; probar la comida|pruebo, pruebas, prueba, probamos, prueban, probé, probado|food,shopping|g10-imperativo-pronombres|
+tampoco|adv|też nie|Yo tampoco.=Ja też nie.|yo tampoco|tampoco|basics|g01-basics|
+mil|num|tysiąc|Cuesta mil euros.=Kosztuje tysiąc euro.|mil euros|mil|numbers|g01-basics|
+sitio|n.m|miejsce|Conozco un sitio muy bueno.=Znam bardzo dobre miejsce.;;¿Hay sitio?=Jest miejsce?|en algún sitio|sitio, sitios|places|g01-basics|Bardzo potoczne w Hiszpanii.
+abuelo|n.m|dziadek; (abuela) babcia|Mis abuelos viven en el pueblo.=Moi dziadkowie mieszkają na wsi.|abuelos|abuelo, abuela, abuelos, abuelas|family|g01-basics|
+médico|n.m|lekarz|Tengo que ir al médico.=Muszę iść do lekarza.|ir al médico|médico, médica, médicos|health|g04-tener-haber-gustar|
+oficina|n.f|biuro|Trabajo en una oficina.=Pracuję w biurze.|en la oficina|oficina, oficinas|work|g01-basics|
+tranquilo|adj|spokojny|Es un barrio tranquilo.=To spokojna dzielnica.;;¡Tranquilo!=Spokojnie!|estar tranquilo|tranquilo, tranquila, tranquilos, tranquilas|feelings|g03-ser-estar|
+cama|n.f|łóżko|Me voy a la cama.=Idę do łóżka.|irse a la cama|cama, camas|home|g01-basics|
+lejos|adv|daleko|¿Está lejos?=Czy to daleko?|lejos de|lejos|places|g01-basics|
+coger|v|brać; łapać (w Hiszpanii)|Cojo el autobús a las ocho.=Łapię autobus o ósmej.;;Coge un taxi.=Weź taksówkę.|coger el autobús; coger el teléfono|cojo, coges, coge, cogemos, cogen, cogí, cogió, cogido|travel|g02-present|W Hiszpanii neutralne; w części Ameryki Łac. wulgarne — tam: tomar, agarrar.
+servir|v|służyć; podawać; nadawać się|¿Para qué sirve esto?=Do czego to służy?|servir para|sirvo, sirves, sirve, servimos, sirven, servido|basics|g02-present|
+país|n.m|kraj|España es un país precioso.=Hiszpania to piękny kraj.|país|país, países|places,travel|g01-basics|
+calle|n.f|ulica|Vivo en la calle Mayor.=Mieszkam przy ulicy Mayor.|en la calle|calle, calles|places|g01-basics|
+cambio|n.m|zmiana; reszta (pieniądze)|Quédese con el cambio.=Proszę zatrzymać resztę.|en cambio; a cambio de|cambio, cambios|shopping|g01-basics|
+llamada|n.f|telefon; połączenie|Tengo una llamada perdida.=Mam nieodebrane połączenie.|hacer una llamada; llamada perdida|llamada, llamadas|communication|g01-basics|

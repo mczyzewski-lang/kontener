@@ -1,0 +1,60 @@
+# Hablo — zwroty (uczone jako całość, nie jako pojedyncze słowa)
+# Format: zwrot|tłumaczenie|uwaga o użyciu|tematy|gramatyka|przykłady es=pl (;;)|elementy (lematy, przecinek)
+me gustaría|chciałbym; chciałabym|Grzeczna forma "chcę". Po nim bezokolicznik lub rzeczownik.|basics,food,shopping|g04-tener-haber-gustar|Me gustaría reservar una mesa.=Chciałbym zarezerwować stolik.;;Me gustaría probar el vino de la casa.=Chciałbym spróbować domowego wina.|gustar
+tengo que|muszę|Tener que + bezokolicznik = obowiązek.|basics,work|g04-tener-haber-gustar|Tengo que irme.=Muszę już iść.;;Tengo que llamar al fontanero.=Muszę zadzwonić do hydraulika.|tener,que
+no lo sé|nie wiem|Naturalniej niż samo "no sé" w odpowiedzi na pytanie.|communication|g01-basics|No lo sé, lo siento.=Nie wiem, przykro mi.|no,lo,saber
+¿qué significa?|co to znaczy?|Pytanie o znaczenie słowa.|communication|g01-basics|¿Qué significa "enchufe"?=Co znaczy "enchufe"?|qué,significar
+¿cómo se dice...?|jak się mówi...?|Gdy brakuje ci słowa — używaj śmiało!|communication|g01-basics|¿Cómo se dice "klucz" en español?=Jak się mówi "klucz" po hiszpańsku?|cómo,se,decir
+¿puede repetir, por favor?|czy może Pan/Pani powtórzyć?|Forma grzecznościowa (usted).|communication|g01-basics|Perdone, ¿puede repetir, por favor?=Przepraszam, czy może Pan powtórzyć?|poder,repetir,favor
+más despacio, por favor|wolniej, proszę|Gdy ktoś mówi za szybko.|communication|g01-basics|¿Puedes hablar más despacio, por favor?=Możesz mówić wolniej?|más,despacio,favor
+no entiendo|nie rozumiem||communication|g01-basics|Perdona, no entiendo.=Przepraszam, nie rozumiem.|no,entender
+lo siento|przykro mi; przepraszam|Przeprosiny za coś poważniejszego.|communication,feelings|g01-basics|Lo siento, llego tarde.=Przepraszam, spóźnię się.|lo,sentir
+perdona / perdone|przepraszam (zwracając uwagę)|Perdona (ty) / perdone (Pan/Pani).|communication|g10-imperativo-pronombres|Perdone, ¿dónde está la estación?=Przepraszam, gdzie jest dworzec?|perdonar
+¿qué tal?|co słychać?; jak tam?|Uniwersalne powitanie.|basics,communication|g01-basics|Hola, ¿qué tal?=Cześć, co słychać?;;¿Qué tal el viaje?=Jak podróż?|qué,tal
+¿quedamos?|umówimy się?; spotkamy się?|Bardzo typowe dla Hiszpanii.|people|g02-present|¿Quedamos el sábado para tomar algo?=Spotkamy się w sobotę na drinka?|quedar
+tomar algo|wyjść na drinka/coś do picia|Spotkanie towarzyskie przy napoju lub tapas.|people,food|g02-present|¿Vamos a tomar algo?=Idziemy na coś do picia?|tomar,algo
+¿me pone...?|poproszę... (w barze/sklepie)|Typowe zamawianie w Hiszpanii.|food,shopping|g10-imperativo-pronombres|¿Me pone un café con leche?=Poproszę kawę z mlekiem.|me,poner
+¿me trae la cuenta?|poproszę rachunek|W restauracji. Też: "La cuenta, por favor".|food|g10-imperativo-pronombres|¿Nos trae la cuenta, por favor?=Poprosimy rachunek.|traer,cuenta
+para llevar|na wynos||food|g01-basics|Un café para llevar, por favor.=Kawa na wynos, proszę.|para,llevar
+¿cuánto cuesta?|ile kosztuje?|L.mn.: ¿cuánto cuestan?|shopping|g01-basics|¿Cuánto cuesta esta camisa?=Ile kosztuje ta koszula?|cuánto,costar
+¿se puede pagar con tarjeta?|czy można zapłacić kartą?||shopping|g04-tener-haber-gustar|Perdone, ¿se puede pagar con tarjeta?=Przepraszam, można zapłacić kartą?|poder,pagar
+solo estoy mirando|tylko się rozglądam|Odpowiedź sprzedawcy w sklepie.|shopping|g02-present|No, gracias, solo estoy mirando.=Nie, dziękuję, tylko się rozglądam.|solo,estar,mirar
+me da igual|wszystko mi jedno||communication,feelings|g04-tener-haber-gustar|¿Playa o montaña? — Me da igual.=Plaża czy góry? — Wszystko mi jedno.|dar,igual
+no pasa nada|nic się nie stało; nie ma sprawy|Uspokajająca odpowiedź.|communication|g01-basics|— Perdona. — No pasa nada.=— Przepraszam. — Nic się nie stało.|no,pasar,nada
+¡qué bien!|świetnie!; jak fajnie!|Reakcja na dobrą wiadomość.|feelings,communication|g01-basics|¡Qué bien que hayas venido!=Jak fajnie, że przyszedłeś!|qué,bien
+¡qué pena!|szkoda!|Reakcja na złą wiadomość.|feelings|g01-basics|¿No puedes venir? ¡Qué pena!=Nie możesz przyjść? Szkoda!|qué,pena
+¿de verdad?|naprawdę?|Okazywanie zainteresowania.|communication|g01-basics|— Me voy a vivir a Málaga. — ¿De verdad?=— Przeprowadzam się do Malagi. — Naprawdę?|verdad
+estoy de acuerdo|zgadzam się||communication|g03-ser-estar|Estoy de acuerdo contigo.=Zgadzam się z tobą.|estar,acuerdo
+creo que sí / creo que no|myślę, że tak / że nie||communication|g02-present|¿Va a llover? — Creo que no.=Będzie padać? — Myślę, że nie.|creer
+a lo mejor|może; być może|Potoczne, z trybem oznajmującym.|communication|g02-present|A lo mejor vamos a la playa.=Może pojedziemy na plażę.|mejor
+hace + czas|temu|Hace dos años = dwa lata temu.|time|g07-indefinido|Llegué a España hace dos años.=Przyjechałem do Hiszpanii dwa lata temu.|hacer
+desde hace|od (jakiegoś czasu)|Czynność trwa nadal.|time|g02-present|Vivo aquí desde hace tres años.=Mieszkam tu od trzech lat.|desde,hacer
+acabo de...|właśnie (coś zrobiłem)|Acabar de + bezokolicznik.|time|g06-perfecto|Acabo de llegar a casa.=Właśnie wróciłem do domu.|acabar
+voy a...|zamierzam...; zaraz...|Ir a + bezokolicznik = najbliższa przyszłość.|time|g05-ir-a|Voy a llamar a mi madre.=Zadzwonię do mamy.|ir
+¿te apetece...?|masz ochotę na...?|Bardzo hiszpańskie.|people,food|g04-tener-haber-gustar|¿Te apetece ir al cine?=Masz ochotę iść do kina?|apetecer
+¿me echas una mano?|pomożesz mi?|Potoczne.|communication|g10-imperativo-pronombres|¿Me echas una mano con las maletas?=Pomożesz mi z walizkami?|echar,mano
+¿qué te parece?|co o tym sądzisz?||communication|g04-tener-haber-gustar|¿Qué te parece el piso?=Co sądzisz o mieszkaniu?|parecer
+me parece bien|wydaje mi się w porządku; pasuje mi||communication|g04-tener-haber-gustar|¿A las ocho? Me parece bien.=O ósmej? Pasuje mi.|parecer,bien
+tiene buena pinta|wygląda apetycznie/dobrze|Potoczne, o jedzeniu i nie tylko.|food|g04-tener-haber-gustar|¡Esta paella tiene buena pinta!=Ta paella wygląda świetnie!|tener,bueno
+¿a qué te dedicas?|czym się zajmujesz (zawodowo)?||work,people|g02-present|— ¿A qué te dedicas? — Tengo una empresa de construcción.=— Czym się zajmujesz? — Mam firmę budowlaną.|dedicarse
+encantado / encantada|miło mi|Przy poznawaniu kogoś (forma zgodna z twoją płcią).|people|g01-basics|Encantado de conocerte.=Miło cię poznać.|encantar
+¿de dónde eres?|skąd jesteś?||people|g01-basics|¿De dónde eres? — Soy de Polonia, de Poznań.=Skąd jesteś? — Jestem z Polski, z Poznania.|dónde,ser
+llevo ... años aquí|jestem tu od ... lat|Llevar + czas = jak długo coś trwa.|time,people|g02-present|Llevo dos años aquí.=Jestem tu od dwóch lat.|llevar
+hay que|trzeba|Bezosobowe "trzeba".|basics|g04-tener-haber-gustar|Hay que reservar con antelación.=Trzeba zarezerwować z wyprzedzeniem.|haber,que
+no funciona|nie działa|Zgłaszanie usterki.|problems,home|g02-present|La lavadora no funciona.=Pralka nie działa.|no,funcionar
+tengo un problema con...|mam problem z...||problems|g04-tener-haber-gustar|Tengo un problema con mi pedido.=Mam problem z moim zamówieniem.|tener,problema
+¿me lo puede arreglar?|może mi to Pan naprawić?||home,problems|g10-imperativo-pronombres|Se ha roto el grifo. ¿Me lo puede arreglar?=Zepsuł się kran. Może mi go Pan naprawić?|arreglar
+¿para cuándo?|na kiedy?|Pytanie o termin.|work,time|g01-basics|¿Para cuándo estará terminado?=Na kiedy będzie skończone?|para,cuándo
+quería...|chciałem...; poproszę...|Grzeczne "chcę" (imperfecto grzecznościowe).|shopping,food|g08-imperfecto|Quería una habitación para dos noches.=Chciałbym pokój na dwie noce.|querer
+¿está incluido?|czy jest wliczone?||shopping,travel|g03-ser-estar|¿El desayuno está incluido?=Czy śniadanie jest wliczone?|estar
+¿me puede hacer un descuento?|czy może mi Pan dać rabat?|Negocjowanie ceny.|shopping|g10-imperativo-pronombres|Si pago en efectivo, ¿me puede hacer un descuento?=Jeśli zapłacę gotówką, da mi Pan rabat?|poder,hacer
+es demasiado caro|to za drogo||shopping|g03-ser-estar|Lo siento, es demasiado caro para mí.=Przykro mi, to dla mnie za drogo.|ser,demasiado,caro
+¿qué me recomienda?|co mi Pan poleca?||food,shopping|g02-present|¿Qué me recomienda de postre?=Co poleca Pan na deser?|recomendar
+estoy aprendiendo español|uczę się hiszpańskiego|Przydaje się, by ludzie mówili wolniej.|communication|g02-present|Perdona, estoy aprendiendo español. ¿Puedes hablar más despacio?=Przepraszam, uczę się hiszpańskiego. Możesz mówić wolniej?|estar,aprender,español
+¡que aproveche!|smacznego!|Mówi się też do obcych jedzących obok.|food|g11-subjuntivo|¡Que aproveche!=Smacznego!|aprovechar
+¡que te vaya bien!|powodzenia!; trzymaj się!|Que + subjuntivo jako życzenie.|communication|g11-subjuntivo|Adiós, ¡que te vaya bien!=Cześć, powodzenia!|ir,bien
+¡buen fin de semana!|miłego weekendu!||communication,time|g01-basics|¡Hasta el lunes! ¡Buen fin de semana!=Do poniedziałku! Miłego weekendu!|bueno,fin,semana
+¿cómo te va?|jak ci idzie?; jak leci?||people|g02-present|¿Cómo te va en el trabajo nuevo?=Jak ci idzie w nowej pracy?|cómo,ir
+ni idea|nie mam pojęcia|Potoczne.|communication|g01-basics|— ¿Dónde está Pedro? — Ni idea.=— Gdzie jest Pedro? — Nie mam pojęcia.|idea
+vale la pena|warto|Valer la pena + bezokolicznik.|communication|g01-basics|Vale la pena visitar Granada.=Warto odwiedzić Granadę.|valer,pena
+¡qué rollo!|ale nuda!; ale kłopot!|Potoczne, hiszpańskie.|feelings|g01-basics|Tenemos que esperar dos horas. ¡Qué rollo!=Musimy czekać dwie godziny. Ale nuda!|qué

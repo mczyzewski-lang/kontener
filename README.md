@@ -98,3 +98,10 @@ src/
 - **Structure.** Large openings in a real container side wall remove structural corrugation and need welded steel box frames and an engineer's sign-off. The model shows those frames, but it is a visualisation, not a construction document.
 - **Phones and tablets** start in the lighter rendering mode (no AO/bloom, 2K shadows, fewer grass blades). Touch works in every mode: drag to orbit, pinch to zoom, two fingers to pan, and in Walkthrough drag to look and tap the floor to walk there, or use the on-screen pad.
 - **Performance.** On desktop, turn off **High-quality rendering** in the panel if the frame rate drops.
+
+---
+
+## Hablo (separate app in `hablo/`)
+
+This repository also contains **Hablo**, a private Spanish-tutor PWA (Next.js + Supabase + ElevenLabs + Claude).
+It is fully independent of the configurator above. See [`hablo/README.md`](hablo/README.md).

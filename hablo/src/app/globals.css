@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/*
+ * Hablo design system — calm, light, one accent colour (terracotta),
+ * no gradients. Tokens are the single source of truth for colour and type.
+ */
+@theme {
+  --color-bg: #fafaf8;
+  --color-surface: #ffffff;
+  --color-sunken: #f3f2ee;
+  --color-ink: #1a1a19;
+  --color-ink-2: #3b3a37;
+  --color-muted: #6f6d68;
+  --color-faint: #a3a19b;
+  --color-line: #e8e6e1;
+  --color-line-strong: #d6d3cc;
+  --color-accent: #c2452d;
+  --color-accent-hover: #a83a25;
+  --color-accent-soft: #f8e9e4;
+  --color-accent-ink: #ffffff;
+  --color-success: #2f7d4f;
+  --color-success-soft: #e7f3ec;
+  --color-warn: #a86b12;
+  --color-warn-soft: #fbf1df;
+  --color-danger: #b42318;
+  --color-danger-soft: #fdecea;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: ui-serif, "New York", "Iowan Old Style", Charter, Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.375rem;
+
+  --animate-fade-in: fade-in 220ms ease-out both;
+  --animate-rise: rise 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-pulse-ring: pulse-ring 1.6s ease-out infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgb(194 69 45 / 0.35); }
+    100% { box-shadow: 0 0 0 22px rgb(194 69 45 / 0); }
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+}
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}

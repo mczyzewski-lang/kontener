@@ -1,0 +1,82 @@
+# Hablo — słownictwo, część 2 (życie codzienne w Hiszpanii; ranking nadal z korpusu)
+comer|v|jeść; jeść obiad|¿Qué comemos hoy?=Co dziś jemy?;;Comemos a las dos.=Jemy obiad o drugiej.|comer fuera; comer en casa|como, comes, come, comemos, coméis, comen, comía, comí, comió, comido, -como|food|g02-present|W Hiszpanii "comer" = też jeść obiad.
+desayunar|v|jeść śniadanie|Desayuno un café con tostada.=Na śniadanie jem kawę z grzanką.|desayunar fuerte|desayuno, desayunas, desayuna, desayunamos, desayunan, desayuné, desayunado|food|g02-present|
+cenar|v|jeść kolację|En España cenamos a las nueve y media.=W Hiszpanii jemy kolację o wpół do dziesiątej.|cenar fuera|ceno, cenas, cena, cenamos, cenan, cené, cenado|food|g02-present|
+café|n.m|kawa; kawiarnia|Un café con leche, por favor.=Kawę z mlekiem, proszę.;;¿Tomamos un café?=Pójdziemy na kawę?|café solo; café con leche; cortado|café, cafés|food|g01-basics|"Cortado" = espresso z odrobiną mleka.
+cerveza|n.f|piwo|Una caña, por favor.=Małe piwo z beczki, proszę.;;¿Te apetece una cerveza?=Masz ochotę na piwo?|una caña; cerveza sin alcohol|cerveza, cervezas|food|g01-basics|"Una caña" = małe piwo z nalewaka.
+vino|n.m|wino|Una copa de vino tinto.=Kieliszek czerwonego wina.|vino tinto; vino blanco|vino, vinos|food|g01-basics|
+pan|n.m|chleb|¿Me pone una barra de pan?=Poproszę bagietkę.|barra de pan|pan, panes|food,shopping|g01-basics|
+mesa|n.f|stół; stolik|Una mesa para dos, por favor.=Stolik dla dwóch osób, proszę.|reservar una mesa; poner la mesa|mesa, mesas|food,home|g01-basics|
+precio|n.m|cena|¿Cuál es el precio?=Jaka jest cena?|buen precio; precio final|precio, precios|shopping|g01-basics|
+caro|adj|drogi|Es un poco caro.=Jest trochę drogie.|demasiado caro|caro, cara, caros, caras|shopping|g03-ser-estar|
+barato|adj|tani|Este es más barato.=Ten jest tańszy.|más barato|barato, barata, baratos, baratas|shopping|g01-basics|
+vecino|n.m|sąsiad; (vecina) sąsiadka|Mi vecino es muy simpático.=Mój sąsiad jest bardzo sympatyczny.|el vecino de al lado|vecino, vecina, vecinos, vecinas|people,home|g01-basics|
+piso|n.m|mieszkanie; piętro|Vivo en un piso en el centro.=Mieszkam w mieszkaniu w centrum.;;Vivo en el tercer piso.=Mieszkam na trzecim piętrze.|alquilar un piso; compartir piso|piso, pisos|home|g01-basics|W Hiszpanii "piso" = mieszkanie.
+tienda|n.f|sklep|La tienda está cerrada.=Sklep jest zamknięty.|ir de tiendas|tienda, tiendas|shopping|g01-basics|
+supermercado|n.m|supermarket|Voy al supermercado.=Idę do supermarketu.|ir al súper|supermercado, supermercados|shopping|g01-basics|Potocznie: el súper.
+euro|n.m|euro|Son quince euros.=Razem piętnaście euro.|euros|euro, euros|shopping,numbers|g01-basics|
+playa|n.f|plaża|Vamos a la playa.=Idziemy na plażę.|ir a la playa|playa, playas|travel,free-time|g01-basics|
+tren|n.m|pociąg|¿A qué hora sale el tren?=O której odjeżdża pociąg?|coger el tren; perder el tren|tren, trenes|travel|g01-basics|
+autobús|n.m|autobus|¿Este autobús va al centro?=Czy ten autobus jedzie do centrum?|coger el autobús; parada de autobús|autobús, autobuses|travel|g01-basics|
+aeropuerto|n.m|lotnisko|Voy al aeropuerto.=Jadę na lotnisko.|en el aeropuerto|aeropuerto, aeropuertos|travel|g01-basics|
+hotel|n.m|hotel|Tengo una reserva en este hotel.=Mam rezerwację w tym hotelu.|reservar un hotel|hotel, hoteles|travel|g01-basics|
+reservar|v|rezerwować|Quiero reservar una mesa para esta noche.=Chcę zarezerwować stolik na dziś wieczór.|reservar una mesa|reservo, reservas, reserva, reservamos, reservé, reservado|travel,food|g02-present|
+alquilar|v|wynajmować|Quiero alquilar un coche para tres días.=Chcę wynająć samochód na trzy dni.|alquilar un piso|alquilo, alquilas, alquila, alquilamos, alquilé, alquilado|travel,home|g02-present|
+aparcar|v|parkować|¿Dónde puedo aparcar?=Gdzie mogę zaparkować?|aparcar el coche|aparco, aparcas, aparca, aparcamos, aparqué, aparcado|travel|g02-present|W Hiszpanii "aparcar".
+móvil|n.m|komórka (telefon)|Me he dejado el móvil en casa.=Zostawiłem komórkę w domu.|cargar el móvil|móvil, móviles|communication|g06-perfecto|W Hiszpanii "el móvil" (w Ameryce Łac.: el celular).
+ordenador|n.m|komputer|Trabajo con el ordenador.=Pracuję na komputerze.|ordenador portátil|ordenador, ordenadores|work|g01-basics|W Hiszpanii "ordenador" (w Ameryce Łac.: computadora).
+frío|n.m|zimno; zimny (adj)|Hace frío.=Jest zimno.;;Tengo frío.=Zimno mi.|hace frío; tener frío|frío, fría, fríos|weather|g04-tener-haber-gustar|
+calor|n.m|ciepło; upał|Hace mucho calor.=Jest bardzo gorąco.;;Tengo calor.=Gorąco mi.|hace calor; tener calor|calor|weather|g04-tener-haber-gustar|
+verano|n.m|lato|En verano vamos a la costa.=Latem jeździmy na wybrzeże.|en verano; este verano|verano, veranos|time,weather|g01-basics|
+invierno|n.m|zima|En invierno hace frío en Madrid.=Zimą w Madrycie jest zimno.|en invierno|invierno, inviernos|time,weather|g01-basics|
+ayer|adv|wczoraj|Ayer fui a la playa.=Wczoraj poszedłem na plażę.|ayer por la noche; antes de ayer|ayer|time|g07-indefinido|"Ayer" zwykle z pretérito indefinido.
+cansado|adj|zmęczony|Estoy muy cansado.=Jestem bardzo zmęczony.|estar cansado|cansado, cansada, cansados, cansadas|feelings,health|g03-ser-estar|Zawsze z estar.
+contento|adj|zadowolony|Estoy muy contento con el piso.=Jestem bardzo zadowolony z mieszkania.|estar contento|contento, contenta, contentos, contentas|feelings|g03-ser-estar|
+enfermo|adj|chory|Estoy enfermo.=Jestem chory.|ponerse enfermo|enfermo, enferma, enfermos, enfermas|health|g03-ser-estar|
+doler|v|boleć|Me duele la espalda.=Boli mnie plecy.|me duele; me duelen|duele, duelen, dolía, dolió|health,body|g04-tener-haber-gustar|Konstrukcja jak gustar.
+farmacia|n.f|apteka|¿Hay una farmacia cerca?=Czy jest blisko apteka?|farmacia de guardia|farmacia, farmacias|health,places|g01-basics|
+baño|n.m|łazienka; toaleta; kąpiel|¿Dónde está el baño?=Gdzie jest toaleta?|ir al baño; darse un baño|baño, baños|home,places|g03-ser-estar|
+cocina|n.f|kuchnia|La cocina es muy pequeña.=Kuchnia jest bardzo mała.|cocina española|cocina, cocinas|home,food|g01-basics|
+jardín|n.m|ogród|Tenemos un jardín con piscina.=Mamy ogród z basenem.|en el jardín|jardín, jardines|home|g01-basics|
+arreglar|v|naprawiać; załatwiać|¿Puede arreglar la ducha?=Czy może Pan naprawić prysznic?|arreglar el coche; arreglarse|arreglo, arreglas, arregla, arreglamos, arreglé, arreglado|home,problems|g02-present|
+obra|n.f|budowa; remont; dzieło|Estamos de obras en casa.=Mamy remont w domu.|estar de obras; la obra|obra, obras|home,work|g01-basics|
+paquete|n.m|paczka|No ha llegado mi paquete.=Moja paczka nie dotarła.|enviar un paquete|paquete, paquetes|shopping,problems|g06-perfecto|
+entregar|v|dostarczać; oddawać|Tienen que entregar el pedido mañana.=Muszą dostarczyć zamówienie jutro.|entregar un pedido|entrego, entregas, entrega, entregamos, entregan, entregué, entregado|shopping,work|g02-present|
+pedido|n.m|zamówienie|Mi pedido llega tarde.=Moje zamówienie się spóźnia.|hacer un pedido|pedido, pedidos|shopping|g01-basics|
+empresa|n.f|firma|Tengo una empresa pequeña.=Mam małą firmę.|una empresa de|empresa, empresas|work|g01-basics|
+reunión|n.f|spotkanie; zebranie|Tengo una reunión a las diez.=Mam spotkanie o dziesiątej.|estar en una reunión|reunión, reuniones|work|g01-basics|
+cliente|n.mf|klient|Hoy tengo una reunión con un cliente.=Dziś mam spotkanie z klientem.|atención al cliente|cliente, clientes|work|g01-basics|
+viaje|n.m|podróż|¡Buen viaje!=Szerokiej drogi!;;El viaje fue muy largo.=Podróż była bardzo długa.|de viaje; buen viaje|viaje, viajes|travel|g07-indefinido|
+viajar|v|podróżować|Me encanta viajar.=Uwielbiam podróżować.|viajar en tren|viajo, viajas, viaja, viajamos, viajan, viajé, viajado|travel|g02-present|
+vacaciones|n.f|wakacje; urlop|Estoy de vacaciones.=Jestem na urlopie.;;¿Dónde fuiste de vacaciones?=Gdzie byłeś na wakacjach?|irse de vacaciones; estar de vacaciones|vacaciones|travel,free-time|g07-indefinido|Zawsze l.mn.
+mar|n.m|morze|Vivimos cerca del mar.=Mieszkamy blisko morza.|el mar|mar, mares|travel,places|g01-basics|
+pueblo|n.m|wieś; miasteczko; naród|Mis abuelos son de un pueblo de Teruel.=Moi dziadkowie są z miasteczka w Teruel.|en el pueblo|pueblo, pueblos|places|g01-basics|
+restaurante|n.m|restauracja|Conozco un restaurante muy bueno.=Znam bardzo dobrą restaurację.|ir a un restaurante|restaurante, restaurantes|food,places|g01-basics|
+camarero|n.m|kelner; (camarera) kelnerka|¡Perdone! ¿Nos trae la carta?=Przepraszam! Poda nam Pan kartę?|el camarero|camarero, camarera, camareros|food,people|g01-basics|
+carne|n.f|mięso|No como carne.=Nie jem mięsa.|carne de cerdo; carne de ternera|carne, carnes|food|g01-basics|
+pescado|n.m|ryba (jako jedzenie)|Me gusta el pescado fresco.=Lubię świeżą rybę.|pescado a la plancha|pescado|food|g01-basics|Żywa ryba: el pez.
+leche|n.f|mleko|Un café con leche.=Kawa z mlekiem.|café con leche; leche de avena|leche|food|g01-basics|
+fruta|n.f|owoc; owoce|Compro fruta en el mercado.=Kupuję owoce na targu.|fruta del tiempo|fruta, frutas|food,shopping|g01-basics|
+mercado|n.m|targ|Los sábados voy al mercado.=W soboty chodzę na targ.|ir al mercado|mercado, mercados|shopping,places|g01-basics|
+cocinar|v|gotować|Me encanta cocinar.=Uwielbiam gotować.|cocinar para|cocino, cocinas, cocina, cocinamos, cocinan, cociné, cocinado, -cocina|food,home|g02-present|
+lunes|n.m|poniedziałek|El lunes tengo una reunión.=W poniedziałek mam spotkanie.|el lunes; los lunes|lunes|time|g01-basics|Bez przyimka: el lunes = w poniedziałek.
+sábado|n.m|sobota|El sábado vamos a la playa.=W sobotę jedziemy na plażę.|el sábado; los sábados|sábado, sábados|time|g05-ir-a|
+domingo|n.m|niedziela|Los domingos comemos en familia.=W niedziele jemy obiad z rodziną.|el domingo|domingo, domingos|time|g01-basics|
+fin|n.m|koniec|El fin de semana.=Weekend.;;Por fin.=Wreszcie.|fin de semana; por fin; al fin y al cabo|fin|time|g01-basics|
+temprano|adv|wcześnie|Mañana me levanto temprano.=Jutro wstaję wcześnie.|muy temprano|temprano|time|g01-basics|
+levantarse|v|wstawać|Me levanto a las siete.=Wstaję o siódmej.|levantarse temprano|levanto, levantas, levanta, levantamos, levantan, levanté, levantado|time,home|g02-present,g10-imperativo-pronombres|Czasownik zwrotny.
+esposa|n.f|żona; (esposo) mąż|Mi esposa se llama Ana.=Moja żona ma na imię Ana.|marido y mujer|esposa, esposo|family|g01-basics|W mowie częściej: mi mujer / mi marido.
+marido|n.m|mąż|Mi marido trabaja en Madrid.=Mój mąż pracuje w Madrycie.|mi marido|marido, maridos|family|g01-basics|
+explicar|v|wyjaśniać|¿Me lo puedes explicar?=Możesz mi to wyjaśnić?|explicar algo|explico, explicas, explica, explicamos, expliqué, explicado|communication|g10-imperativo-pronombres|
+repetir|v|powtarzać|¿Puede repetir, por favor?=Czy może Pan powtórzyć?|repetir más despacio|repito, repites, repite, repetimos, repiten, repetí, repitió, repetido|communication|g02-present|e→i
+despacio|adv|powoli|Más despacio, por favor.=Wolniej, proszę.|más despacio|despacio|communication|g01-basics|
+español|n.m|hiszpański (język); Hiszpan|Estoy aprendiendo español.=Uczę się hiszpańskiego.;;Hablo un poco de español.=Mówię trochę po hiszpańsku.|en español; hablar español|español, española, españoles|communication|g01-basics|
+polaco|adj|polski; Polak|Soy polaco.=Jestem Polakiem.|en polaco|polaco, polaca, polacos|people|g01-basics|
+España|n.f|Hiszpania|Vivo en España desde hace un año.=Mieszkam w Hiszpanii od roku.|en España|España|places|g01-basics|
+Polonia|n.f|Polska|Soy de Polonia.=Jestem z Polski.|de Polonia|Polonia|places|g01-basics|
+precioso|adj|piękny; uroczy|¡Qué piso tan precioso!=Jakie piękne mieszkanie!|precioso|precioso, preciosa, preciosos, preciosas|basics|g01-basics|
+apetecer|v|mieć ochotę|¿Te apetece un café?=Masz ochotę na kawę?;;No me apetece salir.=Nie mam ochoty wychodzić.|¿te apetece?|apetece, apetecen, apetecía|feelings,food|g04-tener-haber-gustar|Bardzo typowe dla Hiszpanii; konstrukcja jak gustar.
+quejarse|v|narzekać; skarżyć się|Quiero quejarme del servicio.=Chcę złożyć skargę na obsługę.|quejarse de|quejo, quejas, queja, quejamos, quejé, quejado|problems|g10-imperativo-pronombres|
+factura|n.f|faktura; rachunek|¿Me puede hacer una factura?=Może mi Pan wystawić fakturę?|la factura de la luz|factura, facturas|work,shopping|g01-basics|
+presupuesto|n.m|kosztorys; budżet|¿Me puede dar un presupuesto?=Może mi Pan przygotować wycenę?|pedir presupuesto|presupuesto, presupuestos|work,home|g01-basics|
+cita|n.f|wizyta (umówiona); randka|Quiero pedir cita con el médico.=Chcę umówić się na wizytę u lekarza.|pedir cita; tener una cita|cita, citas|health,people|g01-basics|"Pedir cita" = umówić wizytę.

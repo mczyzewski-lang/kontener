@@ -1,0 +1,449 @@
+[
+  {
+    "id": "g01-basics",
+    "stage": 1,
+    "title": "Budowa zdania, pytania i przeczenia",
+    "subtitle": "Podmiot często znika, a „no” stoi przed czasownikiem",
+    "level": 1,
+    "prerequisites": [],
+    "explanation": [
+      "Hiszpańskie zdanie ma zwykle szyk: (podmiot) + czasownik + reszta. Podmiot często pomijamy, bo końcówka czasownika mówi, kto działa: „Vivo en Málaga” = (Ja) mieszkam w Maladze.",
+      "Przeczenie jest proste: „no” stawiamy bezpośrednio przed czasownikiem (i przed zaimkami me/te/lo): „No vivo aquí”, „No lo sé”.",
+      "Podwójne przeczenie jest poprawne, tak jak w polskim: „No tengo nada” = Nie mam nic. „No viene nadie” = Nikt nie przychodzi.",
+      "Pytanie tak/nie tworzymy samą intonacją (głos w górę na końcu). Na piśmie: ¿ na początku i ? na końcu. „¿Vives aquí?”",
+      "Pytania szczegółowe zaczynają się od słówek z akcentem: qué (co), quién (kto), dónde (gdzie), cuándo (kiedy), cómo (jak), cuánto (ile), por qué (dlaczego). Po nich zwykle idzie czasownik: „¿Dónde vives?”",
+      "Rzeczowniki mają rodzaj: zwykle -o = męski (el coche), -a = żeński (la casa). Przymiotnik idzie zwykle po rzeczowniku i zgadza się z nim: „una casa grande”, „los coches nuevos”."
+    ],
+    "examples": [
+      { "es": "Vivo en Valencia con mi familia.", "pl": "Mieszkam w Walencji z rodziną.", "note": "Bez „yo” — końcówka -o wystarczy." },
+      { "es": "No hablo bien español.", "pl": "Nie mówię dobrze po hiszpańsku." },
+      { "es": "¿Tienes hijos?", "pl": "Masz dzieci?", "note": "Pytanie tylko intonacją." },
+      { "es": "¿Dónde está la estación?", "pl": "Gdzie jest dworzec?" },
+      { "es": "No quiero nada, gracias.", "pl": "Nic nie chcę, dziękuję.", "note": "Podwójne przeczenie." }
+    ],
+    "exercises": [
+      { "type": "choice", "prompt_pl": "Wybierz poprawne przeczenie.", "sentence": "___ entiendo la pregunta.", "options": ["No", "Nada", "Nunca no"], "answer": "No", "explanation_pl": "„No” stoi bezpośrednio przed czasownikiem.", "difficulty": 1 },
+      { "type": "choice", "prompt_pl": "Które słowo pytające pasuje?", "sentence": "¿___ vives? — En Alicante.", "options": ["Dónde", "Cuándo", "Quién"], "answer": "Dónde", "explanation_pl": "Pytamy o miejsce: dónde = gdzie.", "difficulty": 1 },
+      { "type": "fill", "prompt_pl": "Uzupełnij podwójne przeczenie (nikt).", "sentence": "No hay ___ en casa.", "answer": "nadie", "accepted": [], "explanation_pl": "No… nadie = nikt (dosł. nie ma nikogo).", "difficulty": 2 },
+      { "type": "choice", "prompt_pl": "Wybierz poprawną formę przymiotnika.", "sentence": "Tengo una casa ___.", "options": ["pequeña", "pequeño", "pequeños"], "answer": "pequeña", "explanation_pl": "Casa jest rodzaju żeńskiego, l.poj.", "difficulty": 1 },
+      { "type": "translate", "prompt_pl": "Przetłumacz na hiszpański.", "source_pl": "Nie wiem.", "answer": "No lo sé.", "accepted": ["No sé.", "No sé"], "explanation_pl": "Najnaturalniej: „No lo sé”. „No sé” też jest poprawne.", "difficulty": 1 },
+      { "type": "translate", "prompt_pl": "Przetłumacz na hiszpański.", "source_pl": "Gdzie mieszkasz?", "answer": "¿Dónde vives?", "accepted": ["¿Dónde vives tú?"], "explanation_pl": "Dónde + czasownik; zaimek „tú” zbędny.", "difficulty": 1 },
+      { "type": "speak", "prompt_pl": "Odpowiedz pełnym zdaniem, używając przeczenia.", "question_es": "¿Vives en Madrid?", "model_answer": "No, no vivo en Madrid. Vivo en Málaga.", "pattern": "\\bno\\b.*\\bviv", "explanation_pl": "„No, no vivo…” — pierwsze „no” to odpowiedź, drugie to przeczenie.", "difficulty": 1 },
+      { "type": "speak", "prompt_pl": "Zadaj pytanie: zapytaj rozmówcę, skąd jest.", "question_es": "Pregúntame de dónde soy.", "model_answer": "¿De dónde eres?", "pattern": "de donde (eres|es)", "explanation_pl": "De dónde + ser = skąd ktoś jest.", "difficulty": 2 }
+    ],
+    "mini_conversation": {
+      "intro_pl": "Krótka rozmowa zapoznawcza. Odpowiadaj pełnymi zdaniami, możesz używać przeczeń.",
+      "questions": [
+        { "es": "¿Cómo te llamas?", "pl": "Jak masz na imię?", "expects_pl": "Przedstaw się: Me llamo…", "pattern": "(me llamo|soy|mi nombre es)" },
+        { "es": "¿De dónde eres?", "pl": "Skąd jesteś?", "expects_pl": "Soy de…", "pattern": "soy de|de polonia|polac" },
+        { "es": "¿Vives en España?", "pl": "Mieszkasz w Hiszpanii?", "expects_pl": "Sí, vivo en… / No, no vivo…", "pattern": "viv" },
+        { "es": "¿Hablas inglés?", "pl": "Mówisz po angielsku?", "expects_pl": "Sí, hablo… / No, no hablo…", "pattern": "habl" }
+      ]
+    },
+    "agent_focus": "Short affirmative and negative sentences, yes/no questions and question words (qué, dónde, cuándo, cómo, quién). Ask the learner simple personal questions and encourage them to ask you questions back."
+  },
+  {
+    "id": "g02-present",
+    "stage": 2,
+    "title": "Czas teraźniejszy (presente)",
+    "subtitle": "Trzy koniugacje i najważniejsze nieregularności",
+    "level": 1,
+    "prerequisites": ["g01-basics"],
+    "explanation": [
+      "Czasowniki dzielą się na trzy grupy wg końcówki bezokolicznika: -ar (hablar), -er (comer), -ir (vivir).",
+      "-ar: hablo, hablas, habla, hablamos, habláis, hablan. -er: como, comes, come, comemos, coméis, comen. -ir: vivo, vives, vive, vivimos, vivís, viven.",
+      "Wiele częstych czasowników zmienia samogłoskę w temacie (poza formami nosotros/vosotros): e→ie (quiero, empiezo), o→ue (puedo, vuelvo, duermo), e→i (pido, repito).",
+      "Kilka ma nieregularne „yo”: hago, tengo, pongo, salgo, vengo, digo, conozco, sé, doy, voy, soy, estoy.",
+      "Presente opisuje to, co robisz zwykle („Trabajo en casa”), to, co dzieje się teraz („¿Qué haces?”), a często też bliską przyszłość („Mañana trabajo”).",
+      "Czasowniki zwrotne mają zaimek przed formą: me levanto, te levantas, se levanta, nos levantamos, os levantáis, se levantan."
+    ],
+    "examples": [
+      { "es": "Trabajo desde casa tres días a la semana.", "pl": "Pracuję z domu trzy dni w tygodniu." },
+      { "es": "¿Qué haces los fines de semana?", "pl": "Co robisz w weekendy?" },
+      { "es": "Normalmente comemos a las dos.", "pl": "Zwykle jemy obiad o drugiej." },
+      { "es": "No puedo hoy, pero mañana vuelvo.", "pl": "Dziś nie mogę, ale jutro wracam.", "note": "o→ue: puedo, vuelvo" },
+      { "es": "Me levanto a las siete y salgo de casa a las ocho.", "pl": "Wstaję o siódmej i wychodzę z domu o ósmej." }
+    ],
+    "exercises": [
+      { "type": "choice", "prompt_pl": "Wybierz poprawną formę.", "sentence": "Nosotros ___ en un piso pequeño.", "options": ["vivimos", "vivemos", "viven"], "answer": "vivimos", "explanation_pl": "Vivir (-ir): nosotros vivimos.", "difficulty": 1 },
+      { "type": "fill", "prompt_pl": "Uzupełnij formą „yo” czasownika hacer.", "sentence": "Los sábados ___ la compra.", "answer": "hago", "accepted": [], "explanation_pl": "Hacer ma nieregularne „yo”: hago.", "difficulty": 1 },
+      { "type": "fill", "prompt_pl": "Uzupełnij: poder (yo).", "sentence": "¿___ pagar con tarjeta?", "answer": "Puedo", "accepted": ["puedo"], "explanation_pl": "o→ue: puedo.", "difficulty": 1 },
+      { "type": "choice", "prompt_pl": "Wybierz poprawną formę: querer (ella).", "sentence": "Mi hija ___ un perro.", "options": ["quiere", "quere", "quiero"], "answer": "quiere", "explanation_pl": "e→ie w formie ella: quiere.", "difficulty": 2 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "Pracuję w biurze.", "answer": "Trabajo en una oficina.", "accepted": ["Trabajo en la oficina.", "Trabajo en oficina."], "explanation_pl": "Trabajar en…", "difficulty": 1 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "Wstaję o siódmej.", "answer": "Me levanto a las siete.", "accepted": [], "explanation_pl": "Czasownik zwrotny: me levanto; godzina: a las siete.", "difficulty": 2 },
+      { "type": "speak", "prompt_pl": "Opowiedz o swoim typowym dniu (2–3 zdania).", "question_es": "¿Qué haces un día normal?", "model_answer": "Me levanto a las siete, desayuno un café y trabajo hasta las tres. Por la tarde voy al gimnasio.", "pattern": "\\b(me levanto|trabajo|desayuno|como|voy|hago|salgo|vuelvo|ceno)\\b", "explanation_pl": "Używaj form „yo”: trabajo, voy, hago…", "difficulty": 2 }
+    ],
+    "mini_conversation": {
+      "intro_pl": "Rozmowa o codzienności. Odpowiadaj w czasie teraźniejszym.",
+      "questions": [
+        { "es": "¿Qué haces hoy?", "pl": "Co dziś robisz?", "expects_pl": "Hoy trabajo / voy / tengo…", "pattern": "\\b(trabajo|voy|tengo|hago|estoy|como|salgo)\\b" },
+        { "es": "¿A qué hora te levantas normalmente?", "pl": "O której zwykle wstajesz?", "expects_pl": "Me levanto a las…", "pattern": "me levanto|a las" },
+        { "es": "¿Qué te gusta hacer los fines de semana?", "pl": "Co lubisz robić w weekendy?", "expects_pl": "Me gusta + bezokolicznik", "pattern": "me gusta|me encanta|\\b(voy|salgo|juego|leo)\\b" },
+        { "es": "¿Dónde trabajas?", "pl": "Gdzie pracujesz?", "expects_pl": "Trabajo en…", "pattern": "trabajo" }
+      ]
+    },
+    "agent_focus": "Present tense for routines and current actions, including stem-changing (quiero, puedo, pido) and irregular yo-forms (hago, tengo, salgo). Ask about the learner's daily routine, work and weekends."
+  },
+  {
+    "id": "g03-ser-estar",
+    "stage": 3,
+    "title": "Ser i estar",
+    "subtitle": "Kim/czym coś jest kontra jak i gdzie jest",
+    "level": 1,
+    "prerequisites": ["g02-present"],
+    "explanation": [
+      "Oba czasowniki znaczą „być”, ale nie są wymienne.",
+      "SER — tożsamość i cechy: kim ktoś jest (Soy Marek), zawód (Es médico), pochodzenie (Soy de Polonia), charakter i wygląd (Es simpático, es alto), czas i cena (Son las tres, ¿Cuánto es?), materiał, gdzie odbywa się wydarzenie (La fiesta es en mi casa).",
+      "ESTAR — stan i położenie: gdzie coś się znajduje (Estoy en casa, ¿Dónde está el baño?), samopoczucie (Estoy cansado), stan chwilowy (La sopa está fría), czynność w toku: estar + gerundio (Estoy trabajando).",
+      "Niektóre przymiotniki zmieniają znaczenie: ser listo (być bystrym) / estar listo (być gotowym); ser aburrido (być nudnym) / estar aburrido (nudzić się); ser malo (być złym) / estar malo (być chorym).",
+      "Wygodna pamięciówka: ser → „co/kim jest”, estar → „jak i gdzie jest”. Wyjątek: wydarzenia (np. impreza) „są” w miejscu z ser."
+    ],
+    "examples": [
+      { "es": "Soy de Poznań, pero estoy en Málaga.", "pl": "Jestem z Poznania, ale jestem w Maladze." },
+      { "es": "Mi vecino es muy amable.", "pl": "Mój sąsiad jest bardzo uprzejmy.", "note": "cecha → ser" },
+      { "es": "Hoy estoy un poco cansado.", "pl": "Dziś jestem trochę zmęczony.", "note": "stan → estar" },
+      { "es": "¿Dónde está la farmacia?", "pl": "Gdzie jest apteka?", "note": "położenie → estar" },
+      { "es": "La reunión es en la oficina.", "pl": "Spotkanie jest w biurze.", "note": "wydarzenie → ser" },
+      { "es": "Estoy trabajando, te llamo luego.", "pl": "Pracuję, zadzwonię później.", "note": "estar + gerundio" }
+    ],
+    "exercises": [
+      { "type": "choice", "prompt_pl": "Ser czy estar?", "sentence": "Mi mujer ___ española.", "options": ["es", "está"], "answer": "es", "explanation_pl": "Narodowość → ser.", "difficulty": 1 },
+      { "type": "choice", "prompt_pl": "Ser czy estar?", "sentence": "El hotel ___ cerca de la playa.", "options": ["está", "es"], "answer": "está", "explanation_pl": "Położenie → estar.", "difficulty": 1 },
+      { "type": "choice", "prompt_pl": "Ser czy estar?", "sentence": "Hoy ___ muy contento.", "options": ["estoy", "soy"], "answer": "estoy", "explanation_pl": "Samopoczucie → estar.", "difficulty": 1 },
+      { "type": "fill", "prompt_pl": "Uzupełnij (która godzina?).", "sentence": "___ las cinco y media.", "answer": "Son", "accepted": ["son"], "explanation_pl": "Godzina → ser (son las…, es la una).", "difficulty": 2 },
+      { "type": "choice", "prompt_pl": "Które znaczy „jestem gotowy”?", "sentence": "Ya ___ listo, ¿nos vamos?", "options": ["estoy", "soy"], "answer": "estoy", "explanation_pl": "Estar listo = być gotowym; ser listo = być bystrym.", "difficulty": 2 },
+      { "type": "choice", "prompt_pl": "Ser czy estar?", "sentence": "La fiesta ___ en casa de Lucía.", "options": ["es", "está"], "answer": "es", "explanation_pl": "Wydarzenie „odbywa się” → ser.", "difficulty": 3 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "Jestem zmęczony, ale zadowolony.", "answer": "Estoy cansado, pero contento.", "accepted": ["Estoy cansada, pero contenta."], "explanation_pl": "Oba przymiotniki opisują stan → estar.", "difficulty": 2 },
+      { "type": "speak", "prompt_pl": "Opisz swój dom: jaki jest i gdzie się znajduje.", "question_es": "¿Cómo es tu casa y dónde está?", "model_answer": "Mi casa es grande y luminosa. Está en un pueblo cerca del mar.", "pattern": "\\bes\\b.*\\besta\\b|\\besta\\b.*\\bes\\b", "explanation_pl": "Jaki jest → es; gdzie jest → está.", "difficulty": 2 }
+    ],
+    "mini_conversation": {
+      "intro_pl": "Opowiedz o sobie i swoim otoczeniu. Pilnuj ser/estar.",
+      "questions": [
+        { "es": "¿Cómo estás hoy?", "pl": "Jak się dziś czujesz?", "expects_pl": "Estoy bien / cansado…", "pattern": "\\besto?y\\b" },
+        { "es": "¿Cómo es tu ciudad?", "pl": "Jakie jest twoje miasto?", "expects_pl": "Es grande / tranquila…", "pattern": "\\bes\\b" },
+        { "es": "¿Dónde está tu casa?", "pl": "Gdzie jest twój dom?", "expects_pl": "Está en / cerca de…", "pattern": "\\besta\\b" },
+        { "es": "¿Cómo es tu mejor amigo?", "pl": "Jaki jest twój najlepszy przyjaciel?", "expects_pl": "Es simpático / alto…", "pattern": "\\bes\\b" }
+      ]
+    },
+    "agent_focus": "Contrast ser (identity, origin, profession, characteristics, time, events) and estar (location, mood, temporary state, estar + gerund). Ask the learner to describe people, places and how they feel."
+  },
+  {
+    "id": "g04-tener-haber-gustar",
+    "stage": 4,
+    "title": "Tener, hay, gustar i czasowniki modalne",
+    "subtitle": "Mieć, istnieć, lubić, musieć, móc, chcieć",
+    "level": 1,
+    "prerequisites": ["g03-ser-estar"],
+    "explanation": [
+      "TENER = mieć: Tengo dos hijos. Używamy go też przy wieku i odczuciach: tengo 40 años, tengo hambre / sed / frío / calor / sueño / miedo / prisa.",
+      "TENER QUE + bezokolicznik = musieć: Tengo que trabajar. HAY QUE = trzeba (bezosobowo): Hay que reservar.",
+      "HAY (od haber) = jest / są / istnieje: Hay un bar en la esquina. Hay muchos turistas. Uwaga: przy konkretnym, znanym obiekcie używamy estar: El bar está en la esquina.",
+      "GUSTAR działa jak polskie „podobać się”: to rzecz „się podoba” komuś. Me gusta el café (l.poj.), me gustan los perros (l.mn.), me gusta viajar (czynność). Zaimki: me, te, le, nos, os, les. Tak samo: encantar, apetecer, doler, importar, parecer.",
+      "Czasowniki modalne + bezokolicznik: poder (móc): ¿Puedo pasar?; querer (chcieć): Quiero descansar; deber (powinien): Debes descansar; necesitar (potrzebować): Necesito hablar contigo.",
+      "Grzecznie: me gustaría (chciałbym), ¿podría…? (czy mógłby Pan…?), quería… (chciałem/poproszę)."
+    ],
+    "examples": [
+      { "es": "Tengo que llamar al fontanero.", "pl": "Muszę zadzwonić do hydraulika." },
+      { "es": "¿Hay un supermercado por aquí?", "pl": "Czy jest tu gdzieś supermarket?" },
+      { "es": "Me gustan mucho los pueblos blancos.", "pl": "Bardzo podobają mi się białe miasteczka.", "note": "l.mn. → gustan" },
+      { "es": "A mi mujer le encanta el mar.", "pl": "Moja żona uwielbia morze." },
+      { "es": "Me duele la cabeza.", "pl": "Boli mnie głowa." },
+      { "es": "¿Podría traernos la carta, por favor?", "pl": "Czy mógłby Pan przynieść nam kartę?" }
+    ],
+    "exercises": [
+      { "type": "choice", "prompt_pl": "Gusta czy gustan?", "sentence": "Me ___ los perros.", "options": ["gustan", "gusta", "gusto"], "answer": "gustan", "explanation_pl": "Los perros = l.mn. → gustan.", "difficulty": 1 },
+      { "type": "choice", "prompt_pl": "Hay czy está?", "sentence": "¿Dónde ___ la estación?", "options": ["está", "hay"], "answer": "está", "explanation_pl": "Konkretny, znany obiekt → estar.", "difficulty": 2 },
+      { "type": "fill", "prompt_pl": "Uzupełnij (muszę).", "sentence": "Mañana ___ que trabajar.", "answer": "tengo", "accepted": [], "explanation_pl": "Tener que + bezokolicznik.", "difficulty": 1 },
+      { "type": "fill", "prompt_pl": "Uzupełnij zaimek (jej się podoba).", "sentence": "A Lucía ___ gusta bailar.", "answer": "le", "accepted": [], "explanation_pl": "A ella → le gusta.", "difficulty": 2 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "Jestem głodny.", "answer": "Tengo hambre.", "accepted": [], "explanation_pl": "Po hiszpańsku „mam głód”: tener hambre.", "difficulty": 1 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "Chciałbym zarezerwować stolik.", "answer": "Me gustaría reservar una mesa.", "accepted": ["Quería reservar una mesa.", "Quisiera reservar una mesa."], "explanation_pl": "Grzecznie: me gustaría / quería / quisiera.", "difficulty": 2 },
+      { "type": "speak", "prompt_pl": "Powiedz, co lubisz, a czego nie lubisz w Hiszpanii.", "question_es": "¿Qué te gusta de España y qué no te gusta?", "model_answer": "Me gusta el clima y la comida, pero no me gustan los horarios de las comidas.", "pattern": "me gustan?", "explanation_pl": "Me gusta + l.poj./bezokolicznik; me gustan + l.mn.", "difficulty": 2 }
+    ],
+    "mini_conversation": {
+      "intro_pl": "Rozmowa o upodobaniach i obowiązkach.",
+      "questions": [
+        { "es": "¿Qué te gusta hacer en tu tiempo libre?", "pl": "Co lubisz robić w wolnym czasie?", "expects_pl": "Me gusta + bezokolicznik", "pattern": "me gusta|me encanta" },
+        { "es": "¿Qué tienes que hacer esta semana?", "pl": "Co musisz zrobić w tym tygodniu?", "expects_pl": "Tengo que…", "pattern": "tengo que|hay que|debo|necesito" },
+        { "es": "¿Qué hay en tu barrio?", "pl": "Co jest w twojej okolicy?", "expects_pl": "Hay un / muchos…", "pattern": "\\bhay\\b" },
+        { "es": "¿Tienes hermanos?", "pl": "Masz rodzeństwo?", "expects_pl": "Sí, tengo… / No, no tengo…", "pattern": "tengo" }
+      ]
+    },
+    "agent_focus": "tener (including tener que, tener hambre/frío), hay vs estar, gustar-type verbs (gustar, encantar, apetecer, doler) and modal verbs poder, querer, deber, necesitar. Ask about likes, obligations and what there is in the learner's neighbourhood."
+  },
+  {
+    "id": "g05-ir-a",
+    "stage": 5,
+    "title": "Przyszłość: ir a + bezokolicznik",
+    "subtitle": "Najprostszy i najczęstszy sposób mówienia o planach",
+    "level": 1,
+    "prerequisites": ["g04-tener-haber-gustar"],
+    "explanation": [
+      "Plany i zamiary wyrażamy konstrukcją: ir (w czasie teraźniejszym) + a + bezokolicznik.",
+      "voy a comer, vas a comer, va a comer, vamos a comer, vais a comer, van a comer.",
+      "Typowe określenia czasu: mañana, pasado mañana, esta tarde, esta noche, el fin de semana, la semana que viene, el mes que viene, el año que viene.",
+      "„Vamos a…” może też znaczyć „chodźmy / zróbmy”: ¡Vamos a ver! = Zobaczmy!",
+      "Hiszpanie często używają też zwykłego presente dla pewnych planów: Mañana trabajo. Czas przyszły prosty (comeré) poznasz później — w rozmowie „ir a” w zupełności wystarczy."
+    ],
+    "examples": [
+      { "es": "Este verano vamos a ir a Asturias.", "pl": "Tego lata pojedziemy do Asturii." },
+      { "es": "¿Qué vas a hacer el fin de semana?", "pl": "Co będziesz robić w weekend?" },
+      { "es": "Voy a llamar al técnico mañana.", "pl": "Jutro zadzwonię do technika." },
+      { "es": "Creo que va a llover.", "pl": "Myślę, że będzie padać." }
+    ],
+    "exercises": [
+      { "type": "fill", "prompt_pl": "Uzupełnij formą ir (ja).", "sentence": "Mañana ___ a trabajar desde casa.", "answer": "voy", "accepted": [], "explanation_pl": "Yo voy a + bezokolicznik.", "difficulty": 1 },
+      { "type": "choice", "prompt_pl": "Brakuje jednego słowa. Które?", "sentence": "Vamos ___ cenar fuera.", "options": ["a", "de", "—"], "answer": "a", "explanation_pl": "Ir A + bezokolicznik — „a” jest obowiązkowe.", "difficulty": 1 },
+      { "type": "fill", "prompt_pl": "Uzupełnij formą ir (oni).", "sentence": "Mis padres ___ a visitarnos en mayo.", "answer": "van", "accepted": [], "explanation_pl": "Ellos van a…", "difficulty": 1 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "W przyszłym tygodniu kupię samochód.", "answer": "La semana que viene voy a comprar un coche.", "accepted": ["La próxima semana voy a comprar un coche.", "Voy a comprar un coche la semana que viene."], "explanation_pl": "La semana que viene / la próxima semana + voy a comprar.", "difficulty": 2 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "Co będziesz robić dziś wieczorem?", "answer": "¿Qué vas a hacer esta noche?", "accepted": [], "explanation_pl": "Esta noche = dziś wieczorem.", "difficulty": 2 },
+      { "type": "speak", "prompt_pl": "Opowiedz o swoich planach na weekend (2 zdania).", "question_es": "¿Qué vas a hacer este fin de semana?", "model_answer": "El sábado voy a ir a la playa y el domingo vamos a comer con unos amigos.", "pattern": "\\b(voy|vamos|va|van) a\\b", "explanation_pl": "Voy a / vamos a + bezokolicznik.", "difficulty": 2 }
+    ],
+    "mini_conversation": {
+      "intro_pl": "Rozmowa o planach. Używaj „voy a…”.",
+      "questions": [
+        { "es": "¿Qué vas a hacer mañana?", "pl": "Co będziesz robić jutro?", "expects_pl": "Mañana voy a…", "pattern": "\\b(voy|vamos) a\\b" },
+        { "es": "¿Adónde vas a ir de vacaciones?", "pl": "Dokąd pojedziesz na wakacje?", "expects_pl": "Voy a ir a…", "pattern": "\\b(voy|vamos) a\\b" },
+        { "es": "¿Qué vas a comer hoy?", "pl": "Co zjesz dziś na obiad?", "expects_pl": "Voy a comer…", "pattern": "\\b(voy|vamos) a\\b" }
+      ]
+    },
+    "agent_focus": "Talking about plans with ir a + infinitive and time expressions (mañana, el fin de semana, la semana que viene). Ask about the learner's plans for tomorrow, the weekend, holidays."
+  },
+  {
+    "id": "g06-perfecto",
+    "stage": 6,
+    "title": "Przeszłość: pretérito perfecto (he hecho)",
+    "subtitle": "Przeszłość połączona z teraźniejszością — bardzo typowa w Hiszpanii",
+    "level": 2,
+    "prerequisites": ["g05-ir-a"],
+    "explanation": [
+      "Budowa: haber (he, has, ha, hemos, habéis, han) + imiesłów. Imiesłów: -ar → -ado (hablado), -er/-ir → -ido (comido, vivido).",
+      "Nieregularne imiesłowy: hecho (hacer), dicho (decir), visto (ver), puesto (poner), escrito (escribir), abierto (abrir), vuelto (volver), roto (romper), muerto (morir).",
+      "W Hiszpanii pretérito perfecto opisuje przeszłość w okresie, który jeszcze trwa: hoy, esta mañana, esta semana, este año, últimamente. „Hoy he trabajado mucho.”",
+      "Także doświadczenia życiowe bez podanego czasu: ¿Has estado en Sevilla? — Sí, he estado dos veces. Nunca he probado el pulpo.",
+      "Z „ya” (już) i „todavía no” (jeszcze nie): ¿Ya has comido? — Todavía no.",
+      "Zaimki stoją przed haber: Me he levantado tarde. Se me ha olvidado."
+    ],
+    "examples": [
+      { "es": "Esta mañana he ido al mercado.", "pl": "Dziś rano poszedłem na targ." },
+      { "es": "¿Has estado alguna vez en Galicia?", "pl": "Byłeś kiedyś w Galicji?" },
+      { "es": "Todavía no he terminado el informe.", "pl": "Jeszcze nie skończyłem raportu." },
+      { "es": "Se me han olvidado las llaves.", "pl": "Zapomniałem kluczy." },
+      { "es": "Este año hemos viajado mucho.", "pl": "W tym roku dużo podróżowaliśmy." }
+    ],
+    "exercises": [
+      { "type": "fill", "prompt_pl": "Uzupełnij formą haber (ja).", "sentence": "Hoy ___ comido en un restaurante.", "answer": "he", "accepted": [], "explanation_pl": "Yo he + imiesłów.", "difficulty": 1 },
+      { "type": "choice", "prompt_pl": "Wybierz poprawny imiesłów.", "sentence": "¿Qué has ___ hoy?", "options": ["hecho", "hacido", "hizo"], "answer": "hecho", "explanation_pl": "Hacer → hecho (nieregularny).", "difficulty": 1 },
+      { "type": "choice", "prompt_pl": "Wybierz poprawny imiesłów.", "sentence": "Nunca he ___ esa película.", "options": ["visto", "veído", "vido"], "answer": "visto", "explanation_pl": "Ver → visto.", "difficulty": 2 },
+      { "type": "fill", "prompt_pl": "Uzupełnij (my — wrócić).", "sentence": "Esta semana ___ vuelto tarde todos los días.", "answer": "hemos", "accepted": [], "explanation_pl": "Nosotros hemos + vuelto.", "difficulty": 2 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "Byłeś kiedyś w Barcelonie?", "answer": "¿Has estado alguna vez en Barcelona?", "accepted": ["¿Has estado en Barcelona alguna vez?", "¿Alguna vez has estado en Barcelona?"], "explanation_pl": "Doświadczenie → perfecto: has estado.", "difficulty": 2 },
+      { "type": "speak", "prompt_pl": "Powiedz 2–3 rzeczy, które dziś zrobiłeś.", "question_es": "¿Qué has hecho hoy?", "model_answer": "Hoy he trabajado por la mañana, he comido con mi mujer y he dado un paseo.", "pattern": "\\b(he|hemos) [a-z]+(ado|ido|cho|sto|to|erto)\\b", "explanation_pl": "Hoy → he + imiesłów.", "difficulty": 2 }
+    ],
+    "mini_conversation": {
+      "intro_pl": "Rozmowa o tym, co już zrobiłeś dziś i w życiu.",
+      "questions": [
+        { "es": "¿Qué has hecho hoy?", "pl": "Co dziś zrobiłeś?", "expects_pl": "Hoy he…", "pattern": "\\b(he|hemos) [a-z]+(ado|ido|cho|sto|to|erto)\\b" },
+        { "es": "¿Has estado alguna vez en Andalucía?", "pl": "Byłeś kiedyś w Andaluzji?", "expects_pl": "Sí, he estado… / No, nunca he estado…", "pattern": "he estado|nunca" },
+        { "es": "¿Ya has comido?", "pl": "Jadłeś już?", "expects_pl": "Sí, ya he comido / Todavía no.", "pattern": "he comido|todavia no|ya he" }
+      ]
+    },
+    "agent_focus": "Pretérito perfecto for today/this week and life experiences (¿Has estado alguna vez…?), with ya / todavía no and irregular participles (hecho, visto, dicho, puesto, vuelto). Ask what the learner has done today and whether they have ever done things."
+  },
+  {
+    "id": "g07-indefinido",
+    "stage": 7,
+    "title": "Przeszłość: pretérito indefinido (hice)",
+    "subtitle": "Zamknięte wydarzenia: wczoraj, w zeszłym roku, w 2019",
+    "level": 2,
+    "prerequisites": ["g06-perfecto"],
+    "explanation": [
+      "Indefinido opisuje zakończone wydarzenia w zamkniętym okresie: ayer, anoche, la semana pasada, el año pasado, en 2019, hace dos años.",
+      "-ar: hablé, hablaste, habló, hablamos, hablasteis, hablaron. -er/-ir: comí, comiste, comió, comimos, comisteis, comieron.",
+      "Najczęstsze nieregularne: ser/ir → fui, fuiste, fue, fuimos, fuisteis, fueron (to samo dla obu!); hacer → hice, hiciste, hizo; tener → tuve; estar → estuve; poder → pude; poner → puse; decir → dije; venir → vine; dar → di.",
+      "Uwaga na akcent: hablo (mówię) vs habló (on mówił). W formach nieregularnych (hice, tuve) akcentu nie ma.",
+      "To główny czas do opowiadania historii: najpierw to, potem tamto. „Ayer fui al centro, compré un regalo y volví a casa.”"
+    ],
+    "examples": [
+      { "es": "Ayer fui a comprar un coche.", "pl": "Wczoraj poszedłem kupić samochód." },
+      { "es": "El año pasado estuvimos en Mallorca.", "pl": "W zeszłym roku byliśmy na Majorce." },
+      { "es": "¿Qué hiciste el sábado?", "pl": "Co robiłeś w sobotę?" },
+      { "es": "Llegué a España hace dos años.", "pl": "Przyjechałem do Hiszpanii dwa lata temu." },
+      { "es": "Me dijo que no podía venir.", "pl": "Powiedział mi, że nie może przyjść." }
+    ],
+    "exercises": [
+      { "type": "fill", "prompt_pl": "Uzupełnij: ir (ja), wczoraj.", "sentence": "Ayer ___ a la playa.", "answer": "fui", "accepted": [], "explanation_pl": "Ir → fui.", "difficulty": 1 },
+      { "type": "choice", "prompt_pl": "Wybierz poprawną formę: comprar (ella).", "sentence": "La semana pasada mi hermana ___ un piso.", "options": ["compró", "compro", "compraba"], "answer": "compró", "explanation_pl": "Ella compró — z akcentem na końcu.", "difficulty": 1 },
+      { "type": "fill", "prompt_pl": "Uzupełnij: hacer (tú).", "sentence": "¿Qué ___ anoche?", "answer": "hiciste", "accepted": [], "explanation_pl": "Hacer → hice, hiciste, hizo.", "difficulty": 2 },
+      { "type": "choice", "prompt_pl": "Perfecto czy indefinido?", "sentence": "En 2020 ___ a vivir a Valencia.", "options": ["nos mudamos", "nos hemos mudado"], "answer": "nos mudamos", "explanation_pl": "Konkretny, zamknięty rok → indefinido.", "difficulty": 2 },
+      { "type": "fill", "prompt_pl": "Uzupełnij: tener (nosotros).", "sentence": "El viernes ___ una reunión muy larga.", "answer": "tuvimos", "accepted": [], "explanation_pl": "Tener → tuve, tuviste, tuvo, tuvimos.", "difficulty": 3 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "Wczoraj kupiłem chleb i wróciłem do domu.", "answer": "Ayer compré pan y volví a casa.", "accepted": [], "explanation_pl": "Ciąg zdarzeń → indefinido.", "difficulty": 2 },
+      { "type": "speak", "prompt_pl": "Opowiedz, co robiłeś wczoraj (3 czynności).", "question_es": "¿Qué hiciste ayer?", "model_answer": "Ayer trabajé por la mañana, después comí con unos amigos y por la tarde fui al gimnasio.", "pattern": "\\b(fui|estuve|hice|tuve|comi|[a-z]+(e|i))\\b", "explanation_pl": "Ayer → indefinido: trabajé, comí, fui.", "difficulty": 2 }
+    ],
+    "mini_conversation": {
+      "intro_pl": "Opowiadanie o przeszłości. Używaj indefinido z ayer / el año pasado.",
+      "questions": [
+        { "es": "¿Qué hiciste ayer?", "pl": "Co robiłeś wczoraj?", "expects_pl": "Ayer fui / trabajé / comí…", "pattern": "\\b(fui|estuve|hice|tuve|trabaje|comi|sali|vi|compre|[a-z]+(aste|io|aron|ieron))\\b|\\b[a-z]{3,}e\\b" },
+        { "es": "¿Dónde estuviste de vacaciones el año pasado?", "pl": "Gdzie byłeś na wakacjach w zeszłym roku?", "expects_pl": "Estuve en… / Fui a…", "pattern": "estuve|fui|estuvimos|fuimos" },
+        { "es": "¿Cuándo llegaste a España por primera vez?", "pl": "Kiedy pierwszy raz przyjechałeś do Hiszpanii?", "expects_pl": "Llegué en… / hace…", "pattern": "llegue|vine|fui" }
+      ]
+    },
+    "agent_focus": "Pretérito indefinido for finished events (ayer, el año pasado, en 2019, hace X), especially irregular fui, hice, estuve, tuve, dije. Ask the learner to tell what they did yesterday and on past holidays, as a sequence of events."
+  },
+  {
+    "id": "g08-imperfecto",
+    "stage": 8,
+    "title": "Przeszłość: pretérito imperfecto (hacía)",
+    "subtitle": "Tło, opisy i zwyczaje z przeszłości",
+    "level": 2,
+    "prerequisites": ["g07-indefinido"],
+    "explanation": [
+      "Imperfecto opisuje, jak było (tło), co się działo w trakcie i co robiliśmy regularnie: „Cuando era niño, vivía en un pueblo y jugaba en la calle.”",
+      "-ar: hablaba, hablabas, hablaba, hablábamos, hablabais, hablaban. -er/-ir: comía, comías, comía, comíamos, comíais, comían.",
+      "Tylko trzy nieregularne: ser → era, eras, era, éramos, erais, eran; ir → iba, ibas, iba…; ver → veía, veías, veía…",
+      "Sygnały: antes, de niño, cuando era joven, siempre, normalmente, todos los días, a menudo.",
+      "Opis w przeszłości: pogoda, wiek, wygląd, samopoczucie, godzina: Hacía sol. Tenía veinte años. Estaba cansado. Eran las diez.",
+      "Grzecznościowo: „Quería un café” = Poproszę kawę (łagodniej niż „quiero”)."
+    ],
+    "examples": [
+      { "es": "Cuando era pequeño, pasaba los veranos en el pueblo.", "pl": "Kiedy byłem mały, spędzałem wakacje na wsi." },
+      { "es": "Antes trabajaba en un banco.", "pl": "Wcześniej pracowałem w banku." },
+      { "es": "Hacía mucho calor y la playa estaba llena.", "pl": "Było bardzo gorąco i plaża była pełna." },
+      { "es": "Mi abuela siempre cocinaba los domingos.", "pl": "Moja babcia zawsze gotowała w niedziele." }
+    ],
+    "exercises": [
+      { "type": "fill", "prompt_pl": "Uzupełnij: ser (ja).", "sentence": "Cuando ___ niño, vivía en Gdańsk.", "answer": "era", "accepted": [], "explanation_pl": "Ser → era (nieregularne).", "difficulty": 1 },
+      { "type": "choice", "prompt_pl": "Wybierz formę imperfecto: jugar (nosotros).", "sentence": "De pequeños ___ al fútbol en la calle.", "options": ["jugábamos", "jugamos", "jugaremos"], "answer": "jugábamos", "explanation_pl": "Zwyczaj w przeszłości → imperfecto.", "difficulty": 1 },
+      { "type": "fill", "prompt_pl": "Uzupełnij: hacer (pogoda).", "sentence": "Ayer ___ mucho frío.", "answer": "hacía", "accepted": ["hacia"], "explanation_pl": "Opis pogody → imperfecto: hacía.", "difficulty": 2 },
+      { "type": "fill", "prompt_pl": "Uzupełnij: ir (ellos), zwyczaj.", "sentence": "Mis padres ___ a la playa todos los veranos.", "answer": "iban", "accepted": [], "explanation_pl": "Ir → iba, iban.", "difficulty": 2 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "Wcześniej mieszkałem w Polsce.", "answer": "Antes vivía en Polonia.", "accepted": [], "explanation_pl": "Antes + imperfecto.", "difficulty": 1 },
+      { "type": "speak", "prompt_pl": "Opowiedz, jak wyglądało twoje dzieciństwo (2 zdania).", "question_es": "¿Cómo era tu vida cuando eras niño?", "model_answer": "Cuando era niño vivía en una ciudad pequeña. Iba al colegio andando y jugaba mucho con mis amigos.", "pattern": "\\b(era|iba|vivia|jugaba|tenia|estaba|[a-z]+aba|[a-z]+ia)\\b", "explanation_pl": "Opis i zwyczaje → imperfecto: era, vivía, iba.", "difficulty": 2 }
+    ],
+    "mini_conversation": {
+      "intro_pl": "Wspomnienia. Opowiadaj, jak było kiedyś.",
+      "questions": [
+        { "es": "¿Dónde vivías cuando eras niño?", "pl": "Gdzie mieszkałeś, kiedy byłeś dzieckiem?", "expects_pl": "Vivía en…", "pattern": "vivia|era" },
+        { "es": "¿Qué hacías en verano?", "pl": "Co robiłeś latem?", "expects_pl": "Iba / jugaba / pasaba…", "pattern": "\\b[a-z]+(aba|ia)\\b|iba" },
+        { "es": "¿Cómo era tu primer trabajo?", "pl": "Jaka była twoja pierwsza praca?", "expects_pl": "Era…, trabajaba…", "pattern": "\\b(era|trabajaba|tenia|estaba)\\b" }
+      ]
+    },
+    "agent_focus": "Imperfecto for descriptions, background and habits in the past (era, iba, vivía, tenía, hacía calor). Ask about the learner's childhood, previous job and how things used to be."
+  },
+  {
+    "id": "g09-pasados",
+    "stage": 9,
+    "title": "Rozróżnianie czasów przeszłych",
+    "subtitle": "Perfecto, indefinido czy imperfecto — w jednej historii",
+    "level": 3,
+    "prerequisites": ["g08-imperfecto"],
+    "explanation": [
+      "W opowieści role są podzielone: indefinido = wydarzenia, które posuwają akcję („i wtedy…”); imperfecto = scena, tło, opis („było, działo się”).",
+      "Typowy wzór: imperfecto (co się działo) + indefinido (co nagle się stało): „Estaba en la playa cuando sonó el teléfono.”",
+      "Perfecto w Hiszpanii — gdy okres jeszcze trwa (hoy, esta semana) lub gdy mówimy o doświadczeniu: „Esta mañana he visto a tu hermano.”",
+      "Indefinido — gdy okres jest zamknięty: „Ayer vi a tu hermano.”",
+      "Test w głowie: Czy mogę zapytać „i co potem?” → indefinido. Czy opisuję obraz/stan → imperfecto. Czy czas wciąż trwa (dziś) → perfecto."
+    ],
+    "examples": [
+      { "es": "Hacía sol, así que fuimos a la playa.", "pl": "Świeciło słońce, więc poszliśmy na plażę.", "note": "tło (imperfecto) + wydarzenie (indefinido)" },
+      { "es": "Estaba cocinando cuando llegó mi vecino.", "pl": "Gotowałem, kiedy przyszedł mój sąsiad." },
+      { "es": "Hoy he dormido muy bien, pero ayer dormí fatal.", "pl": "Dziś spałem bardzo dobrze, ale wczoraj spałem fatalnie." },
+      { "es": "Cuando vivía en Madrid, conocí a mi mujer.", "pl": "Kiedy mieszkałem w Madrycie, poznałem żonę." }
+    ],
+    "exercises": [
+      { "type": "choice", "prompt_pl": "Który czas pasuje?", "sentence": "Mientras ___ la cena, sonó el timbre.", "options": ["preparaba", "preparé", "he preparado"], "answer": "preparaba", "explanation_pl": "Czynność w tle (mientras) → imperfecto.", "difficulty": 2 },
+      { "type": "choice", "prompt_pl": "Który czas pasuje?", "sentence": "Esta mañana ___ a Pedro en el mercado.", "options": ["he visto", "veía", "vi"], "answer": "he visto", "explanation_pl": "Esta mañana (dziś) → perfecto (w Hiszpanii).", "difficulty": 2 },
+      { "type": "choice", "prompt_pl": "Który czas pasuje?", "sentence": "El sábado pasado ___ una paella buenísima.", "options": ["comimos", "comíamos", "hemos comido"], "answer": "comimos", "explanation_pl": "Zamknięty czas, jedno zdarzenie → indefinido.", "difficulty": 2 },
+      { "type": "fill", "prompt_pl": "Uzupełnij formą estar (ja) — tło.", "sentence": "___ muy cansado, así que me acosté pronto.", "answer": "Estaba", "accepted": ["estaba"], "explanation_pl": "Stan w tle → imperfecto.", "difficulty": 3 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "Padało, kiedy wyszedłem z domu.", "answer": "Llovía cuando salí de casa.", "accepted": ["Estaba lloviendo cuando salí de casa."], "explanation_pl": "Tło: llovía; wydarzenie: salí.", "difficulty": 3 },
+      { "type": "speak", "prompt_pl": "Opowiedz krótką historię z wakacji: jaka była pogoda i co się stało.", "question_es": "Cuéntame algo que te pasó en unas vacaciones.", "model_answer": "Hace dos años estábamos en Cádiz. Hacía mucho calor y fuimos a una playa preciosa. Allí conocimos a una pareja muy simpática.", "pattern": "\\b[a-z]+(aba|ia)\\b.*\\b(fui|fuimos|estuve|[a-z]+(e|o|aron|ieron|imos))\\b", "explanation_pl": "Opis → imperfecto, wydarzenia → indefinido.", "difficulty": 3 }
+    ],
+    "mini_conversation": {
+      "intro_pl": "Opowiadanie historii z różnymi czasami przeszłymi.",
+      "questions": [
+        { "es": "¿Qué has hecho esta semana?", "pl": "Co robiłeś w tym tygodniu?", "expects_pl": "Esta semana he…", "pattern": "\\b(he|hemos) [a-z]+(ado|ido|cho|sto|to)\\b" },
+        { "es": "¿Qué hiciste el fin de semana pasado?", "pl": "Co robiłeś w zeszły weekend?", "expects_pl": "Fui / estuve / comí…", "pattern": "\\b(fui|fuimos|estuve|hice|[a-z]+(e|i))\\b" },
+        { "es": "¿Cómo era el lugar? ¿Qué tiempo hacía?", "pl": "Jakie było to miejsce? Jaka była pogoda?", "expects_pl": "Era…, hacía…", "pattern": "\\b(era|hacia|estaba|habia)\\b" }
+      ]
+    },
+    "agent_focus": "Mixing past tenses in storytelling: imperfecto for background, indefinido for events, perfecto for today/this week and experiences. Ask the learner to tell a story and follow up with ¿Y qué pasó después? and ¿Cómo era?"
+  },
+  {
+    "id": "g10-imperativo-pronombres",
+    "stage": 10,
+    "title": "Tryb rozkazujący, zaimki, por i para",
+    "subtitle": "Prośby, polecenia, „mu go” i „dla/za”",
+    "level": 3,
+    "prerequisites": ["g09-pasados"],
+    "explanation": [
+      "Rozkazujący (tú), twierdzący: zwykle = forma él z presente: habla, come, escribe. Nieregularne: haz, pon, sal, ven, ten, di, ve, sé.",
+      "Usted: końcówka „odwrotna”: hable, coma, escriba; nieregularne: haga, ponga, venga, diga. Przeczenie: no hables, no comas (tú); no hable, no coma (usted).",
+      "Zaimki dołączamy na końcu twierdzącego rozkazu: dímelo, ayúdame, siéntese. Przy przeczeniu stoją przed: no me lo digas.",
+      "Zaimki dopełnienia: me, te, lo/la, nos, os, los/las (kogo/co) oraz me, te, le, nos, os, les (komu). Razem: le/les + lo → se lo: „Se lo doy” = Daję mu to.",
+      "PARA = cel, odbiorca, termin, kierunek: Es para ti. Estudio para hablar con mis vecinos. Para el lunes. Voy para casa.",
+      "POR = przyczyna, droga, wymiana, środek, część dnia: Gracias por todo. Paseo por el parque. Lo compré por 20 euros. Te llamo por teléfono. Por la mañana."
+    ],
+    "examples": [
+      { "es": "Perdone, ¿me ayuda con la maleta?", "pl": "Przepraszam, pomoże mi Pan z walizką?" },
+      { "es": "Ven aquí y siéntate.", "pl": "Chodź tu i usiądź." },
+      { "es": "No te preocupes, ya te lo explico.", "pl": "Nie martw się, zaraz ci to wyjaśnię." },
+      { "es": "Este regalo es para mi madre.", "pl": "Ten prezent jest dla mojej mamy." },
+      { "es": "Gracias por la información.", "pl": "Dziękuję za informację." }
+    ],
+    "exercises": [
+      { "type": "choice", "prompt_pl": "Por czy para?", "sentence": "Gracias ___ tu ayuda.", "options": ["por", "para"], "answer": "por", "explanation_pl": "Przyczyna podziękowania → por.", "difficulty": 1 },
+      { "type": "choice", "prompt_pl": "Por czy para?", "sentence": "Necesito el presupuesto ___ el viernes.", "options": ["para", "por"], "answer": "para", "explanation_pl": "Termin → para.", "difficulty": 2 },
+      { "type": "fill", "prompt_pl": "Rozkaz (tú) od venir.", "sentence": "¡___ a cenar con nosotros!", "answer": "Ven", "accepted": ["ven"], "explanation_pl": "Venir → ven (nieregularny).", "difficulty": 2 },
+      { "type": "choice", "prompt_pl": "Wybierz poprawną formę (usted).", "sentence": "Por favor, ___ más despacio.", "options": ["hable", "habla", "hablas"], "answer": "hable", "explanation_pl": "Usted → hable.", "difficulty": 2 },
+      { "type": "choice", "prompt_pl": "Daję mu to (książkę → el libro).", "sentence": "___ doy mañana.", "options": ["Se lo", "Le lo", "Lo le"], "answer": "Se lo", "explanation_pl": "Le + lo → se lo.", "difficulty": 3 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "Nie martw się.", "answer": "No te preocupes.", "accepted": [], "explanation_pl": "Przeczenie w rozkazie: no te preocupes.", "difficulty": 2 },
+      { "type": "speak", "prompt_pl": "Poproś grzecznie (usted) wykonawcę, żeby skończył pracę na piątek.", "question_es": "Dile al obrero que necesitas el trabajo terminado para el viernes.", "model_answer": "Por favor, termine el trabajo para el viernes, que lo necesito.", "pattern": "para el viernes", "explanation_pl": "Termin → para; usted → termine.", "difficulty": 3 }
+    ],
+    "mini_conversation": {
+      "intro_pl": "Prośby i instrukcje. Rozmówca udaje, że nie wie, co zrobić.",
+      "questions": [
+        { "es": "Soy nuevo en tu barrio. ¿Cómo llego al supermercado?", "pl": "Jestem nowy w okolicy. Jak dojdę do supermarketu?", "expects_pl": "Sigue recto, gira a la derecha…", "pattern": "\\b(sigue|gira|toma|coge|ve|cruza|baja|sube)\\b" },
+        { "es": "¿Para qué estudias español?", "pl": "Po co uczysz się hiszpańskiego?", "expects_pl": "Para hablar con…", "pattern": "para" },
+        { "es": "Tengo tu libro. ¿Se lo doy a tu mujer?", "pl": "Mam twoją książkę. Dać ją twojej żonie?", "expects_pl": "Sí, dáselo / No, dámelo a mí.", "pattern": "dame|damelo|daselo|se lo" }
+      ]
+    },
+    "agent_focus": "Imperative (tú and usted, affirmative and negative) with attached pronouns, double object pronouns (se lo), and por vs para. Role-play situations where the learner must give instructions, directions and polite requests."
+  },
+  {
+    "id": "g11-subjuntivo",
+    "stage": 11,
+    "title": "Podstawy subjuntivo",
+    "subtitle": "Życzenia, prośby i emocje: quiero que, espero que, ojalá",
+    "level": 4,
+    "prerequisites": ["g10-imperativo-pronombres"],
+    "explanation": [
+      "Subjuntivo to tryb używany, gdy mówimy o czymś niepewnym, chcianym albo przeżywanym emocjonalnie — zwykle po „que” z innym podmiotem.",
+      "Tworzenie (presente): bierzemy „yo” z presente, odcinamy -o i dajemy „odwrotną” samogłoskę: hablar → hable, hables, hable…; comer/vivir → coma, viva. Hago → haga, tengo → tenga, salgo → salga.",
+      "Nieregularne: ser → sea, ir → vaya, estar → esté, saber → sepa, haber → haya, dar → dé.",
+      "Typowe wyzwalacze: quiero que, espero que, ojalá, me alegro de que, es importante que, no creo que, cuando + przyszłość (Cuando llegues, llámame), para que.",
+      "Gdy podmiot jest ten sam, używamy bezokolicznika: Quiero ir (ja chcę iść), ale: Quiero que vengas (chcę, żebyś przyszedł).",
+      "Na start naucz się gotowych życzeń: ¡Que aproveche! ¡Que te vaya bien! ¡Que tengas un buen día! ¡Que descanses!"
+    ],
+    "examples": [
+      { "es": "Espero que te guste.", "pl": "Mam nadzieję, że ci się spodoba." },
+      { "es": "Quiero que vengas a cenar.", "pl": "Chcę, żebyś przyszedł na kolację." },
+      { "es": "Cuando llegues, mándame un mensaje.", "pl": "Kiedy dotrzesz, wyślij mi wiadomość." },
+      { "es": "Ojalá haga buen tiempo mañana.", "pl": "Oby jutro była dobra pogoda." },
+      { "es": "No creo que sea tan caro.", "pl": "Nie sądzę, żeby to było aż tak drogie." }
+    ],
+    "exercises": [
+      { "type": "choice", "prompt_pl": "Wybierz formę po „espero que”.", "sentence": "Espero que ___ bien.", "options": ["estés", "estás", "estar"], "answer": "estés", "explanation_pl": "Espero que + subjuntivo: estés.", "difficulty": 1 },
+      { "type": "choice", "prompt_pl": "Bezokolicznik czy subjuntivo?", "sentence": "Quiero ___ la playa mañana.", "options": ["ir a", "que vaya a"], "answer": "ir a", "explanation_pl": "Ten sam podmiot → bezokolicznik.", "difficulty": 2 },
+      { "type": "fill", "prompt_pl": "Uzupełnij: venir (tú).", "sentence": "Quiero que ___ a mi fiesta.", "answer": "vengas", "accepted": [], "explanation_pl": "Vengo → venga → vengas.", "difficulty": 2 },
+      { "type": "fill", "prompt_pl": "Uzupełnij: llegar (tú), przyszłość.", "sentence": "Cuando ___ a casa, llámame.", "answer": "llegues", "accepted": [], "explanation_pl": "Cuando + przyszłość → subjuntivo: llegues.", "difficulty": 3 },
+      { "type": "translate", "prompt_pl": "Przetłumacz.", "source_pl": "Smacznego!", "answer": "¡Que aproveche!", "accepted": ["Que aproveche"], "explanation_pl": "Gotowe życzenie z que + subjuntivo.", "difficulty": 1 },
+      { "type": "speak", "prompt_pl": "Złóż przyjacielowi dwa życzenia przed jego podróżą.", "question_es": "Mañana me voy de viaje a Japón.", "model_answer": "¡Qué bien! Espero que lo pases genial y que tengas buen tiempo. ¡Que te vaya bien!", "pattern": "(espero que|ojala|que (te|lo|tengas|disfrutes|vaya|pases))", "explanation_pl": "Życzenia: espero que / ojalá / que + subjuntivo.", "difficulty": 2 }
+    ],
+    "mini_conversation": {
+      "intro_pl": "Życzenia i nadzieje.",
+      "questions": [
+        { "es": "Mañana tengo una entrevista de trabajo.", "pl": "Jutro mam rozmowę o pracę.", "expects_pl": "¡Suerte! Espero que te vaya bien.", "pattern": "espero que|ojala|que te vaya" },
+        { "es": "¿Qué quieres que haga tu familia este verano?", "pl": "Co chcesz, żeby zrobiła twoja rodzina tego lata?", "expects_pl": "Quiero que vengan…", "pattern": "quiero que" },
+        { "es": "¿Qué vas a hacer cuando hables bien español?", "pl": "Co zrobisz, kiedy będziesz dobrze mówić po hiszpańsku?", "expects_pl": "Cuando hable bien, voy a…", "pattern": "cuando hable|voy a" }
+      ]
+    },
+    "agent_focus": "Present subjunctive in high-frequency patterns: espero que, quiero que, ojalá, cuando + future, and fixed wishes (que aproveche, que te vaya bien). Create situations where the learner reacts to news with wishes and wants others to do things."
+  }
+]

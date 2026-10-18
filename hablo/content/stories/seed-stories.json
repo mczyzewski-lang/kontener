@@ -1,0 +1,314 @@
+[
+  {
+    "id": "s01-coche-grande",
+    "title": "Un coche grande",
+    "level": 1,
+    "tense": "present",
+    "target_lemmas": ["comprar", "coche", "grande", "querer", "familia", "caro", "precio"],
+    "topics": ["shopping", "family"],
+    "sentences": [
+      { "es": "Hoy voy a comprar un coche.", "pl": "Dziś idę kupić samochód." },
+      { "es": "Quiero un coche grande porque tengo una familia grande.", "pl": "Chcę duży samochód, bo mam dużą rodzinę." },
+      { "es": "En la tienda hay un coche rojo muy bonito.", "pl": "W salonie jest bardzo ładny czerwony samochód." },
+      { "es": "Pregunto el precio: treinta mil euros.", "pl": "Pytam o cenę: trzydzieści tysięcy euro." },
+      { "es": "¡Es demasiado caro!", "pl": "To za drogo!" },
+      { "es": "El vendedor sonríe y dice: «Tengo otro coche, más pequeño y más barato».", "pl": "Sprzedawca się uśmiecha i mówi: „Mam inny samochód, mniejszy i tańszy”." },
+      { "es": "Pero yo no quiero un coche pequeño. Vuelvo a casa en autobús.", "pl": "Ale ja nie chcę małego samochodu. Wracam do domu autobusem." }
+    ],
+    "glossary": [
+      { "form": "rojo", "lemma": "rojo", "pl": "czerwony", "is_new": true },
+      { "form": "vendedor", "lemma": "vendedor", "pl": "sprzedawca", "is_new": true },
+      { "form": "sonríe", "lemma": "sonreír", "pl": "uśmiecha się", "is_new": true }
+    ],
+    "questions": [
+      { "q_es": "¿Por qué quiere un coche grande?", "q_pl": "Dlaczego chce duży samochód?", "answer_es": "Porque tiene una familia grande.", "keywords": ["familia"] },
+      { "q_es": "¿Cuánto cuesta el coche rojo?", "q_pl": "Ile kosztuje czerwony samochód?", "answer_es": "Treinta mil euros.", "keywords": ["treinta", "30"] },
+      { "q_es": "¿Cómo vuelve a casa?", "q_pl": "Jak wraca do domu?", "answer_es": "En autobús.", "keywords": ["autobus"] }
+    ],
+    "variants": [
+      {
+        "variant": "past",
+        "tense": "past",
+        "title": "Un coche grande (ayer)",
+        "sentences": [
+          { "es": "Ayer fui a comprar un coche.", "pl": "Wczoraj poszedłem kupić samochód." },
+          { "es": "Quería un coche grande porque tengo una familia grande.", "pl": "Chciałem duży samochód, bo mam dużą rodzinę." },
+          { "es": "En la tienda había un coche rojo muy bonito.", "pl": "W salonie był bardzo ładny czerwony samochód." },
+          { "es": "Pregunté el precio: treinta mil euros.", "pl": "Zapytałem o cenę: trzydzieści tysięcy euro." },
+          { "es": "¡Era demasiado caro!", "pl": "Był za drogi!" },
+          { "es": "El vendedor sonrió y me dijo: «Tengo otro coche, más pequeño y más barato».", "pl": "Sprzedawca się uśmiechnął i powiedział: „Mam inny samochód, mniejszy i tańszy”." },
+          { "es": "Pero yo no quería un coche pequeño, así que volví a casa en autobús.", "pl": "Ale nie chciałem małego samochodu, więc wróciłem do domu autobusem." }
+        ],
+        "glossary": [
+          { "form": "rojo", "lemma": "rojo", "pl": "czerwony", "is_new": false },
+          { "form": "vendedor", "lemma": "vendedor", "pl": "sprzedawca", "is_new": false },
+          { "form": "sonrió", "lemma": "sonreír", "pl": "uśmiechnął się", "is_new": false }
+        ],
+        "questions": [
+          { "q_es": "¿Qué fue a hacer ayer?", "q_pl": "Co poszedł zrobić wczoraj?", "answer_es": "Fue a comprar un coche.", "keywords": ["comprar", "coche"] },
+          { "q_es": "¿Cómo era el coche de la tienda?", "q_pl": "Jaki był samochód w salonie?", "answer_es": "Era rojo, muy bonito y demasiado caro.", "keywords": ["rojo", "bonito", "caro"] },
+          { "q_es": "¿Qué hizo al final?", "q_pl": "Co zrobił na końcu?", "answer_es": "Volvió a casa en autobús.", "keywords": ["volvio", "autobus"] }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s02-vecino-paco",
+    "title": "Mi vecino Paco",
+    "level": 1,
+    "tense": "present",
+    "target_lemmas": ["vecino", "hablar", "mañana", "siempre", "tiempo", "ayudar", "casa"],
+    "topics": ["people", "home"],
+    "sentences": [
+      { "es": "Mi vecino se llama Paco y tiene setenta años.", "pl": "Mój sąsiad ma na imię Paco i ma siedemdziesiąt lat." },
+      { "es": "Todas las mañanas está en la puerta del edificio.", "pl": "Każdego ranka stoi przy drzwiach budynku." },
+      { "es": "Siempre me habla del tiempo: «¡Qué calor hace hoy!».", "pl": "Zawsze mówi mi o pogodzie: „Ale dziś gorąco!”." },
+      { "es": "Paco conoce a todo el mundo en el barrio.", "pl": "Paco zna wszystkich w dzielnicy." },
+      { "es": "Cuando tengo un problema en casa, él me ayuda.", "pl": "Kiedy mam problem w domu, on mi pomaga." },
+      { "es": "Hoy le llevo un pastel para darle las gracias.", "pl": "Dziś zanoszę mu ciasto, żeby mu podziękować." }
+    ],
+    "glossary": [
+      { "form": "edificio", "lemma": "edificio", "pl": "budynek", "is_new": true },
+      { "form": "barrio", "lemma": "barrio", "pl": "dzielnica", "is_new": true },
+      { "form": "pastel", "lemma": "pastel", "pl": "ciasto", "is_new": true }
+    ],
+    "questions": [
+      { "q_es": "¿Cuántos años tiene Paco?", "q_pl": "Ile lat ma Paco?", "answer_es": "Tiene setenta años.", "keywords": ["setenta", "70"] },
+      { "q_es": "¿De qué habla siempre Paco?", "q_pl": "O czym zawsze mówi Paco?", "answer_es": "Del tiempo.", "keywords": ["tiempo", "calor"] },
+      { "q_es": "¿Qué le lleva hoy?", "q_pl": "Co mu dziś zanosi?", "answer_es": "Un pastel.", "keywords": ["pastel"] }
+    ],
+    "variants": [
+      {
+        "variant": "perspective",
+        "tense": "present",
+        "title": "Mi vecino polaco (Paco cuenta)",
+        "sentences": [
+          { "es": "Me llamo Paco y tengo setenta años.", "pl": "Nazywam się Paco i mam siedemdziesiąt lat." },
+          { "es": "Todas las mañanas estoy en la puerta del edificio.", "pl": "Każdego ranka stoję przy drzwiach budynku." },
+          { "es": "Mi vecino nuevo es polaco y está aprendiendo español.", "pl": "Mój nowy sąsiad jest Polakiem i uczy się hiszpańskiego." },
+          { "es": "Siempre le hablo del tiempo, porque es fácil para él.", "pl": "Zawsze mówię mu o pogodzie, bo to dla niego łatwe." },
+          { "es": "A veces le ayudo con problemas de la casa.", "pl": "Czasem pomagam mu z problemami w domu." },
+          { "es": "¡Hoy me ha traído un pastel! Es un chico muy amable.", "pl": "Dziś przyniósł mi ciasto! To bardzo miły chłopak." }
+        ],
+        "glossary": [
+          { "form": "edificio", "lemma": "edificio", "pl": "budynek", "is_new": false },
+          { "form": "pastel", "lemma": "pastel", "pl": "ciasto", "is_new": false },
+          { "form": "amable", "lemma": "amable", "pl": "miły, uprzejmy", "is_new": true }
+        ],
+        "questions": [
+          { "q_es": "¿Quién cuenta la historia ahora?", "q_pl": "Kto teraz opowiada historię?", "answer_es": "Paco.", "keywords": ["paco"] },
+          { "q_es": "¿De dónde es el vecino nuevo?", "q_pl": "Skąd jest nowy sąsiad?", "answer_es": "Es polaco.", "keywords": ["polaco", "polonia"] },
+          { "q_es": "¿Por qué Paco habla del tiempo?", "q_pl": "Dlaczego Paco mówi o pogodzie?", "answer_es": "Porque es fácil para su vecino.", "keywords": ["facil"] }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s03-paquete",
+    "title": "El paquete que no llega",
+    "level": 2,
+    "tense": "present",
+    "target_lemmas": ["paquete", "llegar", "esperar", "llamar", "pedido", "problema", "entregar"],
+    "topics": ["shopping", "problems"],
+    "sentences": [
+      { "es": "Hace una semana que espero un paquete.", "pl": "Od tygodnia czekam na paczkę." },
+      { "es": "Es una mesa nueva para la terraza.", "pl": "To nowy stół na taras." },
+      { "es": "En la web pone que el pedido está entregado, pero no hay nada en mi puerta.", "pl": "Na stronie jest napisane, że zamówienie zostało doręczone, ale pod moimi drzwiami nic nie ma." },
+      { "es": "Llamo a la tienda y explico el problema.", "pl": "Dzwonię do sklepu i wyjaśniam problem." },
+      { "es": "La chica es muy amable y me dice que van a enviar otra mesa.", "pl": "Dziewczyna jest bardzo miła i mówi mi, że wyślą inny stół." },
+      { "es": "Por la tarde, mi vecina llama a la puerta: ¡tiene mi paquete!", "pl": "Po południu sąsiadka puka do drzwi: ma moją paczkę!" },
+      { "es": "Ahora tengo que llamar otra vez a la tienda.", "pl": "Teraz muszę znowu zadzwonić do sklepu." }
+    ],
+    "glossary": [
+      { "form": "terraza", "lemma": "terraza", "pl": "taras", "is_new": true },
+      { "form": "pone", "lemma": "poner", "pl": "jest napisane (pone que…)", "is_new": false },
+      { "form": "enviar", "lemma": "enviar", "pl": "wysłać", "is_new": true }
+    ],
+    "questions": [
+      { "q_es": "¿Qué hay en el paquete?", "q_pl": "Co jest w paczce?", "answer_es": "Una mesa para la terraza.", "keywords": ["mesa"] },
+      { "q_es": "¿Qué pone en la web?", "q_pl": "Co jest napisane na stronie?", "answer_es": "Que el pedido está entregado.", "keywords": ["entregado"] },
+      { "q_es": "¿Quién tiene el paquete?", "q_pl": "Kto ma paczkę?", "answer_es": "La vecina.", "keywords": ["vecina"] }
+    ],
+    "variants": [
+      {
+        "variant": "past",
+        "tense": "past",
+        "title": "El paquete que no llegó",
+        "sentences": [
+          { "es": "La semana pasada esperaba un paquete.", "pl": "W zeszłym tygodniu czekałem na paczkę." },
+          { "es": "Era una mesa nueva para la terraza.", "pl": "To był nowy stół na taras." },
+          { "es": "En la web ponía que el pedido estaba entregado, pero no había nada en mi puerta.", "pl": "Na stronie było napisane, że zamówienie doręczono, ale pod drzwiami nic nie było." },
+          { "es": "Llamé a la tienda y expliqué el problema.", "pl": "Zadzwoniłem do sklepu i wyjaśniłem problem." },
+          { "es": "La chica fue muy amable y me dijo que iban a enviar otra mesa.", "pl": "Dziewczyna była bardzo miła i powiedziała, że wyślą inny stół." },
+          { "es": "Por la tarde, mi vecina llamó a la puerta: ¡tenía mi paquete!", "pl": "Po południu sąsiadka zapukała do drzwi: miała moją paczkę!" },
+          { "es": "Al final tuve que llamar otra vez a la tienda.", "pl": "W końcu musiałem znowu zadzwonić do sklepu." }
+        ],
+        "glossary": [
+          { "form": "terraza", "lemma": "terraza", "pl": "taras", "is_new": false },
+          { "form": "ponía", "lemma": "poner", "pl": "było napisane", "is_new": false },
+          { "form": "enviar", "lemma": "enviar", "pl": "wysłać", "is_new": false }
+        ],
+        "questions": [
+          { "q_es": "¿Qué ponía en la web?", "q_pl": "Co było napisane na stronie?", "answer_es": "Que el pedido estaba entregado.", "keywords": ["entregado"] },
+          { "q_es": "¿Cómo fue la chica de la tienda?", "q_pl": "Jaka była dziewczyna ze sklepu?", "answer_es": "Fue muy amable.", "keywords": ["amable"] },
+          { "q_es": "¿Qué tuvo que hacer al final?", "q_pl": "Co musiał zrobić na końcu?", "answer_es": "Llamar otra vez a la tienda.", "keywords": ["llamar"] }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s04-cena-malaga",
+    "title": "Una cena en Málaga",
+    "level": 1,
+    "tense": "present",
+    "target_lemmas": ["cenar", "restaurante", "pedir", "pescado", "camarero", "cuenta", "mesa"],
+    "topics": ["food", "travel"],
+    "sentences": [
+      { "es": "Esta noche cenamos en un restaurante cerca del mar.", "pl": "Dziś wieczorem jemy kolację w restauracji blisko morza." },
+      { "es": "Son las diez, pero en España es una hora normal para cenar.", "pl": "Jest dziesiąta, ale w Hiszpanii to normalna pora na kolację." },
+      { "es": "El camarero nos da una mesa en la terraza.", "pl": "Kelner daje nam stolik na tarasie." },
+      { "es": "Mi mujer pide pescado y yo pido una ensalada y gambas.", "pl": "Moja żona zamawia rybę, a ja sałatkę i krewetki." },
+      { "es": "Todo está buenísimo y hablamos mucho tiempo.", "pl": "Wszystko jest pyszne i długo rozmawiamy." },
+      { "es": "Al final pedimos la cuenta: no es muy cara.", "pl": "Na koniec prosimy o rachunek: nie jest bardzo drogi." }
+    ],
+    "glossary": [
+      { "form": "ensalada", "lemma": "ensalada", "pl": "sałatka", "is_new": true },
+      { "form": "gambas", "lemma": "gamba", "pl": "krewetki", "is_new": true },
+      { "form": "buenísimo", "lemma": "bueno", "pl": "pyszny, bardzo dobry", "is_new": false }
+    ],
+    "questions": [
+      { "q_es": "¿A qué hora cenan?", "q_pl": "O której jedzą kolację?", "answer_es": "A las diez.", "keywords": ["diez", "10"] },
+      { "q_es": "¿Qué pide su mujer?", "q_pl": "Co zamawia jego żona?", "answer_es": "Pescado.", "keywords": ["pescado"] },
+      { "q_es": "¿Es cara la cuenta?", "q_pl": "Czy rachunek jest drogi?", "answer_es": "No, no es muy cara.", "keywords": ["no"] }
+    ],
+    "variants": [
+      {
+        "variant": "past",
+        "tense": "past",
+        "title": "Una cena en Málaga (la semana pasada)",
+        "sentences": [
+          { "es": "La semana pasada cenamos en un restaurante cerca del mar.", "pl": "W zeszłym tygodniu jedliśmy kolację w restauracji blisko morza." },
+          { "es": "Eran las diez, pero en España es una hora normal para cenar.", "pl": "Była dziesiąta, ale w Hiszpanii to normalna pora na kolację." },
+          { "es": "El camarero nos dio una mesa en la terraza.", "pl": "Kelner dał nam stolik na tarasie." },
+          { "es": "Mi mujer pidió pescado y yo pedí una ensalada y gambas.", "pl": "Moja żona zamówiła rybę, a ja sałatkę i krewetki." },
+          { "es": "Todo estaba buenísimo y hablamos mucho tiempo.", "pl": "Wszystko było pyszne i długo rozmawialiśmy." },
+          { "es": "Al final pedimos la cuenta: no era muy cara.", "pl": "Na koniec poprosiliśmy o rachunek: nie był bardzo drogi." }
+        ],
+        "glossary": [
+          { "form": "ensalada", "lemma": "ensalada", "pl": "sałatka", "is_new": false },
+          { "form": "gambas", "lemma": "gamba", "pl": "krewetki", "is_new": false },
+          { "form": "pidió", "lemma": "pedir", "pl": "zamówiła", "is_new": false }
+        ],
+        "questions": [
+          { "q_es": "¿Dónde cenaron?", "q_pl": "Gdzie jedli kolację?", "answer_es": "En un restaurante cerca del mar.", "keywords": ["restaurante", "mar"] },
+          { "q_es": "¿Qué pidió él?", "q_pl": "Co on zamówił?", "answer_es": "Una ensalada y gambas.", "keywords": ["ensalada", "gambas"] },
+          { "q_es": "¿Cómo estaba la comida?", "q_pl": "Jakie było jedzenie?", "answer_es": "Estaba buenísima.", "keywords": ["buen"] }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s05-reforma-bano",
+    "title": "La reforma del baño",
+    "level": 2,
+    "tense": "present",
+    "target_lemmas": ["obra", "presupuesto", "arreglar", "semana", "terminar", "problema", "dinero"],
+    "topics": ["home", "work"],
+    "sentences": [
+      { "es": "Este mes estamos de obras en casa: reformamos el baño.", "pl": "W tym miesiącu mamy remont w domu: odnawiamy łazienkę." },
+      { "es": "Rafa, el encargado, me da un presupuesto de cinco mil euros.", "pl": "Rafa, kierownik, daje mi kosztorys na pięć tysięcy euro." },
+      { "es": "Dice que van a terminar en dos semanas.", "pl": "Mówi, że skończą w dwa tygodnie." },
+      { "es": "Pero el primer día encuentran un problema: hay humedad en la pared.", "pl": "Ale pierwszego dnia znajdują problem: na ścianie jest wilgoć." },
+      { "es": "Arreglar la pared cuesta más dinero y más tiempo.", "pl": "Naprawa ściany kosztuje więcej pieniędzy i czasu." },
+      { "es": "Le digo a Rafa: «Necesito que esté terminado para el día quince».", "pl": "Mówię Rafie: „Potrzebuję, żeby było skończone na piętnastego”." },
+      { "es": "Él sonríe: «Tranquilo, no hay problema». Yo no estoy tan seguro.", "pl": "On się uśmiecha: „Spokojnie, nie ma problemu”. Ja nie jestem taki pewien." }
+    ],
+    "glossary": [
+      { "form": "reformamos", "lemma": "reformar", "pl": "remontujemy", "is_new": true },
+      { "form": "encargado", "lemma": "encargado", "pl": "kierownik (budowy)", "is_new": true },
+      { "form": "humedad", "lemma": "humedad", "pl": "wilgoć", "is_new": true },
+      { "form": "pared", "lemma": "pared", "pl": "ściana", "is_new": true },
+      { "form": "esté", "lemma": "estar", "pl": "było (subjuntivo)", "is_new": false }
+    ],
+    "questions": [
+      { "q_es": "¿Cuánto cuesta el presupuesto?", "q_pl": "Na ile jest kosztorys?", "answer_es": "Cinco mil euros.", "keywords": ["cinco mil", "5000", "5.000"] },
+      { "q_es": "¿Qué problema encuentran?", "q_pl": "Jaki problem znajdują?", "answer_es": "Hay humedad en la pared.", "keywords": ["humedad"] },
+      { "q_es": "¿Para cuándo necesita la obra terminada?", "q_pl": "Na kiedy potrzebuje skończonego remontu?", "answer_es": "Para el día quince.", "keywords": ["quince", "15"] }
+    ],
+    "variants": [
+      {
+        "variant": "past",
+        "tense": "past",
+        "title": "La reforma del baño (el año pasado)",
+        "sentences": [
+          { "es": "El año pasado reformamos el baño de casa.", "pl": "W zeszłym roku odnowiliśmy łazienkę w domu." },
+          { "es": "Rafa, el encargado, me dio un presupuesto de cinco mil euros.", "pl": "Rafa, kierownik, dał mi kosztorys na pięć tysięcy euro." },
+          { "es": "Me dijo que iban a terminar en dos semanas.", "pl": "Powiedział mi, że skończą w dwa tygodnie." },
+          { "es": "Pero el primer día encontraron un problema: había humedad en la pared.", "pl": "Ale pierwszego dnia znaleźli problem: na ścianie była wilgoć." },
+          { "es": "Arreglar la pared costó más dinero y más tiempo.", "pl": "Naprawa ściany kosztowała więcej pieniędzy i czasu." },
+          { "es": "Al final terminaron en cinco semanas, no en dos.", "pl": "W końcu skończyli w pięć tygodni, nie w dwa." },
+          { "es": "Pero el baño quedó precioso y ahora Rafa es un buen amigo.", "pl": "Ale łazienka wyszła piękna, a Rafa jest teraz dobrym przyjacielem." }
+        ],
+        "glossary": [
+          { "form": "encargado", "lemma": "encargado", "pl": "kierownik (budowy)", "is_new": false },
+          { "form": "humedad", "lemma": "humedad", "pl": "wilgoć", "is_new": false },
+          { "form": "quedó", "lemma": "quedar", "pl": "wyszła, okazała się", "is_new": false }
+        ],
+        "questions": [
+          { "q_es": "¿Cuánto tiempo tardaron al final?", "q_pl": "Ile czasu to w końcu zajęło?", "answer_es": "Cinco semanas.", "keywords": ["cinco", "5"] },
+          { "q_es": "¿Qué había en la pared?", "q_pl": "Co było na ścianie?", "answer_es": "Humedad.", "keywords": ["humedad"] },
+          { "q_es": "¿Cómo quedó el baño?", "q_pl": "Jak wyszła łazienka?", "answer_es": "Quedó precioso.", "keywords": ["precioso", "bonito"] }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s06-sabado-playa",
+    "title": "Un sábado en la playa",
+    "level": 1,
+    "tense": "present",
+    "target_lemmas": ["sábado", "playa", "hijo", "calor", "comer", "agua", "volver"],
+    "topics": ["family", "free-time"],
+    "sentences": [
+      { "es": "Es sábado y hace mucho calor.", "pl": "Jest sobota i jest bardzo gorąco." },
+      { "es": "Mis hijos quieren ir a la playa, así que cogemos el coche.", "pl": "Moje dzieci chcą jechać na plażę, więc bierzemy samochód." },
+      { "es": "En la playa hay mucha gente, pero encontramos un sitio.", "pl": "Na plaży jest dużo ludzi, ale znajdujemy miejsce." },
+      { "es": "Los niños juegan en el agua y yo leo un libro.", "pl": "Dzieci bawią się w wodzie, a ja czytam książkę." },
+      { "es": "A las dos comemos una paella en un chiringuito.", "pl": "O drugiej jemy paellę w barze na plaży." },
+      { "es": "Volvemos a casa cansados, pero muy contentos.", "pl": "Wracamy do domu zmęczeni, ale bardzo zadowoleni." }
+    ],
+    "glossary": [
+      { "form": "chiringuito", "lemma": "chiringuito", "pl": "bar na plaży", "is_new": true },
+      { "form": "cogemos", "lemma": "coger", "pl": "bierzemy", "is_new": false }
+    ],
+    "questions": [
+      { "q_es": "¿Qué tiempo hace?", "q_pl": "Jaka jest pogoda?", "answer_es": "Hace mucho calor.", "keywords": ["calor"] },
+      { "q_es": "¿Qué hacen los niños en la playa?", "q_pl": "Co robią dzieci na plaży?", "answer_es": "Juegan en el agua.", "keywords": ["juegan", "agua"] },
+      { "q_es": "¿Dónde comen?", "q_pl": "Gdzie jedzą obiad?", "answer_es": "En un chiringuito.", "keywords": ["chiringuito"] }
+    ],
+    "variants": [
+      {
+        "variant": "past",
+        "tense": "past",
+        "title": "Un sábado en la playa (el verano pasado)",
+        "sentences": [
+          { "es": "Era sábado y hacía mucho calor.", "pl": "Była sobota i było bardzo gorąco." },
+          { "es": "Mis hijos querían ir a la playa, así que cogimos el coche.", "pl": "Moje dzieci chciały jechać na plażę, więc wzięliśmy samochód." },
+          { "es": "En la playa había mucha gente, pero encontramos un sitio.", "pl": "Na plaży było dużo ludzi, ale znaleźliśmy miejsce." },
+          { "es": "Los niños jugaban en el agua mientras yo leía un libro.", "pl": "Dzieci bawiły się w wodzie, a ja czytałem książkę." },
+          { "es": "A las dos comimos una paella en un chiringuito.", "pl": "O drugiej zjedliśmy paellę w barze na plaży." },
+          { "es": "Volvimos a casa cansados, pero muy contentos.", "pl": "Wróciliśmy do domu zmęczeni, ale bardzo zadowoleni." }
+        ],
+        "glossary": [
+          { "form": "chiringuito", "lemma": "chiringuito", "pl": "bar na plaży", "is_new": false },
+          { "form": "jugaban", "lemma": "jugar", "pl": "bawiły się", "is_new": false }
+        ],
+        "questions": [
+          { "q_es": "¿Qué tiempo hacía?", "q_pl": "Jaka była pogoda?", "answer_es": "Hacía mucho calor.", "keywords": ["calor"] },
+          { "q_es": "¿Qué hacía él mientras los niños jugaban?", "q_pl": "Co robił, gdy dzieci się bawiły?", "answer_es": "Leía un libro.", "keywords": ["leia", "libro"] },
+          { "q_es": "¿Cómo volvieron a casa?", "q_pl": "W jakim stanie wrócili do domu?", "answer_es": "Cansados pero contentos.", "keywords": ["cansados", "contentos"] }
+        ]
+      }
+    ]
+  }
+]
