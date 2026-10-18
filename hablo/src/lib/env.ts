@@ -25,6 +25,7 @@ export const env = {
   elevenWebhookSecret: () => v("ELEVENLABS_WEBHOOK_SECRET"),
   elevenVoiceDefault: () => v("ELEVENLABS_VOICE_ID"),
   elevenVoiceFemale: () => v("ELEVENLABS_VOICE_ID_FEMALE") ?? v("ELEVENLABS_VOICE_ID"),
+  elevenVoiceNarrator: () => v("ELEVENLABS_VOICE_ID_NARRATOR") ?? v("ELEVENLABS_VOICE_ID_FEMALE") ?? v("ELEVENLABS_VOICE_ID"),
   elevenVoiceMale: () => v("ELEVENLABS_VOICE_ID_MALE") ?? v("ELEVENLABS_VOICE_ID"),
   elevenTtsModel: () => v("ELEVENLABS_TTS_MODEL") ?? "eleven_multilingual_v2",
   elevenSttModel: () => v("ELEVENLABS_STT_MODEL") ?? "scribe_v2",

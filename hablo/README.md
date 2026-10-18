@@ -46,5 +46,6 @@ W trybie demo nie ma rozmów głosowych ani AI — aplikacja mówi to wprost i n
 
 - [docs/SETUP.md](docs/SETUP.md) — Supabase, logowanie, ElevenLabs, Claude, Vercel, iPhone
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — architektura, model danych, design system, ścieżki, integracja głosowa, logika nauki
+- [docs/THOUGHTS.md](docs/THOUGHTS.md) — „Moje myśli”: prywatna biblioteka myśli, format importu, wybór myśli na ekran główny
 - [docs/STATUS.md](docs/STATUS.md) — stan implementacji, ograniczenia i kolejne kroki
 - [content/README.md](content/README.md) — źródła treści, licencje i jak rozszerzać bibliotekę słów

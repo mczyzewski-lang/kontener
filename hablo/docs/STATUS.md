@@ -19,7 +19,9 @@ Data: 2026-10-18.
 
 **Z etapów 2–3 również zrobione:** test tygodniowy z raportem, analiza błędów między modułami, recurring stories, Personal Sprint, North Star w Postępach, wykres 30 dni, kontrola kosztów z limitami, eksport JSON/CSV, usuwanie danych, retencja transkrypcji i nagrań, PWA (manifest, ikony, service worker, ekran offline).
 
-Weryfikacja: `npm run check` (typecheck, lint, walidacja treści, 48 testów jednostkowych), `npm run build`, 9 scenariuszy e2e Playwright — wszystko przechodzi.
+**Moje myśli:** prywatna biblioteka osobistych myśli i pytań refleksyjnych — przeglądanie, wyszukiwanie, edycja, ulubione, ukrywanie, dodawanie; jedna myśl dopasowana do momentu na ekranie Dziś; odsłuch spokojnym głosem ElevenLabs; import JSON z zachowaniem Twoich edycji (docs/THOUGHTS.md). Bez streaków, punktów i obowiązków. **Sama treść biblioteki (130 myśli, 18 pytań, 12 kategorii) nie została dostarczona — trzeba ją zaimportować w aplikacji.**
+
+Weryfikacja: `npm run check` (typecheck, lint, walidacja treści, 56 testów jednostkowych), `npm run build`, 10 scenariuszy e2e Playwright — wszystko przechodzi.
 
 ## Czego nie dało się zweryfikować w tym środowisku
 

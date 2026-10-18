@@ -382,6 +382,42 @@ export interface ApiUsageLogRow {
   created_at: string;
 }
 
+export type ThoughtContext = "morning" | "end_of_work" | "new_idea" | "tension" | "family" | "rest" | "travel";
+
+/** A personal category of thoughts ("Moje myśli"). */
+export interface ThoughtCategoryRow {
+  user_id: string;
+  key: string;
+  name: string;
+  description: string | null;
+  position: number;
+  created_at: string;
+}
+
+/**
+ * A personal thought or reflective question. Imported entries keep a stable
+ * `origin_id`; once the learner edits an entry (`edited = true`) re-imports
+ * never overwrite it.
+ */
+export interface ThoughtRow {
+  id: string;
+  user_id: string;
+  kind: "thought" | "question";
+  origin_id: string | null;
+  category_key: string | null;
+  text: string;
+  meta: Record<string, unknown>;
+  contexts: ThoughtContext[];
+  featured: boolean;
+  favorite: boolean;
+  hidden: boolean;
+  edited: boolean;
+  origin_hash: string | null;
+  last_shown_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface Tables {
   profiles: ProfileRow;
   learning_preferences: LearningPreferencesRow;
@@ -407,6 +443,8 @@ export interface Tables {
   learner_memory: LearnerMemoryRow;
   learning_events: LearningEventRow;
   api_usage_logs: ApiUsageLogRow;
+  thought_categories: ThoughtCategoryRow;
+  thoughts: ThoughtRow;
 }
 export type TableName = keyof Tables;
 
@@ -439,6 +477,8 @@ export const TABLE_META: Record<TableName, { pk: string[]; unique?: string[][]; 
   learner_memory: { pk: ["id"], unique: [["user_id", "kind", "key"]], generatedId: true },
   learning_events: { pk: ["id"], generatedId: true },
   api_usage_logs: { pk: ["id"], generatedId: true },
+  thought_categories: { pk: ["user_id", "key"] },
+  thoughts: { pk: ["id"], unique: [["user_id", "origin_id"]], generatedId: true },
 };
 
 /** Tables that are user-owned and therefore exported / deleted with the account data. */
@@ -462,4 +502,6 @@ export const USER_TABLES: TableName[] = [
   "learner_memory",
   "learning_events",
   "api_usage_logs",
+  "thought_categories",
+  "thoughts",
 ];

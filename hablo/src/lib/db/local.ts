@@ -175,6 +175,21 @@ const DEFAULTS: Partial<Record<TableName, () => Record<string, unknown>>> = {
   learner_memory: () => ({ evidence_count: 1, weight: 1, first_seen_at: now(), last_seen_at: now() }),
   learning_events: () => ({ minutes: 0, payload: {}, created_at: now() }),
   api_usage_logs: () => ({ est_cost_usd: 0, meta: {}, created_at: now() }),
+  thought_categories: () => ({ description: null, position: 0, created_at: now() }),
+  thoughts: () => ({
+    origin_id: null,
+    category_key: null,
+    meta: {},
+    contexts: [],
+    featured: false,
+    favorite: false,
+    hidden: false,
+    edited: false,
+    origin_hash: null,
+    last_shown_at: null,
+    created_at: now(),
+    updated_at: now(),
+  }),
 };
 
 function cmp(a: unknown, b: unknown): number {

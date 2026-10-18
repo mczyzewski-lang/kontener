@@ -54,6 +54,7 @@ export async function deleteData(s: Session, scope: "transcripts" | "recordings"
     "daily_plan_items", "daily_plans", "learning_tasks", "story_attempts", "story_vocabulary", "stories",
     "vocabulary_review_logs", "vocabulary_progress", "word_associations", "grammar_progress", "sprints",
     "learner_memory", "learning_events", "api_usage_logs", "learning_preferences",
+    "thoughts", "thought_categories",
   ];
   for (const t of order) await s.db.remove(t, [eq("user_id", s.userId)]);
   await s.db.remove("vocabulary_entries", [eq("owner_id", s.userId)]);

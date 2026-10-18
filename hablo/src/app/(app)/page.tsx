@@ -10,6 +10,9 @@ import { Button } from "@/components/ui/button";
 import { Card, Progress, Stat } from "@/components/ui/primitives";
 import { VariantPicker } from "./variant-picker";
 import { applyRetention } from "@/lib/services/data";
+import { pickThought } from "@/lib/thoughts/service";
+import { autoContext } from "@/lib/thoughts/contexts";
+import { HomeThought } from "@/components/thoughts/home-thought";
 
 function greeting(tz: string) {
   const h = Number(new Intl.DateTimeFormat("en-GB", { timeZone: tz, hour: "numeric", hour12: false }).format(new Date()));
@@ -30,6 +33,9 @@ export default async function HomePage() {
   const minutes = items.reduce((a, i) => a + i.est_minutes, 0);
   const story = (await s.db.select("stories", { where: [eq("user_id", s.userId), eq("status", "in_progress")], limit: 1 }))[0];
   const sprint = (await s.db.select("sprints", { where: [eq("user_id", s.userId), eq("status", "active")], limit: 1 }))[0];
+  const hasThoughts = (await s.db.count("thoughts", [eq("user_id", s.userId)])) > 0;
+  const thoughtCtx = autoContext(prefs.timezone);
+  const thought = hasThoughts ? await pickThought(s.db, s.userId, thoughtCtx, prefs.timezone) : null;
 
   return (
     <div className="animate-fade-in space-y-6">
@@ -43,6 +49,10 @@ export default async function HomePage() {
         </h1>
         <p className="text-[17px] text-muted">Gotowy na dzisiejszy hiszpański?</p>
       </header>
+
+      {hasThoughts && (
+        <HomeThought initial={thought ? { id: thought.id, text: thought.text, favorite: thought.favorite } : null} context={thoughtCtx} />
+      )}
 
       <Card className="p-5">
         <div className="text-[13px] font-medium uppercase tracking-wide text-accent">Cel na dziś</div>
@@ -100,6 +110,12 @@ export default async function HomePage() {
           </div>
         )}
       </Link>
+
+      <nav aria-label="Więcej" className="flex justify-center gap-5 pt-2 text-sm text-muted md:hidden">
+        <Link href="/thoughts">Moje myśli</Link>
+        <Link href="/progress">Postępy</Link>
+        <Link href="/settings">Ustawienia</Link>
+      </nav>
     </div>
   );
 }

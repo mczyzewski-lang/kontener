@@ -37,7 +37,17 @@ test("onboarding with placement test prepares the first day", async ({ page }) =
   for (let i = 0; i < 40; i++) {
     const dunno = page.getByRole("button", { name: "Nie wiem", exact: true });
     if (!(await dunno.isVisible().catch(() => false))) break;
+    const counter = page.getByText(/^Słowo \d+ z \d+/);
+    const before = await counter.innerText().catch(() => "");
     await dunno.click();
+    // Wait until the answer registers (the first click can land before hydration).
+    await expect(async () => {
+      const stillHere = await dunno.isVisible().catch(() => false);
+      if (stillHere && (await counter.innerText().catch(() => "")) === before) {
+        await dunno.click();
+        throw new Error("answer not registered yet");
+      }
+    }).toPass({ timeout: 15_000 });
   }
   await page.getByRole("button", { name: "Dalej" }).click();
   await typeAnswer(page, "Me llamo Marek y vivo en Alicante", /Dalej/);
@@ -186,4 +196,48 @@ test("webhook rejects unsigned calls; voice start fails clearly without ElevenLa
   });
   expect(v.status()).toBe(503);
   expect((await v.json()).error).toMatch(/ELEVENLABS/);
+});
+
+test("Moje myśli: private import, edit kept on re-import, one thought on the home screen", async ({ page }) => {
+  const ALL = ["poranek", "koniec pracy", "nowy pomysł", "napięcie", "rodzina", "odpoczynek", "wyjazd"];
+  const lib = (text: string) =>
+    JSON.stringify({
+      kategorie: [{ id: "spokoj", nazwa: "Spokój" }],
+      myśli: [{ id: "m1", tekst: text, kategoria: "spokoj", konteksty: ALL, wyróżniona: true }],
+      pytania: [{ id: "p1", tekst: "Co dziś było naprawdę ważne?", kategoria: "spokoj" }],
+    });
+  const upload = async (text: string) => {
+    await page.getByText("Import biblioteki (JSON)").click();
+    await page.locator('input[type="file"]').setInputFiles({ name: "mysli.json", mimeType: "application/json", buffer: Buffer.from(lib(text)) });
+    await expect(page.getByText(/Myśli: /)).toBeVisible();
+  };
+
+  await page.goto("/thoughts");
+  await expect(page.getByText("Biblioteka jest pusta")).toBeVisible();
+  await upload("Nie muszę dziś wszystkiego.");
+  await expect(page.getByText("Nie muszę dziś wszystkiego.")).toBeVisible();
+  // Reflective questions stay folded until asked for.
+  await expect(page.getByText("Co dziś było naprawdę ważne?")).toBeHidden();
+  await page.getByRole("button", { name: "Pytania refleksyjne" }).click();
+  await expect(page.getByText("Co dziś było naprawdę ważne?")).toBeVisible();
+
+  await page.getByRole("button", { name: "Edytuj" }).first().click();
+  await page.getByLabel("Treść").fill("Moja wersja tej myśli.");
+  await page.getByRole("button", { name: "Zapisz" }).click();
+  await expect(page.getByLabel("Treść")).toBeHidden(); // closes once the save is stored
+  await expect(page.getByText("Moja wersja tej myśli.")).toBeVisible();
+  await expect(page.getByText("twoja wersja")).toBeVisible();
+
+  await page.reload();
+  await upload("Zmieniona treść z aktualizacji.");
+  await expect(page.getByText(/1 zachowanych w twojej wersji/)).toBeVisible();
+  await page.reload();
+  await expect(page.getByText("Moja wersja tej myśli.")).toBeVisible();
+  await expect(page.getByText("Zmieniona treść z aktualizacji.")).toBeHidden();
+
+  await page.goto("/");
+  const home = page.getByRole("region", { name: "Myśl na teraz" });
+  await expect(home.locator("blockquote")).toHaveCount(1);
+  await expect(home.getByText("Moja wersja tej myśli.")).toBeVisible();
+  await expect(page.getByText(/punkt|streak/i)).toHaveCount(0);
 });
