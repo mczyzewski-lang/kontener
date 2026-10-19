@@ -107,20 +107,17 @@ export async function getConversationAudio(conversationId: string): Promise<Arra
 }
 
 /** POST /v1/text-to-speech/{voice_id} → MP3 bytes. */
-export async function textToSpeech(
-  text: string,
-  opts: { voiceId?: string; speed?: number; language?: "es" | "pl"; stability?: number } = {},
-): Promise<ArrayBuffer> {
+export async function textToSpeech(text: string, opts: { voiceId?: string; speed?: number } = {}): Promise<ArrayBuffer> {
   const voiceId = opts.voiceId ?? env.elevenVoiceDefault() ?? env.elevenVoiceFemale();
   if (!voiceId) throw new ElevenLabsError(503, "Brak ELEVENLABS_VOICE_ID dla odtwarzania wymowy.");
   const model = env.elevenTtsModel();
   const body: Record<string, unknown> = {
     text,
     model_id: model,
-    voice_settings: { stability: opts.stability ?? 0.6, similarity_boost: 0.8, speed: opts.speed ?? 0.95 },
+    voice_settings: { stability: 0.6, similarity_boost: 0.8, speed: opts.speed ?? 0.95 },
   };
   // language_code is not supported by multilingual_v2 models (ignored or rejected).
-  if (!model.includes("multilingual_v2")) body.language_code = opts.language ?? "es";
+  if (!model.includes("multilingual_v2")) body.language_code = "es";
   const res = await call(
     `/v1/text-to-speech/${encodeURIComponent(voiceId)}?output_format=mp3_44100_128`,
     { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) },

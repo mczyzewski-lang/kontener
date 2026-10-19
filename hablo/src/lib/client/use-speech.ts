@@ -9,14 +9,14 @@ import { useCallback, useEffect, useRef, useState } from "react";
  */
 const urlCache = new Map<string, string>();
 
-function browserSpeak(text: string, slow: boolean, lang: "es" | "pl" = "es"): Promise<void> {
+function browserSpeak(text: string, slow: boolean): Promise<void> {
   return new Promise((resolve) => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return resolve();
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = lang === "pl" ? "pl-PL" : "es-ES";
-    u.rate = slow ? 0.7 : lang === "pl" ? 0.85 : 0.9;
+    u.lang = "es-ES";
+    u.rate = slow ? 0.7 : 0.9;
     const voices = window.speechSynthesis.getVoices();
-    const v = voices.find((x) => x.lang === u.lang) ?? voices.find((x) => x.lang.startsWith(lang));
+    const v = voices.find((x) => x.lang === "es-ES") ?? voices.find((x) => x.lang.startsWith("es"));
     if (v) u.voice = v;
     u.onend = () => resolve();
     u.onerror = () => resolve();
@@ -38,20 +38,15 @@ export function useSpeech(enabled: boolean) {
   }, []);
 
   const play = useCallback(
-    async (text: string, opts: { slow?: boolean; voice?: "female" | "male"; purpose?: "thought" } = {}) => {
+    async (text: string, opts: { slow?: boolean; voice?: "female" | "male" } = {}) => {
       if (!text) return;
-      const key = `${opts.purpose ?? ""}|${opts.voice ?? "f"}|${opts.slow ? 1 : 0}|${text}`;
+      const key = `${opts.voice ?? "f"}|${opts.slow ? 1 : 0}|${text}`;
       setPlaying(text);
       try {
         if (enabled) {
           let url = urlCache.get(key);
           if (!url) {
-            const qs = new URLSearchParams({
-              text,
-              ...(opts.slow ? { slow: "1" } : {}),
-              ...(opts.voice ? { voice: opts.voice } : {}),
-              ...(opts.purpose ? { purpose: opts.purpose } : {}),
-            });
+            const qs = new URLSearchParams({ text, ...(opts.slow ? { slow: "1" } : {}), ...(opts.voice ? { voice: opts.voice } : {}) });
             const res = await fetch(`/api/tts?${qs}`);
             if (res.ok) {
               url = URL.createObjectURL(await res.blob());
@@ -72,7 +67,7 @@ export function useSpeech(enabled: boolean) {
           }
         }
         setSource("browser");
-        await browserSpeak(text, !!opts.slow, opts.purpose === "thought" ? "pl" : "es");
+        await browserSpeak(text, !!opts.slow);
       } finally {
         setPlaying(null);
       }

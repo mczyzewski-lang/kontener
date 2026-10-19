@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Home, Library, Mic, Shapes, BarChart3, Settings, Feather } from "lucide-react";
+import { BookOpen, Home, Library, Mic, Shapes, BarChart3, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const TABS = [
@@ -13,7 +13,6 @@ const TABS = [
   { href: "/grammar", label: "Gramatyka", icon: Shapes },
 ];
 const EXTRA = [
-  { href: "/thoughts", label: "Moje myśli", icon: Feather },
   { href: "/progress", label: "Postępy", icon: BarChart3 },
   { href: "/settings", label: "Ustawienia", icon: Settings },
 ];
