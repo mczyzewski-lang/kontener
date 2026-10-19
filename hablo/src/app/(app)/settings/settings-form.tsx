@@ -51,7 +51,7 @@ export function SettingsForm({
   situations,
 }: {
   email: string;
-  mode: "supabase" | "demo";
+  mode: "supabase" | "postgres" | "demo";
   prefs: Prefs;
   status: IntegrationStatus & { voice: boolean };
   usage: UsageSummary;
@@ -95,7 +95,7 @@ export function SettingsForm({
         <SectionTitle>Konto</SectionTitle>
         <Card className="divide-y divide-line">
           <Row label={email} hint={mode === "demo" ? "Tryb demonstracyjny — bez logowania" : "Prywatne konto (jedyny dozwolony e-mail)"}>
-            {mode === "supabase" && (
+            {mode !== "demo" && (
               <form action="/api/auth/logout" method="post">
                 <Button variant="ghost" size="sm" type="submit">
                   <LogOut /> Wyloguj
@@ -270,12 +270,14 @@ export function SettingsForm({
       <section>
         <SectionTitle>Status integracji</SectionTitle>
         <Card className="divide-y divide-line text-sm">
-          <Row label="Baza danych">{status.mode === "supabase" ? ok(true) : <span className="text-warn">lokalna (demo)</span>}</Row>
+          <Row label="Baza danych">
+            {status.mode === "demo" ? <span className="text-warn">lokalna (demo)</span> : <span className="text-success">{status.mode === "postgres" ? "PostgreSQL" : "Supabase"}</span>}
+          </Row>
           <Row label="Claude API (historie, ocena, analiza)">{status.aiMock ? <span className="text-warn">TRYB TESTOWY</span> : ok(status.anthropic)}</Row>
           <Row label="ElevenLabs — rozmowy głosowe">{ok(status.voice)}</Row>
           <Row label="ElevenLabs — wymowa i rozpoznawanie mowy">{ok(status.elevenlabs && status.voices)}</Row>
           <Row label="Webhook po rozmowie">{ok(status.elevenWebhook)}</Row>
-          <Row label="Klucz service role">{status.mode === "demo" ? <span className="text-muted">n/d</span> : ok(status.serviceRole)}</Row>
+          {status.mode === "supabase" && <Row label="Klucz service role">{ok(status.serviceRole)}</Row>}
         </Card>
         {(!status.voice || !status.anthropic) && (
           <Notice className="mt-3">Brakujące klucze dodaj w zmiennych środowiskowych hostingu — instrukcja w docs/SETUP.md.</Notice>

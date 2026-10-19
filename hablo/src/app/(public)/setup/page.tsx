@@ -28,9 +28,13 @@ export default async function SetupPage() {
         Aplikacja nie ma jeszcze bazy danych. Uzupełnij zmienne środowiskowe (zobacz <code>.env.example</code> i <code>docs/SETUP.md</code>).
       </p>
       <ul className="mt-8 divide-y divide-line">
-        <Row ok={st.supabase} label="Supabase" hint="NEXT_PUBLIC_SUPABASE_URL i NEXT_PUBLIC_SUPABASE_ANON_KEY" />
+        <Row ok={st.postgres || st.supabase} label="Baza danych" hint="DATABASE_URL (PostgreSQL, np. Railway) albo NEXT_PUBLIC_SUPABASE_URL i NEXT_PUBLIC_SUPABASE_ANON_KEY" />
         <Row ok={st.allowedEmail} label="Dozwolony e-mail" hint="HABLO_ALLOWED_EMAIL — jedyne konto z dostępem" />
-        <Row ok={st.serviceRole} label="Klucz service role" hint="SUPABASE_SERVICE_ROLE_KEY — seed treści, webhooki, cache audio" />
+        {st.supabase ? (
+          <Row ok={st.serviceRole} label="Klucz service role" hint="SUPABASE_SERVICE_ROLE_KEY — seed treści, webhooki, cache audio" />
+        ) : (
+          <Row ok={st.password} label="Hasło" hint="HABLO_PASSWORD — hasło do logowania (przy bazie PostgreSQL)" />
+        )}
         <Row ok={st.anthropic} label="Claude API" hint="ANTHROPIC_API_KEY — historie, ocena odpowiedzi, analiza rozmów" />
         <Row ok={st.elevenAgent} label="ElevenLabs" hint="ELEVENLABS_API_KEY i ELEVENLABS_AGENT_ID — rozmowy głosowe, wymowa" />
       </ul>

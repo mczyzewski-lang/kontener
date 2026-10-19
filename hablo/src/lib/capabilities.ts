@@ -5,7 +5,7 @@ import type { Capabilities } from "@/components/capabilities";
 
 export function serverCapabilities(): Capabilities {
   return {
-    mode: appMode() === "supabase" ? "supabase" : "demo",
+    mode: appMode() === "demo" ? "demo" : "private",
     tts: !!env.elevenKey() && !!(env.elevenVoiceDefault() || env.elevenVoiceFemale()),
     stt: !!env.elevenKey(),
     voice: !!(env.elevenKey() && env.elevenAgentId()),

@@ -3,6 +3,34 @@
 Wszystkie klucze są czytane ze zmiennych środowiskowych (lista: `.env.example`). Klucze API nigdy nie trafiają do przeglądarki —
 przeglądarka dostaje tylko krótkotrwałe tokeny rozmów i pliki audio z naszych endpointów.
 
+## 0. Najprościej: Railway + PostgreSQL (bez Supabase)
+
+Zamiast Supabase możesz użyć zwykłej bazy PostgreSQL. Aplikacja sama tworzy tabele i wgrywa treści przy pierwszym
+uruchomieniu, a logujesz się swoim e-mailem i hasłem z konfiguracji.
+
+1. W projekcie Railway: **+ New → Database → PostgreSQL**.
+2. W serwisie z aplikacją, *Settings*:
+   - *Source → Branch*: gałąź z Hablo,
+   - **Root Directory: `hablo`** (w głównym katalogu repozytorium jest inny projekt),
+   - *Build Command*: `npm run build`, *Start Command*: `npm start`,
+   - *Networking → Generate Domain*.
+3. *Variables* w serwisie z aplikacją:
+   ```
+   DATABASE_URL=${{Postgres.DATABASE_URL}}
+   HABLO_ALLOWED_EMAIL=twoj@email.pl
+   HABLO_PASSWORD=długie-unikalne-hasło
+   ANTHROPIC_API_KEY=...
+   ELEVENLABS_API_KEY=...            (i pozostałe ELEVENLABS_* — sekcja 3)
+   ```
+   `${{Postgres.DATABASE_URL}}` to odwołanie Railway do bazy (jeśli serwis bazy ma inną nazwę, użyj jej zamiast `Postgres`).
+4. **Deploy.** W logach zobaczysz `[hablo] applied database migrations: 001_init.sql`. Wejdź na adres, zaloguj się e-mailem
+   i hasłem, przejdź onboarding.
+
+Bezpieczeństwo w tym trybie: logowanie sprawdza na serwerze e-mail i hasło (z limitem prób), sesja to podpisane ciasteczko
+HttpOnly ważne 60 dni, każde żądanie jest weryfikowane po stronie serwera. Zmiana hasła wylogowuje wszystkie urządzenia.
+Cache audio wymowy jest w tabeli `blobs` w tej samej bazie. Pozostałe sekcje tej instrukcji dotyczą Supabase —
+w trybie PostgreSQL pomiń sekcję 1 i 4; Claude i ElevenLabs (sekcje 2–3) konfigurujesz tak samo.
+
 ## 1. Supabase (baza danych i logowanie)
 
 1. Utwórz projekt na <https://supabase.com> (region UE, np. Frankfurt).

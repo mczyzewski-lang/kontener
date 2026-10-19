@@ -12,6 +12,9 @@ export const env = {
   supabaseAnonKey: () => v("NEXT_PUBLIC_SUPABASE_ANON_KEY"),
   supabaseServiceKey: () => v("SUPABASE_SERVICE_ROLE_KEY"),
   allowedEmail: () => v("HABLO_ALLOWED_EMAIL")?.toLowerCase(),
+  databaseUrl: () => v("DATABASE_URL"),
+  password: () => v("HABLO_PASSWORD"),
+  sessionSecret: () => v("HABLO_SESSION_SECRET"),
   demoMode: () => v("HABLO_DEMO_MODE") === "1",
   dataFile: () => v("HABLO_DATA_FILE") ?? ".hablo-data/db.json",
   aiMock: () => v("HABLO_AI_MOCK") === "1",
@@ -30,10 +33,12 @@ export const env = {
   elevenSttModel: () => v("ELEVENLABS_STT_MODEL") ?? "scribe_v2",
 };
 
-export type AppMode = "supabase" | "demo" | "unconfigured";
+export type AppMode = "supabase" | "postgres" | "demo" | "unconfigured";
 
 export function appMode(): AppMode {
   if (env.supabaseUrl() && env.supabaseAnonKey() && env.allowedEmail()) return "supabase";
+  // Plain PostgreSQL (e.g. Railway): the app signs in the one allowed e-mail with a password.
+  if (env.databaseUrl() && env.allowedEmail() && env.password()) return "postgres";
   if (env.demoMode()) return "demo";
   return "unconfigured";
 }
@@ -41,6 +46,8 @@ export function appMode(): AppMode {
 export interface IntegrationStatus {
   mode: AppMode;
   supabase: boolean;
+  postgres: boolean;
+  password: boolean;
   serviceRole: boolean;
   allowedEmail: boolean;
   anthropic: boolean;
@@ -55,6 +62,8 @@ export function integrationStatus(): IntegrationStatus {
   return {
     mode: appMode(),
     supabase: !!(env.supabaseUrl() && env.supabaseAnonKey()),
+    postgres: !!env.databaseUrl(),
+    password: !!env.password(),
     serviceRole: !!env.supabaseServiceKey(),
     allowedEmail: !!env.allowedEmail(),
     anthropic: !!env.anthropicKey(),

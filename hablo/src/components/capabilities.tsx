@@ -3,7 +3,7 @@
 import { createContext, useContext } from "react";
 
 export interface Capabilities {
-  mode: "supabase" | "demo";
+  mode: "private" | "demo";
   tts: boolean;
   stt: boolean;
   voice: boolean;

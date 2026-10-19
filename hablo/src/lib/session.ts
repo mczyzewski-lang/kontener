@@ -6,6 +6,9 @@ import type { Db } from "@/lib/db/db";
 import { eq } from "@/lib/db/db";
 import { LocalDb } from "@/lib/db/local";
 import { SupabaseDb } from "@/lib/db/supabase";
+import { PostgresDb, getPool } from "@/lib/db/postgres";
+import { SESSION_COOKIE, userIdForEmail, verifySessionToken } from "@/lib/auth/password";
+import { cookies } from "next/headers";
 import { ensureContentSeeded, seedContent } from "@/lib/db/seed";
 import { createServiceClient, createUserClient } from "@/lib/supabase/server";
 import { HttpError } from "@/lib/http-error";
@@ -25,17 +28,29 @@ function getLocalDb(): LocalDb {
   return localDb;
 }
 
+async function getPostgresDb(): Promise<PostgresDb> {
+  return new PostgresDb(await getPool(env.databaseUrl()!));
+}
+
 /** Service-level Db for trusted server work without a user session (webhooks). */
-export function getServiceDb(): Db | null {
-  if (appMode() === "demo") return getLocalDb();
+export async function getServiceDb(): Promise<Db | null> {
+  const mode = appMode();
+  if (mode === "demo") return getLocalDb();
+  if (mode === "postgres") return getPostgresDb();
   const client = createServiceClient();
   return client ? new SupabaseDb(client) : null;
+}
+
+/** Password-mode credentials (null outside that mode). */
+export function passwordConfig() {
+  if (appMode() !== "postgres") return null;
+  return { allowedEmail: env.allowedEmail()!, password: env.password()!, secret: env.sessionSecret() };
 }
 
 async function ensureSeeded(db: Db) {
   if (await ensureContentSeeded(db)) return;
   // Content tables are read-only for users; seed with the service role (or locally).
-  const writer = db.kind === "local" ? db : getServiceDb();
+  const writer = db.kind === "supabase" ? await getServiceDb() : db;
   if (!writer) {
     throw new Error(
       "Content tables are empty. Run `npm run db:seed` or set SUPABASE_SERVICE_ROLE_KEY so Hablo can seed them.",
@@ -48,7 +63,8 @@ async function ensureSeeded(db: Db) {
 /**
  * Returns the authenticated session or null. Authorization is enforced here on
  * the server: a valid Supabase session for any e-mail other than
- * HABLO_ALLOWED_EMAIL is rejected and signed out.
+ * HABLO_ALLOWED_EMAIL is rejected and signed out; in Postgres mode only a
+ * cookie signed for the allowed e-mail and current password is accepted.
  */
 export async function getSession(): Promise<Session | null> {
   const mode = appMode();
@@ -58,6 +74,16 @@ export async function getSession(): Promise<Session | null> {
     await ensureSeeded(db);
     await db.upsert("profiles", { id: DEMO_USER_ID, email: "demo@hablo.local" }, { ignoreDuplicates: true });
     return { userId: DEMO_USER_ID, email: "demo@hablo.local", db, mode };
+  }
+  if (mode === "postgres") {
+    const cfg = passwordConfig()!;
+    const token = (await cookies()).get(SESSION_COOKIE)?.value;
+    if (!verifySessionToken(token, cfg)) return null;
+    const db = await getPostgresDb();
+    await ensureSeeded(db);
+    const userId = userIdForEmail(cfg.allowedEmail);
+    await db.upsert("profiles", { id: userId, email: cfg.allowedEmail }, { ignoreDuplicates: true });
+    return { userId, email: cfg.allowedEmail, db, mode };
   }
   const client = await createUserClient();
   const { data, error } = await client.auth.getUser();

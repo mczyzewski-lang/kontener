@@ -27,7 +27,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
         <p className="mt-1 text-muted">Twój prywatny nauczyciel hiszpańskiego.</p>
       </div>
       {error && ERRORS[error] && <p className="mb-4 rounded-xl bg-danger-soft px-4 py-3 text-sm text-danger">{ERRORS[error]}</p>}
-      <LoginForm />
+      <LoginForm password={mode === "postgres"} />
     </main>
   );
 }

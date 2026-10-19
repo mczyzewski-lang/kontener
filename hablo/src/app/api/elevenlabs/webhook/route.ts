@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   if (!verifyWebhookSignature(raw, req.headers.get("elevenlabs-signature"), secret)) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
   }
-  const db = getServiceDb();
+  const db = await getServiceDb();
   if (!db) return NextResponse.json({ error: "Service role not configured" }, { status: 503 });
   try {
     const result = await handlePostCallWebhook(db, JSON.parse(raw) as PostCallWebhook);

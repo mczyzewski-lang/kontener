@@ -21,6 +21,9 @@ cp .env.example .env.local     # uzupełnij klucze — instrukcja: docs/SETUP.md
 npm run dev
 ```
 
+Najprostsze wdrożenie: **Railway + PostgreSQL** — tabele tworzą się same, logowanie e-mailem i hasłem
+(docs/SETUP.md, sekcja 0). Alternatywnie Supabase (magic link / Google).
+
 Podgląd bez żadnych kluczy (wyraźnie oznaczony tryb demonstracyjny, dane w pliku lokalnym, bez logowania):
 
 ```bash
@@ -37,6 +40,8 @@ W trybie demo nie ma rozmów głosowych ani AI — aplikacja mówi to wprost i n
 | `npm run check` | typecheck + lint + walidacja treści + testy jednostkowe |
 | `npm test` | testy jednostkowe (Vitest) |
 | `npm run test:e2e` | testy end‑to‑end (Playwright, tryb demo + testowe AI) |
+| `TEST_DATABASE_URL=… npm run test:pg` | testy jednostkowe na prawdziwym PostgreSQL (baza testowa jest czyszczona) |
+| `E2E_DATABASE_URL=… npm run test:e2e` | e2e na PostgreSQL z logowaniem hasłem (nazwa bazy musi zawierać „test” lub „e2e”) |
 | `npm run db:seed` | wgrywa treści (słowa, gramatyka, scenariusze) do Supabase |
 | `npm run elevenlabs:agent` | tworzy/aktualizuje prywatnego agenta ElevenLabs przez API |
 | `npm run content:build` | przelicza ranking słownictwa z korpusu i źródeł w `content/vocabulary/source` |

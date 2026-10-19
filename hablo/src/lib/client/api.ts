@@ -23,7 +23,8 @@ export async function api<T>(url: string, init: RequestInit & { json?: unknown }
   } catch {
     throw new ApiError(0, "Brak połączenia z internetem. Twoje dotychczasowe odpowiedzi są zapisane — spróbuj ponownie.");
   }
-  if (res.status === 401) {
+  // 401 means the session expired — except from sign-in itself, where it means wrong credentials.
+  if (res.status === 401 && !url.startsWith("/api/auth/")) {
     if (typeof window !== "undefined") window.location.replace(`${window.location.origin}/login`);
     throw new ApiError(401, "Sesja wygasła.");
   }

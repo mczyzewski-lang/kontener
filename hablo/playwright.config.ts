@@ -1,12 +1,19 @@
 import { defineConfig, devices } from "@playwright/test";
 
 /**
- * End-to-end tests run the real app in demo mode (local data file) with the
- * deterministic TEST AI provider — no external services are called.
+ * End-to-end tests run the real app with the deterministic TEST AI provider —
+ * no external services are called. By default in demo mode (local data file);
+ * with E2E_DATABASE_URL set, against that PostgreSQL database with password
+ * sign-in (the database is emptied first, so use a dedicated test database).
  * Uses the pre-installed Chromium; override with PLAYWRIGHT_CHROMIUM_PATH.
  */
 const PORT = 3210;
 const executablePath = process.env.PLAYWRIGHT_CHROMIUM_PATH ?? (process.env.CI ? undefined : "/opt/pw-browsers/chromium-1194/chrome-linux/chrome");
+const PG = process.env.E2E_DATABASE_URL;
+
+const modeEnv: Record<string, string> = PG
+  ? { DATABASE_URL: PG, HABLO_ALLOWED_EMAIL: "me@example.com", HABLO_PASSWORD: "e2e-password", HABLO_DEMO_MODE: "" }
+  : { HABLO_DEMO_MODE: "1", HABLO_DATA_FILE: ".hablo-data/e2e/db.json", HABLO_ALLOWED_EMAIL: "", DATABASE_URL: "" };
 
 export default defineConfig({
   testDir: "tests/e2e",
@@ -22,19 +29,23 @@ export default defineConfig({
     launchOptions: executablePath ? { executablePath } : {},
     trace: "retain-on-failure",
   },
+  projects: PG
+    ? [
+        { name: "login", testMatch: /login\.setup\.ts/ },
+        { name: "journey", testMatch: /\.spec\.ts/, dependencies: ["login"], use: { storageState: ".hablo-data/e2e-auth.json" } },
+      ]
+    : [{ name: "journey", testMatch: /\.spec\.ts/ }],
   webServer: {
-    command: `rm -rf .hablo-data/e2e && npx next dev -p ${PORT}`,
+    command: PG ? `npx tsx tests/e2e/reset-postgres.ts && npx next dev -p ${PORT}` : `rm -rf .hablo-data/e2e && npx next dev -p ${PORT}`,
     url: `http://localhost:${PORT}/offline`,
     timeout: 180_000,
     reuseExistingServer: false,
     env: {
-      HABLO_DEMO_MODE: "1",
+      ...modeEnv,
       HABLO_AI_MOCK: "1",
-      HABLO_DATA_FILE: ".hablo-data/e2e/db.json",
       ELEVENLABS_WEBHOOK_SECRET: "whsec_e2e",
       NEXT_PUBLIC_SUPABASE_URL: "",
       NEXT_PUBLIC_SUPABASE_ANON_KEY: "",
-      HABLO_ALLOWED_EMAIL: "",
     },
   },
 });

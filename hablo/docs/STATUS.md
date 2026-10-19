@@ -19,7 +19,9 @@ Data: 2026-10-18.
 
 **Z etapów 2–3 również zrobione:** test tygodniowy z raportem, analiza błędów między modułami, recurring stories, Personal Sprint, North Star w Postępach, wykres 30 dni, kontrola kosztów z limitami, eksport JSON/CSV, usuwanie danych, retencja transkrypcji i nagrań, PWA (manifest, ikony, service worker, ekran offline).
 
-Weryfikacja: `npm run check` (typecheck, lint, walidacja treści, 48 testów jednostkowych), `npm run build`, 9 scenariuszy e2e Playwright — wszystko przechodzi.
+**Tryb PostgreSQL (np. Railway):** zwykła baza zamiast Supabase — automatyczne migracje przy starcie, logowanie e-mailem i hasłem (podpisane ciasteczko, limit prób), cache audio w bazie.
+
+Weryfikacja: `npm run check` (typecheck, lint, walidacja treści, 56 testów jednostkowych), `npm run build`, 9 scenariuszy e2e Playwright w trybie demo; dodatkowo cały zestaw testów jednostkowych i pełna ścieżka e2e (z logowaniem) na prawdziwym PostgreSQL 16 — wszystko przechodzi.
 
 ## Czego nie dało się zweryfikować w tym środowisku
 

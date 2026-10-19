@@ -20,7 +20,7 @@ export type Row<T extends TableName> = Tables[T];
 export type Insert<T extends TableName> = Partial<Tables[T]>;
 
 export interface Db {
-  readonly kind: "supabase" | "local";
+  readonly kind: "supabase" | "local" | "postgres";
   select<T extends TableName>(table: T, q?: Query): Promise<Row<T>[]>;
   insert<T extends TableName>(table: T, rows: Insert<T> | Insert<T>[]): Promise<Row<T>[]>;
   /** Insert or update on the given conflict columns (defaults to the primary key). */
